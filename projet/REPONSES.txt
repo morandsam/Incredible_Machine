@@ -1,0 +1,14 @@
+P1.1 : Les vecteurs sont représentés par des vector<double>. Cela permet de rester flexible
+sur les changements de dimensions et représente une manière intuitive de représenter un vecteur.
+
+Le vector<double> qui représente donc les composantes du vecteur constitue l'unique attribut (privé) du vecter.
+Cela a été en privé dans le but que seulement les méthodes de la classe puissent modifier le vecteur.
+
+Toutes les méthodes de modification d'un vecteur (au nombre de 14) ont été mises en publique car chacune pourrait
+avoir une utilité dans la suite du programme.
+
+P1.2: Concernant l'addition et la soustraction, on a décidé de "simuler" les dimensions manquantes en cas 
+de différence entre les 2 vecteurs. Cela n'a aucun sens mathématiquement parlant mais d'une point de vue physique
+ça peut en avoir un.
+
+Concernant le produit scalaire et le produit vectorielle des erreures seront lancées.

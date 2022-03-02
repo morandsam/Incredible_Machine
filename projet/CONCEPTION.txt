@@ -1,0 +1,9 @@
+semaine 1: Quand nous avons commencé à programmer nous voulions faire un peu différamment certaines choses
+qui étaient prévues sur le site du projet mais au final, après réflexion nous nous sommes restreints à faire
+précisémment ce qui était demandé car cela nous semble être la meilleure de procéder (pour cette partie du projet).
+
+La définition de la classe Vecteur qui contient les prototypes des méthodes ainsi que l'attribut composantes se situe dans le .h
+Le.cc contient le main ainsi que les définitions de toutes les méthodes.
+
+Temps de travail estimé: 5h
+
