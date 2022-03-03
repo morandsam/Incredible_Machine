@@ -33,7 +33,7 @@ void Vecteur::affiche() const
 }
 
 //ajout du paramètre precison afin de pouvoir décider à chaque comparaison quelle précision est souhaitée
-bool Vecteur::compare(Vecteur const & vec2, double precision) const 
+bool Vecteur::compare(Vecteur vec2, double precision) const 
 {
     if(composantes.size()==vec2.composantes.size()){
         for(size_t i(0); i<composantes.size(); ++i) {
