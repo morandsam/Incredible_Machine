@@ -1,1 +1,2 @@
-02.03: Tout le programme de la semaine 1 est terminé. On a déjà créé le fichier.h et le makefile fonctionne.
+02.03: Tout le programme de la semaine 1 est terminé. On a déjà créé le fichier.h et le makefile fonctionne et supprime automatiquement les fichiers.o.
+De plus nous avons mis un place un répertoire GitHub afin d'optimiser le travail à 2 sur un projet commun

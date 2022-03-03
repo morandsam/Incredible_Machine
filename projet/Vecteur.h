@@ -11,7 +11,7 @@ public:
     
     void affiche() const;
 
-    bool compare(Vecteur const & vec2, double precision) const;
+    bool compare(Vecteur vec2, double precision) const;
 
     Vecteur oppose() const;
 
