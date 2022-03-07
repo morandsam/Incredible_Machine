@@ -1,13 +1,16 @@
 CXX = g++
 CC = $(CXX)
-CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -Wall -g
 LDLIBS = -lm
 
-all: Vecteur clean
+all: testVecteur clean
 
-Vecteur: Vecteur.h Vecteur.o
+testVecteur: testVecteur.o Vecteur.o
 
+testVecteur.o: testVecteur.cpp
 Vecteur.o: Vecteur.cpp Vecteur.h
 
+
 clean:
-	-del *.o
+	@-rm *.o
+

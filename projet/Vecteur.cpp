@@ -3,14 +3,6 @@
 #include "Vecteur.h"
 using namespace std;
 
-int main()
-{
-
-cout<<"Hello Sam !";
-
-return 0;
-}
-
 
 void Vecteur::augmente(double new_dimension_value)
 {
