@@ -12,5 +12,9 @@ Vecteur.o: Vecteur.cpp Vecteur.h
 
 
 clean:
-	@-rm *.o
+ifdef OS
+	@del *.o 
+else
+	@rm *.o 
+endif
 

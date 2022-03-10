@@ -1,2 +1,5 @@
 02.03: Tout le programme de la semaine 1 est terminé. On a déjà créé le fichier.h et le makefile fonctionne et supprime automatiquement les fichiers.o.
-De plus nous avons mis un place un répertoire GitHub afin d'optimiser le travail à 2 sur un projet commun
+De plus nous avons mis un place un répertoire GitHub afin d'optimiser le travail à 2 sur un projet commun.
+
+10.03 Une VM est installé sur un de nos ordi (avec QT) nous permettant de verifier si notre programme fonctionne sur les ordinateurs de l'epfl
+(comme demandé dans les objectifs du projet). Et tout le prgramme de la semaine 2 est terminé

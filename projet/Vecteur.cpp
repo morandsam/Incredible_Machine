@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "Vecteur.h"
+#include <string>
 using namespace std;
 
 
@@ -97,30 +98,37 @@ Vecteur Vecteur::mult(double scalaire) const
     return resultat;
 }
 
-// Il faudra encore définir une erreure en cas de 2 dimensions différentes
+//En cas de mauvaise(s) dimension(s) une erreur de dimension est lancée
 double Vecteur::prod_scal(Vecteur autre) const
 {
     double result(0);
-    if(composantes.size()==autre.composantes.size()){
-        for(size_t i(0);i<composantes.size();++i){
-            result+= (composantes[i])*(autre.composantes[i]);
-        }
-        return result;
+
+    if(composantes.size()!=autre.composantes.size()){
+        Erreur erreur({0,"erreur de dimension dans un produit scalaire"});
+        throw erreur;
     }
+
+    for(size_t i(0);i<composantes.size();++i){
+        result+= (composantes[i])*(autre.composantes[i]);
+    }
+
+    return result;
 }
 
-// Il faudra encore définir une erreure en cas de 2 dimensions non égales à 3
+//En cas de mauvaise(s) dimension(s) une erreur de dimension est lancée
 Vecteur Vecteur::prod_vect(Vecteur autre) const
 {
     Vecteur resultat;
-    if(composantes.size()==3 and autre.composantes.size()==3){
-
-        resultat.augmente(composantes[1]*autre.composantes[2]-composantes[2]*autre.composantes[1]);
-        resultat.augmente(composantes[2]*autre.composantes[0]-composantes[0]*autre.composantes[2]);
-        resultat.augmente(composantes[0]*autre.composantes[1]-composantes[1]*autre.composantes[0]);
-
-        return resultat;
+    if(composantes.size()!=3 or autre.composantes.size()!=3){
+        Erreur erreur({0,"erreur de dimension dans un produit vectoriel"});
+        throw erreur;
     }
+
+    resultat.augmente(composantes[1]*autre.composantes[2]-composantes[2]*autre.composantes[1]);
+    resultat.augmente(composantes[2]*autre.composantes[0]-composantes[0]*autre.composantes[2]);
+    resultat.augmente(composantes[0]*autre.composantes[1]-composantes[1]*autre.composantes[0]);
+    return resultat;
+    
 }
 
 double Vecteur::norme2() const 

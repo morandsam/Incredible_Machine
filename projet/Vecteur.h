@@ -1,6 +1,16 @@
 #pragma once
-#include<vector>
 
+#include <vector>
+#include <string>
+
+
+//structure de gestion d'erreurs
+//code=0 est une erreur de dimension
+//la structure sera potentiellement agrandie
+struct Erreur{
+    int code;
+    std::string message;
+};
 
 class Vecteur{
 public:
