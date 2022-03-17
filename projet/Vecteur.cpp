@@ -2,8 +2,26 @@
 #include <cmath>
 #include "Vecteur.h"
 #include <string>
+#include <ostream>
 using namespace std;
 
+
+void Vecteur::operator+=(Vecteur const& autre)
+{
+    Vecteur temp(addition(autre));
+    composantes=temp.composantes;
+}
+
+void Vecteur::operator-=(Vecteur const& autre)
+{
+    Vecteur temp(soustraction(autre));
+    composantes=temp.composantes;
+}
+
+void Vecteur::operator*=(double const& scalaire)
+{
+    mult(scalaire);
+}
 
 void Vecteur::augmente(double new_dimension_value)
 {
@@ -17,15 +35,16 @@ void Vecteur::set_coord(unsigned int posi, double new_compo)
     }
 }
 
-void Vecteur::affiche() const
+ostream& Vecteur::affiche(ostream& sortie) const
 {
     for(size_t i(0); i<composantes.size(); ++i){
-        cout<<composantes[i]<<" ";
+        sortie<<composantes[i]<<" ";
     }
-    cout<<endl;
+    sortie<<endl;
+    return sortie;
 }
 
-//ajout du paramètre precison afin de pouvoir décider à chaque comparaison quelle précision est souhaitée
+
 bool Vecteur::compare(Vecteur vec2, double precision) const 
 {
     if(composantes.size()==vec2.composantes.size()){
@@ -41,17 +60,17 @@ bool Vecteur::compare(Vecteur vec2, double precision) const
 
 Vecteur Vecteur::oppose() const 
 {
-    Vecteur resultat;
+    Vecteur resultat(0);
     for(size_t i(0); i<composantes.size();++i){
         resultat.augmente(composantes[i]*-1);
     }
     return resultat;
 }
 
-//Dans le cas où les 2 vecteurs n'ont pas la même dimension on a décidé de "simuler" les dimensions manquantes du plus petit vecteur par des 0
+
 Vecteur Vecteur::addition(Vecteur autre) const
 {
-    Vecteur resultat;
+    Vecteur resultat(0);
 
     int j(0);
 
@@ -80,17 +99,17 @@ Vecteur Vecteur::addition(Vecteur autre) const
     return resultat;
 }
 
-// La soustraction est définie par l'addition de l'opposé, la même convention est appliquée qu'à l'addition concernant les vecteurs de taille différentes
+
 Vecteur Vecteur::soustraction(Vecteur autre) 
 {
-    Vecteur resultat;
+    Vecteur resultat(0);
     return addition(autre.oppose());
 }
 
 
 Vecteur Vecteur::mult(double scalaire) const 
 {
-    Vecteur resultat;
+    Vecteur resultat(0);
     for(size_t i(0);i<composantes.size();++i){
         resultat.augmente(scalaire*composantes[i]);
     }
@@ -98,7 +117,7 @@ Vecteur Vecteur::mult(double scalaire) const
     return resultat;
 }
 
-//En cas de mauvaise(s) dimension(s) une erreur de dimension est lancée
+
 double Vecteur::prod_scal(Vecteur autre) const
 {
     double result(0);
@@ -115,10 +134,10 @@ double Vecteur::prod_scal(Vecteur autre) const
     return result;
 }
 
-//En cas de mauvaise(s) dimension(s) une erreur de dimension est lancée
+
 Vecteur Vecteur::prod_vect(Vecteur autre) const
 {
-    Vecteur resultat;
+    Vecteur resultat(0);
     if(composantes.size()!=3 or autre.composantes.size()!=3){
         Erreur erreur({0,"erreur de dimension dans un produit vectoriel"});
         throw erreur;
@@ -147,7 +166,7 @@ double Vecteur::norme() const
 
 Vecteur Vecteur::unitaire() const 
 {
-    Vecteur resultat;
+    Vecteur resultat(0);
     double norme_(norme());
     for (size_t i(0);i<composantes.size(); i++){
         resultat.augmente(composantes[i]/norme_);
@@ -155,3 +174,72 @@ Vecteur Vecteur::unitaire() const
         
     return resultat;
 }
+
+
+Vecteur operator+(Vecteur const& vec1, Vecteur const& vec2)
+{
+    Vecteur temp(0);
+    temp+=vec1;
+    temp+=vec2;
+    return temp;
+}
+
+Vecteur operator-(Vecteur const& vec1, Vecteur const& vec2)
+{
+    Vecteur temp(0);
+    temp+=vec1;
+    temp-=vec2;
+    return temp;
+}
+
+Vecteur operator*(double scalaire, Vecteur const& vec1)
+{
+    Vecteur temp(vec1.mult(scalaire));
+    return temp;
+}
+
+Vecteur operator*(Vecteur const& vec1, double scalaire)
+{
+    Vecteur temp(vec1);
+    temp*=scalaire;
+    return temp;
+}
+
+double operator*(Vecteur const& vec1, Vecteur const& vec2)
+{
+    return vec1.prod_scal(vec2);
+}
+
+Vecteur operator^(Vecteur const& vec1, Vecteur const& vec2)
+{
+    return vec1.prod_vect(vec2);
+}
+
+Vecteur operator~(Vecteur const& vec1)
+{
+    return vec1.unitaire();
+}
+
+ostream& operator<<(ostream& sortie, Vecteur const& vec)
+{
+    return vec.affiche(sortie);
+}
+
+bool operator==(Vecteur const& vec1, Vecteur const& vec2)
+{
+    if (vec1.compare(vec2, 10e-2)){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool operator!=(Vecteur const& vec1, Vecteur const& vec2)
+{
+    if (vec1==vec2){
+        return false;
+    } else {
+        return true;
+    }
+}
+

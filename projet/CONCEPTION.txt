@@ -10,5 +10,6 @@ Temps de travail estimé: 5h
 semaine 2: Nous avons ajouter le Makefile ainsi qu'installer une VM sur l'un des ordinateurs. Nous avions déjà séparé en 
 3 parties la Classe Vecteur. Nous avons aussi rajouté une struct d'erreurs afin de faciliter la gestion des exceptions
 
-
+semaine 3: ajout d'opérateur pour l'addition (+= et +), la soustraction (-= et -), la multiplication par un scalaire (*= et *), le produit vectoriel (^), le produit scalaire(*), vecteur unitaire(~),
+affichage (cout<< vec) et test de comparaison (== et !=).
 
