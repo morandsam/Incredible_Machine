@@ -242,4 +242,3 @@ bool operator!=(Vecteur const& vec1, Vecteur const& vec2)
         return true;
     }
 }
-

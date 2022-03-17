@@ -3,4 +3,5 @@
 #include "Balle.h"
 #include "ChampForces.h"
 
-using namespace std;;
+using namespace std;
+
