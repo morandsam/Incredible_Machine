@@ -78,15 +78,6 @@ private:
     std::vector<double> composantes;
 };
 
-class Balle{
-public:
-
-private:
-
-    Vecteur position;
-    
-};
-
 
 // OPERATEUR
 

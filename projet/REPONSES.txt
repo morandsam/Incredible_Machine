@@ -19,8 +19,8 @@ Concernant le produit scalaire et le produit vectorielle des erreures seront lan
 P4.1: Un constructeur de copie a été ajouté car il pourrait avoir une utilité potentielle dans le futur. Mieux vaut en mettre
 un que de ne pas en mettre et en avoir besoin plus tard
 
-P4.2: a) On aurait soit un array de dimension 3 ou 3 attributs représentant  2 angles et 1 norme.
-      b) 
+P4.2: a) On aurait soit un array ou vector de dimension 3 ou 3 attributs représentant 2 angles et 1 norme qui représenteraient les coordonnées sphériques
+      b) On ne pourrait plus faire la différence entre une déclaration en coordonnées sphériques et coordonnées cartésiennes au niveau du constructeur
 
 P4.3: affiche: surcharge d'opérateur externe(ostream&) << qui appelle une méthode de type ostream& affiche
       compare: surcharge d'opérateur externe(bool) == et != qui appelle une méthode de type bool compare. 
