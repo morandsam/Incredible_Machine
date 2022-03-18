@@ -16,10 +16,11 @@ struct Erreur{
 class Vecteur{
 public:
 
-    //constructeur lorsque seulement la dimension est donnée
+    //Constructeurs
+
     Vecteur(int dimension) : composantes(dimension,0) {}
 
-    //constructeur 3d
+
     Vecteur(double coord_1, double coord_2, double coord_3)
     {
         composantes.push_back(coord_1);
@@ -31,11 +32,12 @@ public:
     : composantes(compo)
     {}
 
-    //constructeur de copie
     Vecteur(Vecteur const& autre)
     {
         composantes=autre.composantes;
     }
+
+    //Méthodes
 
     void operator+=(Vecteur const& autre);
 
@@ -75,11 +77,14 @@ public:
     Vecteur unitaire() const;
 
 private:
+
+    // Attributs
+    
     std::vector<double> composantes;
 };
 
 
-// OPERATEUR
+// Opérateurs
 
 //addition
 Vecteur operator+(Vecteur const& vec1, Vecteur const& vec2);

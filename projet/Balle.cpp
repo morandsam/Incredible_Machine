@@ -1,7 +1,8 @@
-#include <iostream>
-#include "Balle.h"
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <iostream>
+#include "Balle.h"
+#include <ostream>
 
 using namespace std;
 
@@ -9,6 +10,7 @@ using namespace std;
 void Balle::ajoute_force(Vecteur const& df)
 {
     force+=df;
+    
 }
 
 double Balle::get_rayon() const
@@ -52,11 +54,19 @@ void Balle::set_rayon(double r)
     rayon=r;
 }
 
-void Balle::affiche() const
+ostream& Balle::affiche(ostream& sortie) const
 {
-    cout<<"Masse : "<<masse<<endl<<"Masse volumique : "<<masse_volumique<<endl
+    sortie<<"Masse : "<<masse<<endl<<"Masse volumique : "<<masse_volumique<<endl
     <<"Rayon : "<<rayon<<endl<<"Position : ";
-    cout<<position<<"Vitesse : ";
-    cout<<vitesse<<"Forces : ";
-    cout<<force;
+    sortie<<position<<"Vitesse : ";
+    sortie<<vitesse<<"Forces : ";
+    sortie<<force<<endl;
+
+    return sortie;
+}
+
+
+ostream& operator<<(ostream& sortie, Balle const& balle)
+{
+    return balle.affiche(sortie);
 }

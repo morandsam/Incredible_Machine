@@ -1,15 +1,19 @@
 #pragma once
 
 #include"Vecteur.h"
+#include<ostream>
 
 class Balle{
 public:
 
-    Balle(double rayon_,double masse_volumique_)
+    // Constructeurs
+
+    Balle(double masse_volumique_, double rayon_)
     :vitesse(Vecteur(0,0,0)), position(Vecteur(0,0,0)), force(Vecteur(0,0,-9.81))
     {
         masse_volumique= masse_volumique_;
         rayon=rayon_;
+        calcul_masse();
     }
 
     Balle(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, double masse_volumique_, double rayon_)
@@ -17,9 +21,12 @@ public:
     {
         masse_volumique= masse_volumique_;
         rayon=rayon_;
+        calcul_masse();
     }
 
 
+    //Méthodes
+    
     void ajoute_force(Vecteur const& df);
     Vecteur get_position() const {return position;}
     Vecteur get_vitesse() const {return vitesse;}
@@ -32,9 +39,11 @@ public:
     double get_masse() const;
     void set_masse_volumique(double masse_volumique);
     void calcul_masse();
-    void affiche() const;
+    std::ostream& affiche(std::ostream& sortie) const;
 
 private:
+   
+    // Attributs
 
     double masse_volumique;
     double masse;
@@ -43,4 +52,10 @@ private:
     Vecteur position;
     Vecteur force;
     
+    
 };
+
+// Opérateurs
+
+//affichage sous la forme cout << balle
+std::ostream& operator<<(std::ostream& sortie, Balle const& balle);

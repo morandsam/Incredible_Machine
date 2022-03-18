@@ -13,7 +13,9 @@ vec1.augmente(3.5);
 
 vec2.augmente(1);
 vec2.augmente(4.4);
-vec2.augmente(4);
+vec2.augmente(0);
+
+
 
 return 0;
 }

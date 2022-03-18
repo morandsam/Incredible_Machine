@@ -1,14 +1,25 @@
 #pragma once
 
-#include <vector>
-#include <ostream>
+#include"Vecteur.h"
 #include <cmath>
 
 
 class ChampForces{
     public:
     
+    //Constructeurs
+
+    ChampForces(double x, double y, double z) :intensite(Vecteur(x,y,z)) {}
+
+    //Méthodes
+
+    void agit_sur(Balle& balle) const;
+
+    
     private:
-    std::vector<double> intensite;// intensité sur x,y,z reste a voir la suite du programme
+
+    //Attributs
+    
+    Vecteur intensite;
 
 };
