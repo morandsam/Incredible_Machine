@@ -39,6 +39,8 @@ public:
     double get_masse() const;
     void set_masse_volumique(double masse_volumique);
     void calcul_masse();
+    void set_masse(double masse);
+    void calcul_masse_volumique();
     std::ostream& affiche(std::ostream& sortie) const;
 
 private:

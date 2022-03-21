@@ -28,10 +28,21 @@ void Balle::calcul_masse()
     masse = masse_volumique*4*M_PI*rayon*rayon*rayon/3;
 }
 
+void Balle::calcul_masse_volumique()
+{
+    masse_volumique = masse/(4*M_PI*rayon*rayon*rayon/3);
+}
+
 void Balle::set_masse_volumique(double massevolumique)
 {
     masse_volumique=massevolumique;
     calcul_masse();
+}
+
+void Balle::set_masse(double newmasse)
+{
+    masse=newmasse;
+    calcul_masse_volumique();
 }
 
 void Balle::set_position(Vecteur const& position_)

@@ -13,3 +13,6 @@ semaine 2: Nous avons ajouter le Makefile ainsi qu'installer une VM sur l'un des
 semaine 3: ajout d'opérateur pour l'addition (+= et +), la soustraction (-= et -), la multiplication par un scalaire (*= et *), le produit vectoriel (^), le produit scalaire(*), vecteur unitaire(~),
 affichage (cout<< vec) et test de comparaison (== et !=).
 
+semaine 4: Ajout de deux fichier Balle.cpp et Balle.h ainsi que champForces.cpp et ChampForces.h, nous avons décidé de modifier la masse si la masse volumique changeais
+et inversement, çela nous rajoute 4 méthodes mais rend les deux modifications plus "logique"  d'un point de vue physique. nous avons aussi décidé de crée les 4 constructeurs 
+proposé.
