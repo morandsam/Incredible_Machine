@@ -20,6 +20,8 @@ public:
 
     Vecteur(int dimension) : composantes(dimension,0) {}
 
+    Vecteur(double coord_1): composantes(1,coord_1) {}
+
 
     Vecteur(double coord_1, double coord_2, double coord_3)
     {
@@ -48,6 +50,8 @@ public:
     void augmente(double new_dimension_value);
 
     void set_coord(unsigned int posi, double new_compo);
+
+    double get_coord(unsigned int posi) const {return composantes[posi];};
     
     std::ostream& affiche(std::ostream& sortie) const;
    

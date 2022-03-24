@@ -13,7 +13,7 @@ class ChampForces{
 
     //Méthodes
 
-    void agit_sur(Balle& balle) const;
+    void agit_sur(ObjetMobile& obj) const;
 
     
     private:

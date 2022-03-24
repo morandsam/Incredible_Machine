@@ -26,10 +26,10 @@ P4.3: affiche: surcharge d'opérateur externe(ostream&) << qui appelle une méth
       compare: surcharge d'opérateur externe(bool) == et != qui appelle une méthode de type bool compare. 
 
 P5.1: Nous avons décidé de mettre la masse ainsi que la masse volumique comme attribut, mais nous avons 
-      crée une méthode qui permet, quand on vhange la Masse volumique, de calculer la nouvelle masse.
+      créé une méthode qui permet, quand on change la masse volumique, de calculer la nouvelle masse et inversément.
 
-P5.2 Nous avons choisi que la fonction agis sur renvoye un void car elle a besoin "que" de changer
-      les forces appliquées sur la Balle, la structure pris en argument.De plus agit_sur modifie déjà les
-      forces appliquées sur la Balle puisque l'argument est pris en référence et non pas copie nous permettant 
-      de modifier directement les donnée de la balle.
+P5.2 Nous avons choisi que la fonction agit_sur renvoie un void car elle a besoin "que" de changer
+      les forces appliquées sur la Balle, la structure pris en argument. De plus agit_sur modifie déjà les
+      forces appliquées sur la Balle puisque l'argument est pris en référence et non pas en tant que copie, cela nous permettant 
+      de modifier directement les données de la balle.
  

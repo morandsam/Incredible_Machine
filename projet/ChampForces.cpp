@@ -2,20 +2,20 @@
 #include <cmath>
 #include <iostream>
 #include "Vecteur.h"
-#include "Balle.h"
+#include "ObjetMobile.h"
 #include "ChampForces.h"
 
 
 using namespace std;
 
-void ChampForces::agit_sur(Balle& balle) const
+void ChampForces::agit_sur(ObjetMobile& obj) const
 {
     ChampForces g(0,0,-9.81);
 
     double rho(1.2);
 
-    Vecteur df((balle.get_masse()-4*M_PI*rho*balle.get_rayon()*balle.get_rayon()*balle.get_rayon()/3)*g.intensite);
+    Vecteur df((obj.get_masse()-4*M_PI*rho*obj.get_rayon()*obj.get_rayon()*obj.get_rayon()/3)*g.intensite);
 
-    balle.ajoute_force(df);
+    obj.ajoute_force(df);
 
 }
