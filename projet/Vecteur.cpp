@@ -40,7 +40,7 @@ ostream& Vecteur::affiche(ostream& sortie) const
     for(size_t i(0); i<composantes.size(); ++i){
         sortie<<composantes[i]<<" ";
     }
-    sortie<<endl;
+    //sortie<<endl;
     return sortie;
 }
 

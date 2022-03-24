@@ -10,20 +10,20 @@ public:
     ObjetMobile(int deg_lib):dev_temp_param(Vecteur(deg_lib)=Vecteur(3)), param(Vecteur(deg_lib)=Vecteur(3)), 
     force(Vecteur(deg_lib)=Vecteur(3)), position_reference(Vecteur(deg_lib)=Vecteur(3)) {}
 
-    ObjetMobile(double masse_volumique_, double rayon_)
+    ObjetMobile(double masse_, double rayon_)
     :dev_temp_param(Vecteur(3)), param(Vecteur(3)), force(Vecteur(0,0,-9.81)), position_reference(Vecteur(3))
     {
-        masse_volumique= masse_volumique_;
+        masse= masse_;
         rayon=rayon_;
         calcul_masse();
     }
 
-    ObjetMobile(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, double masse_volumique_, double rayon_)
+    ObjetMobile(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, double masse_, double rayon_)
     :dev_temp_param(vitesse_), param(position_), force(force_), position_reference(origine)
     {
-        masse_volumique= masse_volumique_;
+        masse= masse_;
         rayon=rayon_;
-        calcul_masse();
+        calcul_masse_volumique();
     }
 
     // Méthodes
