@@ -49,7 +49,7 @@ ostream& Pendule::affiche(ostream& sortie) const
     <<longueur<<" # longueur pendule"<<endl
     <<frottement<<" # frottement pendule"<<endl;
     sortie<<position_reference<<" # origine pendule"<<endl;
-    sortie<<direction<<" # direction pendule"<<endl;s
+    sortie<<direction<<" # direction pendule"<<endl;
     sortie<<param<<" # theta pendule"<<endl;
     sortie<<dev_temp_param<<" # theta point pendule"<<endl;
     sortie<<position_masse<<" # position bout pendule"<<endl;
