@@ -7,12 +7,10 @@ class Balle : public ObjetMobile{
 public:
 
     // Constructeurs
-
-    
-
+    Balle(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, double masse_, double rayon_)
+    : ObjetMobile(position_,vitesse_,force_,origine,masse_,rayon_) {}
 
     //Méthodes
-    
     
     Vecteur get_position() const {return get_param();}
     Vecteur get_vitesse() const {return get_dev_temp_param();}

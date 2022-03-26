@@ -10,19 +10,18 @@ using namespace std;
 
 void Pendule::evolution()
 {
-    double dt(0.01);
-    double t(0.0);
     Integrateur int1;
-    Integrateur_EC int2;
+    Integrateur_EC int2(0.01);
+    int t(0);
     for (size_t i(0);i<1000;++i)
     {
-        double f(int1.integre_pendule(*this,dt));
+        double f(int1.integre_pendule(*this));
 
-        int2.integre_pendule(*this,f,dt);
+        int2.integre_pendule(*this,f);
         calcul_posi_masse();
         calcul_vitesse_masse();
         
-        t+=dt;
+        t+=0.01;
         affiche_gnuplot(t);
 
         //cout << "Integration "<<i+1<<endl<<endl;

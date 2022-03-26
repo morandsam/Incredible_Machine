@@ -4,9 +4,10 @@
 #include<iostream>
 
 
+
 using namespace std;
 
-double Integrateur::integre_pendule(Pendule const& p, double dt) const
+double Integrateur::integre_pendule(Pendule const& p) const
 {
     Vecteur p_ (p.get_param());
     Vecteur p_point (p.get_dev_temp_param());
@@ -14,3 +15,15 @@ double Integrateur::integre_pendule(Pendule const& p, double dt) const
     return f;
 }
 
+
+Vecteur Integrateur::integre_balle_simple() const
+{
+    Vecteur temp(0,-9.81);
+    return temp;
+}
+
+Vecteur Integrateur::integre_balle(Balle const& balle) const 
+{
+    double temp(1/balle.get_masse());
+    return balle.get_force()*temp;
+}

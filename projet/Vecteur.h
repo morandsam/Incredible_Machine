@@ -22,6 +22,12 @@ public:
 
     Vecteur(double coord_1): composantes(1,coord_1) {}
 
+    Vecteur(double coord_1, double coord_2)
+    {
+        composantes.push_back(coord_1);
+        composantes.push_back(coord_2);
+    }
+
 
     Vecteur(double coord_1, double coord_2, double coord_3)
     {

@@ -41,9 +41,9 @@ ostream& ObjetMobile::affiche(ostream& sortie) const
 {
     sortie<<"Masse : "<<masse<<endl<<"Masse volumique : "<<masse_volumique<<endl
     <<"Rayon : "<<rayon<<endl<<"Position : ";
-    sortie<<param<<"Vitesse : ";
-    sortie<<dev_temp_param<<"Forces : ";
-    sortie<<force<<endl;
+    sortie<<param<<endl<<"Vitesse : ";
+    sortie<<dev_temp_param<<endl<<"Forces : ";
+    sortie<<force<<endl<<endl;
 
     return sortie;
 }

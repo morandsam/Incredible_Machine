@@ -4,11 +4,11 @@
 #include"Vecteur.h"
 
 
-class Integrateur_EC : public Integrateur {
+class Integrateur_E : public Integrateur {
 
 
 public:
-    Integrateur_EC(double dt_): dt(dt_) {}
+    Integrateur_E(double dt_): dt(dt_) {}
 
 
     void integre_pendule(ObjetMobile& p,double f) const;
@@ -17,6 +17,5 @@ public:
 
 private:
     double dt;
-
 
 };
