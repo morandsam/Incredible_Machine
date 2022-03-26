@@ -16,13 +16,16 @@ void Pendule::evolution()
     Integrateur_EC int2;
     for (size_t i(0);i<1000;++i)
     {
-        Vecteur f(int1.integre_pendule(*this,dt));
+        double f(int1.integre_pendule(*this,dt));
+        cout<<f<<endl;
+
         int2.integre_pendule(*this,f,dt);
         calcul_posi_masse();
         calcul_vitesse_masse();
+        
         t+=dt;
-
         affiche_gnuplot(t);
+
         //cout << "Integration "<<i+1<<endl<<endl;
         //cout<<*this;
 

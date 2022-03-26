@@ -8,6 +8,6 @@ class Integrateur_EC : public Integrateur {
 
 
     public:
-        void integre_pendule(ObjetMobile& p,Vecteur const& f,double dt) const;
+        void integre_pendule(ObjetMobile& p,double f,double dt) const;
 
 };

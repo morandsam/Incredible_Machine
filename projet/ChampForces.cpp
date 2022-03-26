@@ -10,11 +10,10 @@ using namespace std;
 
 void ChampForces::agit_sur(ObjetMobile& obj) const
 {
-    ChampForces g(0,0,-9.81);
 
     double rho(1.2);
 
-    Vecteur df((obj.get_masse()-4*M_PI*rho*obj.get_rayon()*obj.get_rayon()*obj.get_rayon()/3)*g.intensite);
+    Vecteur df((obj.get_masse()-4*M_PI*rho*obj.get_rayon()*obj.get_rayon()*obj.get_rayon()/3)*intensite);
 
     obj.ajoute_force(df);
 

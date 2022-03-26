@@ -9,6 +9,6 @@ class Integrateur {
 
 public:
 
-    Vecteur integre_pendule(Pendule const& p, double dt) const;
+    double integre_pendule(Pendule const& p, double dt) const;
 
 };

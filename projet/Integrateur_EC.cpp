@@ -5,7 +5,7 @@
 using namespace std;
 
 
-void Integrateur_EC::integre_pendule(ObjetMobile& p,Vecteur const& f,double dt) const
+void Integrateur_EC::integre_pendule(ObjetMobile& p,double f,double dt) const
 {
     Vecteur p_ (p.get_param());
     Vecteur p_point (p.get_dev_temp_param());

@@ -8,9 +8,9 @@ using namespace std;
 int main()
 {
 
-Vecteur posi(3,5.6,9);
+Vecteur posi(1,2,3);
 Vecteur vitess(1,1,1);
-Vecteur forc(3,5,7);
+Vecteur forc(0,0,0);
 
 Vecteur posi2(2,3,4);
 Vecteur vit2(1,2,3);
@@ -18,7 +18,7 @@ Vecteur fr(0,0,0);
 
 Vecteur origine(3);
 
-ObjetMobile obj1(posi,vitess,forc,origine,10,3);
+ObjetMobile obj1(posi,vitess,forc,origine,0.100530964914873,0.2);
 ObjetMobile obj2(posi2,vit2,fr,origine,30,4);
 
 ChampForces g(0,0,-9.81);
