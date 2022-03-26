@@ -12,7 +12,7 @@ public:
 
     Pendule(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, double masse_volumique_, double rayon_, double longueur_, double frottement_)
     : ObjetMobile(position_,vitesse_,force_,origine,masse_volumique_,rayon_), longueur(longueur_),frottement(frottement_),direction(~(Vecteur(0,9.81,0))),
-     position_masse(origine+Vecteur(0,0,longueur*cos(get_param().get_coord(0)))+longueur*sin(get_param().get_coord(0))*direction),
+     position_masse(origine+Vecteur(0,0,-longueur*cos(get_param().get_coord(0)))+longueur*sin(get_param().get_coord(0))*direction),
      vitesse_masse(longueur*(get_dev_temp_param().get_coord(0))*(cos(get_param().get_coord(0))*direction-Vecteur(0,0,sin(get_param().get_coord(0)))))
       {}
 
@@ -26,6 +26,7 @@ public:
     void evolution();
     void calcul_posi_masse();
     void calcul_vitesse_masse();
+    void affiche_gnuplot(double dt) const;
 
     std::ostream& affiche(std::ostream& sortie) const;
 

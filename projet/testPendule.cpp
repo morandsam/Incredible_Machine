@@ -8,8 +8,6 @@ using namespace std;
 int main(){
 
 
-
-
 Vecteur position(0.4);
 Vecteur vitesse(0.0);
 Vecteur force(0,0,-9.81);
@@ -26,11 +24,7 @@ Pendule p(position,vitesse,force,origine,masse,rayon,longueur,frottement);
 
 cout<<p;
 
-
-
-
-//p.evolution();
-
+p.evolution();
 
 
 

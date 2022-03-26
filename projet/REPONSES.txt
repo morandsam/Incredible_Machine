@@ -14,7 +14,7 @@ P1.2: Concernant l'addition et la soustraction, on a décidé de "simuler" les d
 de différence entre les 2 vecteurs. Cela n'a aucun sens mathématiquement parlant mais d'une point de vue physique
 ça peut en avoir un.
 
-Concernant le produit scalaire et le produit vectorielle des erreures seront lancées si les dimensions ne sont pas les mêmes.
+Concernant le produit scalaire et le produit vectorielle des erreurs seront lancées si les dimensions ne sont pas les mêmes.
 
 P4.1: Un constructeur de copie a été ajouté car il pourrait avoir une utilité potentielle dans le futur. Mieux vaut en mettre
 un que de ne pas en mettre et en avoir besoin plus tard
@@ -32,4 +32,10 @@ P5.2 Nous avons choisi que la fonction agit_sur renvoie un void car elle a besoi
       les forces appliquées sur la Balle, la structure pris en argument. De plus agit_sur modifie déjà les
       forces appliquées sur la Balle puisque l'argument est pris en référence et non pas en tant que copie, cela nous permettant 
       de modifier directement les données de la balle.
- 
+
+P6.1 La classe Balle devient une sous-classe de la super-classe ObjetMobile
+
+P6.2 Pendule constitue une sous-classe de la super-classe ObjetMobile au même titre que Balle.
+      De plus, les attributs de la classe ObjetMobile deviennent protected et non plus private, car
+      on les utilise dans les différentes sous-classes d'ObjetMobile
+  
