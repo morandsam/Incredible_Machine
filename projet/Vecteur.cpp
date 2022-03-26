@@ -18,6 +18,16 @@ void Vecteur::operator-=(Vecteur const& autre)
     composantes=temp.composantes;
 }
 
+void Vecteur::operator+=(double scal)
+{
+    
+    for(size_t i(0);i<composantes.size();++i)
+    {
+        set_coord(i,composantes[i] + scal);
+    }
+    
+}
+
 void Vecteur::operator*=(double const& scalaire)
 {
     mult(scalaire);
@@ -181,6 +191,22 @@ Vecteur operator+(Vecteur const& vec1, Vecteur const& vec2)
     Vecteur temp(0);
     temp+=vec1;
     temp+=vec2;
+    return temp;
+}
+
+Vecteur operator+(Vecteur const& vec, double scal)
+{
+    Vecteur temp(vec);
+    temp+=scal;
+
+    return temp;
+}
+
+Vecteur operator+(double scal,Vecteur const& vec)
+{
+    Vecteur temp(vec);
+    temp+=scal;
+
     return temp;
 }
 

@@ -30,6 +30,10 @@ g.agit_sur(p);
 
 p.evolution();
 
+position+=1;
+
+cout<<position;
+
 
 
 return 0;

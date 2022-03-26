@@ -16,6 +16,9 @@ vec2.augmente(4.4);
 vec2.augmente(0);
 
 
+Vecteur vec3(vec1 + 3);
+
+cout<<vec3;
 
 return 0;
 }

@@ -17,7 +17,6 @@ void Pendule::evolution()
     for (size_t i(0);i<1000;++i)
     {
         double f(int1.integre_pendule(*this,dt));
-        cout<<f<<endl;
 
         int2.integre_pendule(*this,f,dt);
         calcul_posi_masse();

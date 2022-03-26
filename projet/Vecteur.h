@@ -43,6 +43,8 @@ public:
 
     void operator+=(Vecteur const& autre);
 
+    void operator+=(double scal);
+
     void operator-=(Vecteur const& autre);
 
     void operator*=(double const& scalaire);
@@ -92,6 +94,12 @@ private:
 
 //addition
 Vecteur operator+(Vecteur const& vec1, Vecteur const& vec2);
+
+// addition par un scalaire droite
+Vecteur operator+(Vecteur const& vec, double scal);
+
+//addition par un scalaire gauche
+Vecteur operator+(double scal, Vecteur const& vec);
 
 //soustraction
 Vecteur operator-(Vecteur const& vec1, Vecteur const& vec2);
