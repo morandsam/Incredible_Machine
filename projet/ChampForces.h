@@ -1,10 +1,12 @@
 #pragma once
 
 #include"Vecteur.h"
+#include"Objets.h"
 #include <cmath>
 
 
-class ChampForces{
+class ChampForces: public Objets
+{
     public:
     
     //Constructeurs
@@ -13,8 +15,8 @@ class ChampForces{
 
     //Méthodes
 
-    void agit_sur(ObjetMobile& obj) const;
-
+    void agit_sur(ObjetMobile& obj) const override;
+    double distance(ObjetMobile const&) const override;
     
     private:
 

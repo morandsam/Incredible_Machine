@@ -17,6 +17,7 @@ public:
     
     void set_position(Vecteur const& position_) {set_param(position_);};
     void set_vitesse(Vecteur const& vitesse_) {set_dev_temp_param(vitesse_);};
+    double distance(const ObjetMobile& Obj2);
     
     //std::ostream& affiche(std::ostream& sortie) const;
 

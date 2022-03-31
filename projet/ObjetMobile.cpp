@@ -9,8 +9,6 @@ using namespace std;
 
 void ObjetMobile::evolution()
 {
-    
-
 }
 
 
@@ -36,6 +34,18 @@ void ObjetMobile::set_masse(double newmasse)
     calcul_masse_volumique();
 }
 
+void ObjetMobile::agit_sur(ObjetMobile&) const
+{   
+    cout<<" ";
+}
+    
+double ObjetMobile::distance(ObjetMobile const&) const
+{
+    return 2.0;
+}
+
+
+
 
 ostream& ObjetMobile::affiche(ostream& sortie) const
 {
@@ -52,3 +62,4 @@ ostream& operator<<(ostream& sortie, ObjetMobile const& objetmobile)
 {
     return objetmobile.affiche(sortie);
 }
+

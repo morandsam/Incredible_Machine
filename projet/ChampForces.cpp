@@ -18,3 +18,8 @@ void ChampForces::agit_sur(ObjetMobile& obj) const
     obj.ajoute_force(df);
 
 }
+
+double ChampForces::distance(ObjetMobile const&) const
+{
+    return 2.0;
+}

@@ -1,8 +1,9 @@
 #pragma once
 #include"Vecteur.h"
+#include"Objets.h"
 #include<ostream>
 
-class ObjetMobile {
+class ObjetMobile: public Objets {
 
 public:
     // Constructeurs
@@ -43,8 +44,10 @@ public:
     void set_masse(double masse);
     void calcul_masse();
     void calcul_masse_volumique();
-
     void ajoute_force(Vecteur const& df) {force+=df;};
+                                                                                                   //landquart
+    void agit_sur(ObjetMobile&) const;
+    double distance(ObjetMobile const&) const;
    
     std::ostream& affiche(std::ostream& sortie) const;
 

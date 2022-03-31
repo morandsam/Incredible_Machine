@@ -27,7 +27,7 @@ public:
     void calcul_posi_masse();
     void calcul_vitesse_masse();
     void affiche_gnuplot(double dt) const;
-
+    
     std::ostream& affiche(std::ostream& sortie) const;
 
 private:

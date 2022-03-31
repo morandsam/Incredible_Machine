@@ -25,3 +25,11 @@ ostream& operator<<(ostream& sortie, Balle const& balle)
 {
     return balle.affiche(sortie);
 }
+
+double Balle::distance(const ObjetMobile& Obj2)
+    {
+        Vecteur vecteur_c1_c2 = get_param().soustraction(Obj2.get_param());
+        double distance; 
+        distance= vecteur_c1_c2.norme()-get_rayon()-Obj2.get_rayon();
+        return distance;
+    };

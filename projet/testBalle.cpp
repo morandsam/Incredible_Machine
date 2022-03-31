@@ -18,8 +18,8 @@ Vecteur fr(0,0,0);
 
 Vecteur origine(3);
 
-ObjetMobile obj1(posi,vitess,forc,origine,0.100530964914873,0.2);
-ObjetMobile obj2(posi2,vit2,fr,origine,30,4);
+Balle obj1(posi,vitess,forc,origine,0.100530964914873,0.2);
+Balle obj2(posi2,vit2,fr,origine,30,4);
 
 ChampForces g(0,0,-9.81);
 
