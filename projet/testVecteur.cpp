@@ -15,10 +15,12 @@ vec2.augmente(1);
 vec2.augmente(4.4);
 vec2.augmente(0);
 
+vec1*=2;
 
-Vecteur vec3(vec1 + 3);
+Vecteur vec3(vec1);
 
 cout<<vec3;
 
+cout<<(2*vec1)<<"   "<<(vec1*2)<<endl;
 return 0;
 }

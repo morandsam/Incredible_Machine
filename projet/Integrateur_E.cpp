@@ -6,24 +6,26 @@
 using namespace std;
 
 
-void Integrateur_E::integre_pendule(ObjetMobile& p,double f) const
+void Integrateur_E::integre_pendule(Pendule& p) const
 {
-    Vecteur p_ (p.get_param());
-    Vecteur p_point (p.get_dev_temp_param());
-
     p.set_param(p.get_param()+ dt*p.get_dev_temp_param());
-    p.set_dev_temp_param(p.get_dev_temp_param()+dt*f);
-    
+    p.set_dev_temp_param(p.get_dev_temp_param()+dt*p.evolution());
+    p.calcul_posi_masse();
+    p.calcul_vitesse_masse();
 }
 
-void Integrateur_E::integre_balle(ObjetMobile& p,Vecteur const& f) const
+void Integrateur_E::integre_balle(Balle& balle) const
 {   
-    Vecteur p_ (p.get_param());
-    Vecteur p_point (p.get_dev_temp_param());
+    balle.set_param(balle.get_param()+ dt*balle.get_dev_temp_param());
+    balle.set_dev_temp_param(balle.get_dev_temp_param()+dt*balle.evolution());
+}
 
-    p.set_param(p.get_param()+ dt*p.get_dev_temp_param());
-    p.set_dev_temp_param(p.get_dev_temp_param()+dt*f);
-
+void Integrateur_E::integre_balle_simple(Balle& balle) const
+{   
     
+    Vecteur f(0,-9.81);
+
+    balle.set_param(balle.get_param()+ dt*balle.get_dev_temp_param());
+    balle.set_dev_temp_param(balle.get_dev_temp_param()+dt*f);
     
 }

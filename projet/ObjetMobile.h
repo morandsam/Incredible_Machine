@@ -30,7 +30,7 @@ public:
 
     // Méthodes
 
-    void evolution();
+    Vecteur evolution() const;
     Vecteur get_param() const {return param;};
     Vecteur get_dev_temp_param() const {return dev_temp_param;};
     void set_param(Vecteur const& param_) {param=param_;};
@@ -39,13 +39,13 @@ public:
     void set_force(Vecteur const& force_) {force=force_;};
     double get_rayon() const {return rayon;};
     double get_masse() const {return masse;};
+    double get_masse_volumique() const {return masse_volumique;};
     void set_rayon(double r) {rayon=r;};
     void set_masse_volumique(double masse_volumique);
     void set_masse(double masse);
     void calcul_masse();
     void calcul_masse_volumique();
     void ajoute_force(Vecteur const& df) {force+=df;};
-                                                                                                   //landquart
     void agit_sur(ObjetMobile&) const;
     double distance(ObjetMobile const&) const;
    

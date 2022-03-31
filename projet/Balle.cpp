@@ -7,19 +7,14 @@
 using namespace std;
 
 
-
-
-//ostream& Balle::affiche(ostream& sortie) const
-//{
-//    sortie<<"Masse : "<<masse<<endl<<"Masse volumique : "<<masse_volumique<<endl
-//    <<"Rayon : "<<rayon<<endl<<"Position : ";
-//    sortie<<param<<"Vitesse : ";
-//    sortie<<dev_temp_param<<"Forces : ";
-//    sortie<<force<<endl;
-//
-//    return sortie;
-//}
-
+Vecteur Balle::evolution() const
+{
+    double temp(1/get_masse());
+    cout<<temp<<endl;
+    Vecteur f(temp*get_force());
+    cout<<get_force()<<endl;
+    return f;
+}
 
 ostream& operator<<(ostream& sortie, Balle const& balle)
 {

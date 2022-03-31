@@ -7,23 +7,4 @@
 
 using namespace std;
 
-double Integrateur::integre_pendule(Pendule const& p) const
-{
-    Vecteur p_ (p.get_param());
-    Vecteur p_point (p.get_dev_temp_param());
-    double f((cos(p_.get_coord(0))*(p.get_force()*p.get_direction())+sin(p_.get_coord(0))*(p.get_force().get_coord(2))-p.get_frottement()*p_point.get_coord(0)/p.get_longueur())/(p.get_masse()*p.get_longueur()));  
-    return f;
-}
 
-
-Vecteur Integrateur::integre_balle_simple() const
-{
-    Vecteur temp(0,-9.81);
-    return temp;
-}
-
-Vecteur Integrateur::integre_balle(Balle const& balle) const 
-{
-    double temp(1/balle.get_masse());
-    return balle.get_force()*temp;
-}

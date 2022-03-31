@@ -10,10 +10,8 @@ class Integrateur {
 
 public:
 
-
-    double integre_pendule(Pendule const& p) const;
-    Vecteur integre_balle_simple() const;
-    Vecteur integre_balle(Balle const& balle) const;
-
+    virtual void integre_balle_simple(Balle& balle) const =0;
+    virtual void integre_pendule(Pendule& p) const =0;
+    virtual void integre_balle(Balle& balle) const =0;
 
 };

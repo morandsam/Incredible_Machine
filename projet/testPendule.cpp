@@ -1,9 +1,10 @@
 #include <iostream>
 #include "Vecteur.h"
 #include"Pendule.h"
-#include"ObjetMobile.h"
 #include "Integrateur.h"
+#include "Integrateur_EC.h"
 #include "ChampForces.h"
+#include "Balle.h"
 using namespace std;
 
 int main(){
@@ -20,20 +21,16 @@ double frottement(0.001);
 
 ChampForces g(0,0,-9.81);
 
-
-
-
-
 Pendule p(position,vitesse,force,origine,masse,rayon,longueur,frottement);
 
 g.agit_sur(p);
 
-p.evolution();
+Integrateur_EC int1(0.01);
 
-position+=1;
-
-cout<<position;
-
+for(size_t i(1);i<1000;++i){
+    int1.integre_pendule(p);
+    p.affiche_gnuplot(i);
+}
 
 
 return 0;

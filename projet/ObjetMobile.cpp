@@ -7,10 +7,10 @@
 using namespace std;
 
 
-void ObjetMobile::evolution()
+Vecteur ObjetMobile::evolution() const
 {
+    return Vecteur(0,0,0);
 }
-
 
 void ObjetMobile::calcul_masse()
 {

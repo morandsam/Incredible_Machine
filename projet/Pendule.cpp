@@ -8,27 +8,27 @@
 
 using namespace std;
 
-void Pendule::evolution()
+//void Pendule::evolution()
+//{
+//    Integrateur_EC int1(0.01);
+//    double t(0);
+//    for (size_t i(0);i<1000;++i)
+//    {
+//        int1.integre_pendule(*this);
+//        calcul_posi_masse();
+//        calcul_vitesse_masse();
+//        
+//        t+=0.01;
+//        affiche_gnuplot(i);
+//    }
+//}
+
+Vecteur Pendule::evolution() const
 {
-    Integrateur int1;
-    Integrateur_EC int2(0.01);
-    int t(0);
-    for (size_t i(0);i<1000;++i)
-    {
-        double f(int1.integre_pendule(*this));
-
-        int2.integre_pendule(*this,f);
-        calcul_posi_masse();
-        calcul_vitesse_masse();
-        
-        t+=0.01;
-        affiche_gnuplot(t);
-
-        //cout << "Integration "<<i+1<<endl<<endl;
-        //cout<<*this;
-
-    }
-    
+    Vecteur p_ (get_param());
+    Vecteur p_point (get_dev_temp_param());
+    Vecteur f((cos(p_.get_coord(0))*(get_force()*get_direction())+sin(p_.get_coord(0))*(get_force().get_coord(2))-get_frottement()*p_point.get_coord(0)/get_longueur())/(get_masse()*get_longueur()));
+    return f;
 }
 
 void Pendule::calcul_posi_masse()

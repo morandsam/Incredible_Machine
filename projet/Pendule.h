@@ -23,7 +23,7 @@ public:
     Vecteur get_direction() const {return direction;};
     Vecteur get_position_masse() const {return position_masse;};
     Vecteur get_vitesse_masse() const {return vitesse_masse;};
-    void evolution();
+    Vecteur evolution() const;
     void calcul_posi_masse();
     void calcul_vitesse_masse();
     void affiche_gnuplot(double dt) const;

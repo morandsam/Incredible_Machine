@@ -6,6 +6,7 @@
 #include "Integrateur_E.h"
 #include "Integrateur_EC.h"
 #include "ChampForces.h"
+#include "Pendule.h"
 
 using namespace std;
 
@@ -20,12 +21,10 @@ int main()
 
     g.agit_sur(balle);
 
+    Integrateur_EC int2(0.01);
 
-    Integrateur int1;
-    Integrateur_E int2(0.01);
-
-    for(size_t i(1);i<500;++i){
-        int2.integre_balle(balle,int1.integre_balle(balle));
+    for(size_t i(1);i<5;++i){
+        int2.integre_balle(balle);
         cout<<balle.get_dev_temp_param()<<endl;
     }
 

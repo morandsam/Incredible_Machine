@@ -18,18 +18,8 @@ public:
     void set_position(Vecteur const& position_) {set_param(position_);};
     void set_vitesse(Vecteur const& vitesse_) {set_dev_temp_param(vitesse_);};
     double distance(const ObjetMobile& Obj2);
+    Vecteur evolution() const;
     
-    //std::ostream& affiche(std::ostream& sortie) const;
-
 private:
-   
-    // Attributs
-
-    
 
 };
-
-// Opérateurs
-
-//affichage sous la forme cout << balle
-//std::ostream& operator<<(std::ostream& sortie, Balle const& balle);

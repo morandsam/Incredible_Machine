@@ -20,17 +20,16 @@ void Vecteur::operator-=(Vecteur const& autre)
 
 void Vecteur::operator+=(double scal)
 {
-    
     for(size_t i(0);i<composantes.size();++i)
     {
         set_coord(i,composantes[i] + scal);
     }
-    
 }
 
 void Vecteur::operator*=(double const& scalaire)
 {
-    mult(scalaire);
+    Vecteur temp = mult(scalaire);
+    composantes=temp.composantes;
 }
 
 void Vecteur::augmente(double new_dimension_value)
