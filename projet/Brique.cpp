@@ -5,12 +5,13 @@ using namespace std;
 
  double Brique::distance(ObjetMobile const& obj2) const{
      
-     Portion_plan f1(point_origine,normal,longueur_,~longueur,largeur_);
-     Portion_plan f2(point_origine,(~largeur).oppose(),hauteur,normal.oppose(),longueur_);
-     Portion_plan f3(point_origine,(~longueur).oppose(),largeur_,~largeur,hauteur);
-     Portion_plan f4(point_origine + longueur_*(~longueur),~longueur,hauteur,normal.oppose(),largeur_);
-     Portion_plan f5(point_origine + largeur_*(~largeur),~largeur,longueur_,~longueur,hauteur);
-     Portion_plan f6(point_origine - hauteur*normal,normal.oppose(),largeur_,~largeur,longueur_);
+     // Cette liste d'initialisation de portions de plan vient directement de l'appendice mathématique du projet
+     Portion_plan f1(position_origine,normal,longueur_,~longueur,largeur_);
+     Portion_plan f2(position_origine,(~largeur).oppose(),hauteur,normal.oppose(),longueur_);
+     Portion_plan f3(position_origine,(~longueur).oppose(),largeur_,~largeur,hauteur);
+     Portion_plan f4(position_origine + longueur_*(~longueur),~longueur,hauteur,normal.oppose(),largeur_);
+     Portion_plan f5(position_origine + largeur_*(~largeur),~largeur,longueur_,~longueur,hauteur);
+     Portion_plan f6(position_origine - hauteur*normal,normal.oppose(),largeur_,~largeur,longueur_);
 
      vector<double> distance(6,0);
 
@@ -22,29 +23,31 @@ using namespace std;
      distance[5]= (f6.distance(obj2));
      
      double distance_min(distance[0]);
-     for(int i(0);i<5;++i){
-         if(distance[i]>distance[i+1]){
-             distance_min = distance[i+1];
+
+     // Algorithme qui cherche le plus petit élément du tableau distance
+     for(size_t i(1);i<6;++i){
+         if(distance[i]<distance_min){
+             distance_min = distance[i];
          } 
+         
     }
-
-    Vecteur v(distance);
-
     return distance_min;
  }
 
  Vecteur Brique::calcul_point_plus_proche(ObjetMobile const& obj2) const{
      
-     Portion_plan f1(point_origine,normal,longueur_,~longueur,largeur_);
-     Portion_plan f2(point_origine,(~largeur).oppose(),hauteur,normal.oppose(),longueur_);
-     Portion_plan f3(point_origine,(~longueur).oppose(),largeur_,~largeur,hauteur);
-     Portion_plan f4(point_origine + longueur_*(~longueur),~longueur,hauteur,normal.oppose(),largeur_);
-     Portion_plan f5(point_origine + largeur_*(~largeur),~largeur,longueur_,~longueur,hauteur);
-     Portion_plan f6(point_origine - hauteur*normal,normal.oppose(),largeur_,~largeur,longueur_);
-
+     Portion_plan f1(position_origine,normal,longueur_,~longueur,largeur_);
+     Portion_plan f2(position_origine,(~largeur).oppose(),hauteur,normal.oppose(),longueur_);
+     Portion_plan f3(position_origine,(~longueur).oppose(),largeur_,~largeur,hauteur);
+     Portion_plan f4(position_origine + longueur_*(~longueur),~longueur,hauteur,normal.oppose(),largeur_);
+     Portion_plan f5(position_origine + largeur_*(~largeur),~largeur,longueur_,~longueur,hauteur);
+     Portion_plan f6(position_origine - hauteur*normal,normal.oppose(),largeur_,~largeur,longueur_);
+     
 
      vector<Vecteur> point(6,0);
+
      vector<double> distance(6,0);
+     
      distance[0]= (f1.distance(obj2));
      distance[1]= (f2.distance(obj2));
      distance[2]= (f3.distance(obj2));
@@ -60,20 +63,26 @@ using namespace std;
      point[5]= (f6.calcul_point_plus_proche(obj2));
      
      Vecteur p_p_proche(point[0]);
-     for(int i(0);i<5;++i){
-         if(distance[i]>distance[i+1]){
-             p_p_proche = point[i+1];
-         }
+     double distance_min(distance[0]);
+
+     // Algorithme qui détermine la distance la plus courte et ainsi le point le plus proche qui lui correspond     
+     for(size_t i(1);i<6;++i){
+         if(distance[i]<distance_min){
+             distance_min = distance[i];
+             p_p_proche = point[i];
+         } 
      }
      return p_p_proche;
  }
 
  ostream& Brique::affiche(ostream& sortie) const
  {
-     sortie<<get_point_origine()<<" # origine brique"<<endl;
+     sortie<<get_position_origine()<<" # origine brique"<<endl;
      sortie<<get_longueur()<<" # longueur"<<endl;
      sortie<<get_largeur()<<" # largeur"<<endl;
-     sortie<<get_hauteur()<<" # hauteur"<<endl<<endl;
+     sortie<<get_hauteur()<<" # hauteur"<<endl;
+     sortie<<get_longueur_()<<" # longueur scalaire"<<endl;
+     sortie<<get_largeur_()<<" # largeur scalaire"<<endl<<endl;
 
      return sortie;
  }

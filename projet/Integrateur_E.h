@@ -1,22 +1,21 @@
 #pragma once
 #include"ObjetMobile.h"
 #include"Integrateur.h"
-#include"Vecteur.h"
-
 
 class Integrateur_E : public Integrateur {
 
 
 public:
-    Integrateur_E(double dt_): dt(dt_) {}
 
+    // Constructeurs
 
-    void integre_pendule(Pendule& p) const;
-    void integre_balle(Balle& balle) const;
+    Integrateur_E(double dt_): Integrateur(dt_) {}
+
+    // Méthodes
+
+    void integre(ObjetMobile& obj) const;
+
+    // Cette méthode n'a plus d'utilité réelle mais a été utilisée pour testIntegrateur1.cpp
     void integre_balle_simple(Balle& balle) const;
-
-
-private:
-    double dt;
 
 };

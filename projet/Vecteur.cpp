@@ -161,7 +161,7 @@ Vecteur Vecteur::prod_vect(Vecteur autre) const
 
 double Vecteur::norme2() const 
 {
-    double norme2;
+    double norme2(0.0);
     for(size_t i(0); i<composantes.size();++i){
         norme2+= composantes[i]*composantes[i];
     }

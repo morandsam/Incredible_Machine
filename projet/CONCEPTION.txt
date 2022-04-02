@@ -16,3 +16,41 @@ affichage (cout<< vec) et test de comparaison (== et !=).
 semaine 4: Ajout de deux fichier Balle.cpp et Balle.h ainsi que ChampForces.cpp et ChampForces.h, nous avons décidé de modifier la masse si la masse volumique changeait
 et inversement, çela nous rajoute 4 méthodes mais rend les deux modifications plus "logique"  d'un point de vue physique. nous avons aussi décidé de crée les 4 constructeurs 
 proposés.
+
+semaine 5: Comme cette semaine a été une grosse semaine en terme de quantité de code je vais expliquer l'arboresence des classes dans l'état actuel.
+    Au sommet, il y a la classe Objet qui se sépare ensuite en 2 branches.
+    Branche 1: ObjetMobile qui lui même se sépare en 3 branches: Pendule/Balle/Ressort
+    Branche 2: Obstacles qui lui même se sépare entre 2 branches: Plan/Brique
+    De plus Plan contient encore une sous classe : Portion_plan
+
+    A côté de cette "famille" de classe Objets nous avons encore les classes Integrateurs.
+    Integrateur se décompose en Integrateur_E (Euler) et en Integrateur_EC (Euler/Cromer)
+
+    Les classes Objets, Obstacles, ObjetMobile et Integrateur sont des classes abstraites; on ne peut donc pas déclarer une instance d'une de ces classes
+
+    La classe ObjetMobile reprend dans l'essentiel l'ancienne classe Balle. On a donc "transférer" la classe Balle dans ObjetMobile.
+    La classe Balle ne contient donc plus d'attributs mais possède encore ses getteurs et setteurs ainsi que sa fonction d'évolution.
+    La classe Pendule ajoute à ObjetMobile les attributs longueur, frottement, direction, position_masse, vitesse_masse. A noter que param et dev_temp param représentent un angle et une vitesse angulaire.
+    La classe Ressort ajoute à ObjetMobile les attributs longueur_repos, k, frottement, direction, position_masse, vitesse_masse. A noter que param et dev_temp param représente la position et la vitesse le long du vecteur direction.
+
+    Ces 3 dernières classes ont chacune leur propre fonction d'evolution qui est utilisée par les différents intégrateurs
+
+    Une méthode distance fait aussi partie de la classe ObjetMobile; elle permet de mesurer la distance entre deux objets mobiles.
+    Pour se faire les masses respectivement acrochées au bout du pendule et d'un ressort sont considérées comme des sphères.
+    Cette méthode retourne donc la distance bord à bord en non pas centre à centre. 
+
+    La classe Obstacles ne contient aucun attribut car son attribut principal: position_origine se trouve dans Objets
+    La classe Plan est caractérisée par une normale
+    La classe Portion_plan est caractérisée par une normale (dans Plan) ainsi que deux scalaires longueur et largeur et encore deux vecteurs unitaires Elarg et Elong
+    Lors de la création d'une portion de plan, si les deux vecteurs donnés ne sont pas perpendiculaires un correctif est ajouté afin d'en avoir 2 perpendiculaires.
+    C'est la raison pour laquelle nous avons décidé de passer aussi en paramètres dans le constructeur les 2 scalaires; comme ça en cas de modifications d'un des 2 vecteurs les normes sont conservées
+    La classe Brique est caractérisée par 3 scalaires longueur_, largeur_ et hauteur  ainsi que de 3 vecteurs unitaires normal,longueur et largeur.
+    La même réflexion a été faite concernant 2 vecteurs non perpendiculaires que dans les portions de plan.
+
+    Toutes les classes de types Obstacles possède une méthode distance et calcul_point_proche qui prennent les 2 en paramètre un objet mobile.
+
+    La classe Integrateur possède comme attribut dt. Cet attribut représente le pas de temps caractéristique d'un intégrateur et est quelque chose en commun à tous les intégrateurs.
+    La méthode intègre que les deux sous classes d'Integrateur possède font appel à la fonction evolution d'un objet mobile en particulier.
+    Grâce au polymorphisme une seule méthode intègre suffit par type d'intégrateurs (donc par classe)
+
+    

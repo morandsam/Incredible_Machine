@@ -39,3 +39,12 @@ P6.2 Pendule constitue une sous-classe de la super-classe ObjetMobile au même t
       De plus, les attributs de la classe ObjetMobile deviennent protected et non plus private, car
       on les utilise dans les différentes sous-classes d'ObjetMobile
   
+P6.3 Obstacles devient une classe. ObjetMobile et Obstacles sont des sous-classes de la super classe Objets
+      Ces 3 dernières classes sont des classes abstraites qui nous permettront de faire du polymorphisme.
+      De plus le vecteur position_origine devient un attribut de la classe Objets qui ainsi le partage avec 
+      les ObjetMobile et les Obstacles.
+
+P7.1 Integrateur est une "super" classe abstraite de toutes les classes qui représentent un inégrateur en particulier.
+      Integrateur possède comme attribut "dt" qui est un attribut (protected) commun à tous les intégrateurs.
+
+P7.2 IntegrateurEulerCromer est une sous-classe de super classe Integrateur

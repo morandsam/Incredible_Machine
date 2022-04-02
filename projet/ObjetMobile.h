@@ -6,21 +6,22 @@
 class ObjetMobile: public Objets {
 
 public:
+
     // Constructeurs
 
-    ObjetMobile(int deg_lib):dev_temp_param(Vecteur(deg_lib)=Vecteur(3)), param(Vecteur(deg_lib)=Vecteur(3)), 
-    force(Vecteur(deg_lib)=Vecteur(3)), position_reference(Vecteur(deg_lib)=Vecteur(3)) {}
+    ObjetMobile(int deg_lib)
+    : Objets(deg_lib), dev_temp_param(Vecteur(deg_lib)=Vecteur(3)), param(Vecteur(deg_lib)=Vecteur(3)), force(Vecteur(deg_lib)=Vecteur(3)) {}
 
     ObjetMobile(double masse_, double rayon_)
-    :dev_temp_param(Vecteur(3)), param(Vecteur(3)), force(Vecteur(0,0,-9.81)), position_reference(Vecteur(3))
+    : Objets(3),dev_temp_param(Vecteur(3)), param(Vecteur(3)), force(Vecteur(0,0,-9.81))
     {
         masse= masse_;
         rayon=rayon_;
-        calcul_masse();
+        calcul_masse_volumique();
     }
 
     ObjetMobile(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, double masse_, double rayon_)
-    :dev_temp_param(vitesse_), param(position_), force(force_), position_reference(origine)
+    : Objets(origine), dev_temp_param(vitesse_), param(position_), force(force_)
     {
         masse= masse_;
         rayon=rayon_;
@@ -30,7 +31,13 @@ public:
 
     // Méthodes
 
-    Vecteur evolution() const;
+    // Méthodes virtuelles pour le polymorphisme qui sont toutes redéfinies dans les sous classes
+    virtual Vecteur evolution() const = 0;
+    virtual Vecteur get_position_masse() const = 0;
+    virtual Vecteur get_vitesse_masse() const = 0;
+    virtual void calcul_posi_masse() = 0;
+    virtual void calcul_vitesse_masse() = 0;
+
     Vecteur get_param() const {return param;};
     Vecteur get_dev_temp_param() const {return dev_temp_param;};
     void set_param(Vecteur const& param_) {param=param_;};
@@ -46,14 +53,19 @@ public:
     void calcul_masse();
     void calcul_masse_volumique();
     void ajoute_force(Vecteur const& df) {force+=df;};
+    
+
+    // Encore à définir
     void agit_sur(ObjetMobile&) const;
-    double distance(ObjetMobile const&) const;
-   
+    
+    // Retourne la distance qui sépare deux objets mobiles bord à bord et non pas centre à centre
+    double distance(ObjetMobile const& obj2) const;
+
     std::ostream& affiche(std::ostream& sortie) const;
 
 protected:
 
-    // Attributs
+    // Attributs en protected car ObjetMobile est une "super" classe abstraite
 
     double masse;
     double masse_volumique;
@@ -61,11 +73,6 @@ protected:
     Vecteur dev_temp_param;
     Vecteur param;
     Vecteur force;
-    Vecteur position_reference;
-
-
-private:
-
     
 };
 

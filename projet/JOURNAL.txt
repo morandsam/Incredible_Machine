@@ -2,4 +2,12 @@
 De plus nous avons mis un place un répertoire GitHub afin d'optimiser le travail à 2 sur un projet commun.
 
 10.03 Une VM est installé sur un de nos ordi (avec QT) nous permettant de verifier si notre programme fonctionne sur les ordinateurs de l'epfl
-(comme demandé dans les objectifs du projet). Et tout le prgramme de la semaine 2 est terminé
+(comme demandé dans les objectifs du projet). Et tout le programme de la semaine 2 est terminé
+
+17.03 Programme semaine 3 terminé avec ajouts de quelques constructeurs dans la classe Vecteur (ajout par rapport au programme)
+
+02.04 En raison de la quantité de travail de cette semaine nous avons perdu notre avance sur le plan horaire. A ce jour l'entierté de la semaine 4 fonctionne comme demandé
+Différents tests ont été effectués sur notre VM et tous les tests sont OK ! De plus nous avons aussi ajouté en plus la classe Ressort qui elle aussi fonctionne correctement.
+De plus, une bonne partie de la semaine 5 est déjà effectuée car le polymorphisme a déjà été ajouté partout où nous jugions cela nécessaire.
+
+

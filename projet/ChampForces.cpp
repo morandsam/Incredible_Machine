@@ -10,9 +10,10 @@ using namespace std;
 
 void ChampForces::agit_sur(ObjetMobile& obj) const
 {
-
+    // rho_air = 1.2 mais peut être modifié
     double rho(1.2);
 
+    // Formule directement tirée de l'appendice mathématique du projet
     Vecteur df((obj.get_masse()-4*M_PI*rho*obj.get_rayon()*obj.get_rayon()*obj.get_rayon()/3)*intensite);
     
     obj.ajoute_force(df);
@@ -21,5 +22,7 @@ void ChampForces::agit_sur(ObjetMobile& obj) const
 
 double ChampForces::distance(ObjetMobile const&) const
 {
+
+    // defintion temporaire
     return 2.0;
 }

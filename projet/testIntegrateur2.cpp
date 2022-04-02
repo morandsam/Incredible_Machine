@@ -10,6 +10,8 @@
 
 using namespace std;
 
+// Test de fonctionnement sur les classes Balle, ChampForces, Intégrateur et Intégrateur d'Euler-Cromer
+
 int main()
 {
     ChampForces g(0,0,-9.81);
@@ -24,11 +26,10 @@ int main()
     Integrateur_EC int2(0.01);
 
     for(size_t i(1);i<5;++i){
-        int2.integre_balle(balle);
+        int2.integre(balle);
+        cout<<balle.get_param()<<endl;
         cout<<balle.get_dev_temp_param()<<endl;
     }
-
-    
 
     return 0;
 }

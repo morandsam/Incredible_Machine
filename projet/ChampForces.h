@@ -15,7 +15,10 @@ class ChampForces: public Objets
 
     //Méthodes
 
+    // Ajoute une force df à un objet mobile
     void agit_sur(ObjetMobile& obj) const override;
+
+    // Doit encore être définie
     double distance(ObjetMobile const&) const override;
     
     private:

@@ -7,25 +7,28 @@
 
 using namespace std;
 
-int main(){
-ChampForces g(0,0,-9.81);
-Balle balle(Vecteur(0.2,-0.4,1.3),Vecteur(0,0,0),Vecteur(0,0,0),Vecteur(0,0,0),0.100530964914873,0.2);
+// Test de fonctionnement sur les différentes sous-classes de la "super" classe abstraite Obstacles
 
-g.agit_sur(balle);
+int main()
+{
+    ChampForces g(0,0,-9.81);
 
-Brique brique(Vecteur(0,0,0.5),0.5,Vecteur(0,-0.6,0),Vecteur(0.8,0,0));
+    Balle balle(Vecteur(1.2,-0.4,1.3),Vecteur(0,0,0),Vecteur(0,0,0),Vecteur(0,0,0),0.100530964914873,0.2);
 
-Plan plan(Vecteur(0,0,0),Vecteur(0,0,1));
+    g.agit_sur(balle);
 
-cout<<balle<<endl;
-cout<<plan<<endl;
-cout<<brique<<endl;
+    Brique brique(Vecteur(0,0,0.5),0.5,Vecteur(0,-0.6,0),Vecteur(0.8,0,0));
 
+    Plan plan(Vecteur(0,0,0),Vecteur(0,0,1));
 
-cout<<plan.calcul_point_plus_proche(balle)<<endl;
-cout<<plan.distance(balle)<<endl;
-cout<<brique.calcul_point_plus_proche(balle)<<endl;
-cout<<brique.distance(balle);
+    cout<<balle<<endl;
+    cout<<plan<<endl;
+    cout<<brique<<endl;
 
-return 0;    
+    cout<<plan.calcul_point_plus_proche(balle)<<endl;
+    cout<<plan.distance(balle)<<endl;
+    cout<<brique.calcul_point_plus_proche(balle)<<endl;
+    cout<<brique.distance(balle);
+
+    return 0;    
 }

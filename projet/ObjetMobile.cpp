@@ -7,18 +7,16 @@
 using namespace std;
 
 
-Vecteur ObjetMobile::evolution() const
-{
-    return Vecteur(0,0,0);
-}
 
 void ObjetMobile::calcul_masse()
 {
+    // le volume correspond à celui d'une sphère
     masse = masse_volumique*4*M_PI*rayon*rayon*rayon/3;
 }
 
 void ObjetMobile::calcul_masse_volumique()
 {
+    // le volume correspond à celui d'une sphère
     masse_volumique = masse/(4*M_PI*rayon*rayon*rayon/3);
 }
 
@@ -36,15 +34,17 @@ void ObjetMobile::set_masse(double newmasse)
 
 void ObjetMobile::agit_sur(ObjetMobile&) const
 {   
+    // Encore à définir
     cout<<" ";
 }
     
-double ObjetMobile::distance(ObjetMobile const&) const
+double ObjetMobile::distance(ObjetMobile const& obj2) const
 {
-    return 2.0;
+    Vecteur c1_c2 = get_position_masse() - obj2.get_position_masse();
+    double distance(0); 
+    distance = c1_c2.norme()-get_rayon()-obj2.get_rayon();
+    return distance;
 }
-
-
 
 
 ostream& ObjetMobile::affiche(ostream& sortie) const
