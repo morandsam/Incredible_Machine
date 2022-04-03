@@ -33,7 +33,10 @@ public:
     // Permet d'afficher des données sous une forme directement "plotable" par gnuplot
     void affiche_gnuplot(double dt) const;
 
-    std::ostream& affiche(std::ostream& sortie) const;
+    // Méthode tirée mot à mot (comme demandé) de la donnée du projet
+    virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };
+
+    std::ostream& affiche(std::ostream& sortie) const override;
 
 private:
 

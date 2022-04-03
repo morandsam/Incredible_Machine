@@ -4,14 +4,21 @@
 #include "Integrateur_E.h"
 #include "Integrateur_EC.h"
 #include "ChampForces.h"
+#include "TextViewer.h"
+#include "Systeme.h"
+
 
 
 using namespace std;
 
-// Test de fonctionnement sur les classes Balle, ChampForces, Intégrateur et Intégrateur d'Euler-Cromer
+// Test fonctionnement classe Systeme et classe TextViewer
 
-int main()
-{
+int main() {
+
+    Systeme syst;
+
+    TextViewer ecran;
+
     ChampForces g(0,0,-9.81);
 
     Vecteur param(0,0,0);
@@ -21,12 +28,15 @@ int main()
 
     g.agit_sur(balle);
 
-    Integrateur_EC int2(0.01);
 
-    for(size_t i(1);i<5;++i){
-        int2.integre(balle);
-        cout<<balle.get_param()<<endl;
-        cout<<balle.get_dev_temp_param()<<endl;
+    syst.ajouter_objet_mob(new Balle(balle));
+
+
+    Integrateur_EC int1(0.01);
+
+    for (size_t i(0);i<3;++i){
+        syst.dessine_sur(ecran);
+        syst.evolue(int1);
     }
 
     return 0;

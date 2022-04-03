@@ -47,19 +47,7 @@ double ObjetMobile::distance(ObjetMobile const& obj2) const
 }
 
 
-ostream& ObjetMobile::affiche(ostream& sortie) const
-{
-    sortie<<"Masse : "<<masse<<endl<<"Masse volumique : "<<masse_volumique<<endl
-    <<"Rayon : "<<rayon<<endl<<"Position : ";
-    sortie<<param<<endl<<"Vitesse : ";
-    sortie<<dev_temp_param<<endl<<"Forces : ";
-    sortie<<force<<endl<<endl;
 
-    return sortie;
-}
 
-ostream& operator<<(ostream& sortie, ObjetMobile const& objetmobile)
-{
-    return objetmobile.affiche(sortie);
-}
+
 

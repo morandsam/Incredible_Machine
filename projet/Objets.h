@@ -1,10 +1,13 @@
 #pragma once 
 #include "Vecteur.h"
+#include "Dessinable.h"
+#include "SupportADessin.h"
+
 // Ceci a été ajouté afin d'éviter une dépendance cyclique lorsqu'on compile le projet
 class ObjetMobile;
 
 
-class Objets
+class Objets : public Dessinable
 { 
 public: 
 
@@ -15,8 +18,8 @@ public:
     Objets(int deg_lib): position_origine(Vecteur (deg_lib) = Vecteur(3,0)) {}
 
     // Méthodes virtuelles qui sont redéfines dans les sous classes  --> polymorphisme 
-    virtual void agit_sur(ObjetMobile&) const =0;
-    virtual double distance(ObjetMobile const&) const =0;
+    virtual void agit_sur(ObjetMobile&) const = 0;
+    virtual double distance(ObjetMobile const&) const = 0;
 
 protected:
     Vecteur position_origine;

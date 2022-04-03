@@ -1,10 +1,13 @@
 #pragma once
-#include "SupportADessin.h"
+
+class SupportADessin;
 
 class Dessinable {
 
 public:
 
-    virtual void dessine_sur(SupportADessin&) const = 0;
+    // Méthodes virtuelles
+
+    virtual void dessine_sur(SupportADessin&) = 0;
 
 };

@@ -61,7 +61,7 @@ public:
     // Retourne la distance qui sépare deux objets mobiles bord à bord et non pas centre à centre
     double distance(ObjetMobile const& obj2) const;
 
-    std::ostream& affiche(std::ostream& sortie) const;
+    virtual std::ostream& affiche(std::ostream& sortie) const = 0;
 
 protected:
 
@@ -76,6 +76,4 @@ protected:
     
 };
 
-// Opérateurs
 
-std::ostream& operator<<(std::ostream& sortie, ObjetMobile const& objetmobile);

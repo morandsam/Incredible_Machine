@@ -38,7 +38,10 @@ public:
     double get_largeur_() const{return largeur_;}
     double get_hauteur() const{return hauteur;};
 
-    std::ostream& affiche(std::ostream& sortie) const;
+    // Méthode tirée mot à mot (comme demandé) de la donnée du projet
+    virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };
+
+    std::ostream& affiche(std::ostream& sortie) const override;
 
 private:
 

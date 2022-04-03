@@ -27,5 +27,12 @@ public:
 
     // Retourne la fonction f (propre à l'évolution d'une balle) qui est utilisée par l'intégrateur
     Vecteur evolution() const;
+
+    // Méthode tirée mot à mot (comme demandé) de la donnée du projet
+    virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };
     
+    virtual std::ostream& affiche(std::ostream& sortie) const override;
+
 };
+
+std::ostream& operator<<(std::ostream& sortie, Balle const& balle);
