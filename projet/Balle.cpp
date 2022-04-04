@@ -23,6 +23,8 @@ ostream& Balle::affiche(ostream& sortie) const
     sortie<<dev_temp_param<<endl<<"Forces : ";
     sortie<<force<<endl<<endl;
 
+    sortie<<param<<endl;
+
     return sortie;
 }
 

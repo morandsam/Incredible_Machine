@@ -56,7 +56,7 @@ public:
     
 
     // Encore à définir
-    void agit_sur(ObjetMobile&) const;
+    void agit_sur(ObjetMobile& obj2);
     
     // Retourne la distance qui sépare deux objets mobiles bord à bord et non pas centre à centre
     double distance(ObjetMobile const& obj2) const;

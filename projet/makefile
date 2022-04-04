@@ -3,9 +3,10 @@ CC = $(CXX)
 CXXFLAGS = -std=c++11 -Wall -g
 LDLIBS = -lm
 
-all: exerciceP9a clean
+all: testChocs clean
 
 exerciceP9a: exerciceP9a.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o 
+testChocs: testChocs.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o 
 testVecteur: testVecteur.o Vecteur.o
 testPendule: testPendule.o Pendule.o Vecteur.o ObjetMobile.o ChampForces.o Integrateur.o Integrateur_EC.o 
 testBalle: testBalle.o Balle.o Vecteur.o ChampForces.o ObjetMobile.o Objets.o
@@ -32,6 +33,7 @@ Ressort.o: Ressort.cpp Ressort.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h S
 SupportADessin.o: SupportADessin.cpp SupportADessin.h Systeme.h Dessinable.h Objets.h Vecteur.h Balle.h ObjetMobile.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h
 Systeme.o: Systeme.cpp Systeme.h Dessinable.h SupportADessin.h Balle.h ObjetMobile.h Vecteur.h Objets.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h
 testBalle.o: testBalle.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h SupportADessin.h Systeme.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h ChampForces.h
+testChocs.o: testChocs.cpp Balle.h Pendule.h Ressort.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h SupportADessin.h Integrateur_E.h Integrateur.h Integrateur_EC.h ChampForces.h TextViewer.h Systeme.h Obstacles.h
 testIntegrateur1.o: testIntegrateur1.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h SupportADessin.h Systeme.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h Integrateur.h Integrateur_EC.h
 testIntegrateur2.o: testIntegrateur2.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h SupportADessin.h Systeme.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h Integrateur.h Integrateur_E.h Integrateur_EC.h ChampForces.h
 testObstacle.o: testObstacle.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h SupportADessin.h Systeme.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h ChampForces.h

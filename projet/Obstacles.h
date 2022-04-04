@@ -13,7 +13,7 @@ public:
 
     
     // A redéfinir
-    void agit_sur(ObjetMobile& obj2) const override;
+    void agit_sur(ObjetMobile& obj2) const;
 
     // Méthode virtuelle redéfinie dans les sous classes --> polymorphisme
     virtual Vecteur calcul_point_plus_proche(ObjetMobile const& Obj2) const = 0;

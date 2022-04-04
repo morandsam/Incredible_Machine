@@ -32,10 +32,41 @@ void ObjetMobile::set_masse(double newmasse)
     calcul_masse_volumique();
 }
 
-void ObjetMobile::agit_sur(ObjetMobile&) const
+void ObjetMobile::agit_sur(ObjetMobile& obj2)
 {   
-    // Encore à définir
-    cout<<" ";
+    double alpha(0.8);
+    double mu (0.01);
+    if (distance(obj2)<=0){
+        Vecteur n(~(get_position_masse()-obj2.get_position_masse()));
+        double lambda((1+alpha)*(obj2.get_masse())/(get_masse() + obj2.get_masse()));
+        double f_n_1(get_force()*n);
+        double f_n_2(obj2.get_force()*n);
+        if(f_n_1<0){
+            force = force - f_n_1*n;
+            obj2.set_force(obj2.get_force() + f_n_1*n);
+        }
+
+        if(f_n_2>0){
+            force = force + f_n_2*n;
+            obj2.set_force(obj2.get_force() - f_n_2*n);
+        }
+
+        double v_star((obj2.get_vitesse_masse()-get_vitesse_masse())*n);
+        Vecteur v_c(get_vitesse_masse() - obj2.get_vitesse_masse() + v_star*n);
+        Vecteur delta_v(0,0,0);
+        if(7*mu*(1+alpha)*v_star>=2*v_c.norme()){
+            delta_v=Vecteur(lambda*v_star*n - ((2*obj2.get_masse())/(7*(get_masse()+obj2.get_masse())))*v_c);
+        } else {
+            delta_v=Vecteur(lambda*v_star*(n-mu*(~v_c)));
+        }
+
+        set_dev_temp_param(get_dev_temp_param() + delta_v);
+        obj2.set_dev_temp_param(obj2.get_dev_temp_param() - (get_masse()/obj2.get_masse())*delta_v);
+
+        //cout<<n<<endl<<lambda<<endl<<f_n_1<<endl<<f_n_2<<endl<<v_star<<endl;
+        //cout<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl<<2*v_c.norme()<<endl;
+        //cout<<delta_v<<endl;
+    }
 }
     
 double ObjetMobile::distance(ObjetMobile const& obj2) const

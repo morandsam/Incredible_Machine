@@ -18,7 +18,6 @@ public:
     Objets(int deg_lib): position_origine(Vecteur (deg_lib) = Vecteur(3,0)) {}
 
     // Méthodes virtuelles qui sont redéfines dans les sous classes  --> polymorphisme 
-    virtual void agit_sur(ObjetMobile&) const = 0;
     virtual double distance(ObjetMobile const&) const = 0;
 
 protected:
