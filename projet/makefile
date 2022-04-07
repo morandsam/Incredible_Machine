@@ -31,7 +31,7 @@ Plan.o: Plan.cpp Plan.h Obstacles.h Objets.h Vecteur.h Dessinable.h SupportADess
 Portion_plan.o: Portion_plan.cpp Portion_plan.h Plan.h Obstacles.h Objets.h Vecteur.h Dessinable.h SupportADessin.h Systeme.h Balle.h ObjetMobile.h Pendule.h Ressort.h Brique.h
 Ressort.o: Ressort.cpp Ressort.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h SupportADessin.h Systeme.h Balle.h Pendule.h Plan.h Obstacles.h Portion_plan.h Brique.h
 SupportADessin.o: SupportADessin.cpp SupportADessin.h Systeme.h Dessinable.h Objets.h Vecteur.h Balle.h ObjetMobile.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h
-Systeme.o: Systeme.cpp Systeme.h Dessinable.h SupportADessin.h Balle.h ObjetMobile.h Vecteur.h Objets.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h
+Systeme.o: Systeme.cpp Systeme.h Dessinable.h SupportADessin.h Balle.h ObjetMobile.h ChampForces.o Vecteur.h Objets.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h
 testBalle.o: testBalle.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h SupportADessin.h Systeme.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h ChampForces.h
 testChocs.o: testChocs.cpp Balle.h Pendule.h Ressort.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h SupportADessin.h Integrateur_E.h Integrateur.h Integrateur_EC.h ChampForces.h TextViewer.h Systeme.h Obstacles.h
 testIntegrateur1.o: testIntegrateur1.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h SupportADessin.h Systeme.h Pendule.h Ressort.h Plan.h Obstacles.h Portion_plan.h Brique.h Integrateur.h Integrateur_EC.h

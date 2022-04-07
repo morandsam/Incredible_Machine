@@ -28,9 +28,9 @@ int main(){
 
     Integrateur_EC int1(0.01);
 
-    for(size_t i(1);i<1000;++i){
+    for(size_t i(1);i<10;++i){
         int1.integre(p);
-        p.affiche_gnuplot(i);
+        p.affiche(cout,true);
     }
 
 

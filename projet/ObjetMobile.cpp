@@ -60,8 +60,9 @@ void ObjetMobile::agit_sur(ObjetMobile& obj2)
             delta_v=Vecteur(lambda*v_star*(n-mu*(~v_c)));
         }
 
-        set_dev_temp_param(get_dev_temp_param() + delta_v);
-        obj2.set_dev_temp_param(obj2.get_dev_temp_param() - (get_masse()/obj2.get_masse())*delta_v);
+        actualise_vitesse_choc(delta_v);
+        obj2.actualise_vitesse_choc(((get_masse()/obj2.get_masse())*delta_v).oppose());
+        
 
         //cout<<n<<endl<<lambda<<endl<<f_n_1<<endl<<f_n_2<<endl<<v_star<<endl;
         //cout<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl<<2*v_c.norme()<<endl;

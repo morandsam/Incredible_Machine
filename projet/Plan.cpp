@@ -18,6 +18,7 @@ double Plan::distance(ObjetMobile const& obj2) const
 
 ostream& Plan::affiche(ostream& sortie) const
 {
+    sortie<<"Un plan :"<<endl;
     sortie<<get_position_origine()<<" # origine plan"<<endl;
     sortie<<get_normal()<<" # normale plan"<<endl<<endl;
 

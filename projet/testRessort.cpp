@@ -32,7 +32,7 @@ int main(){
 
     for(size_t i(1);i<1000;++i){
         int1.integre(r);
-        r.affiche_gnuplot(i);
+        r.affiche(cout,false);
     }
 
 

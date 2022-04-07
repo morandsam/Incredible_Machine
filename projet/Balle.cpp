@@ -15,15 +15,25 @@ Vecteur Balle::evolution() const
     return f;
 }
 
-ostream& Balle::affiche(ostream& sortie) const
-{
-    sortie<<"Masse : "<<masse<<endl<<"Masse volumique : "<<masse_volumique<<endl
-    <<"Rayon : "<<rayon<<endl<<"Position : ";
-    sortie<<param<<endl<<"Vitesse : ";
-    sortie<<dev_temp_param<<endl<<"Forces : ";
-    sortie<<force<<endl<<endl;
 
-    sortie<<param<<endl;
+void Balle::actualise_vitesse_choc(Vecteur const& delta_v)
+{
+    set_dev_temp_param(get_dev_temp_param() + delta_v);
+}
+
+ostream& Balle::affiche(ostream& sortie, bool complet) const
+{
+    if(complet){
+        sortie<<"Une balle :"<<endl;
+        sortie<<"Masse : "<<masse<<endl<<"Masse volumique : "<<masse_volumique<<endl
+        <<"Rayon : "<<rayon<<endl<<"Position : ";
+        sortie<<param<<endl<<"Vitesse : ";
+        sortie<<dev_temp_param<<endl<<"Forces : ";
+        sortie<<force<<endl<<endl;
+    } else {
+        sortie<<param<<endl;
+        //sortie<<dev_temp_param<<endl;
+    }
 
     return sortie;
 }

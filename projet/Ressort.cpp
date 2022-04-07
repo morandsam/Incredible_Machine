@@ -13,6 +13,10 @@ Vecteur Ressort::evolution() const
     return f;
 }
 
+void Ressort::actualise_vitesse_choc(Vecteur const& delta_v)
+{
+    set_dev_temp_param(get_dev_temp_param() + delta_v*direction);
+}
 void Ressort::calcul_posi_masse()
 {
     // Formule directement tirée de l'appendice mathématique du projet
@@ -26,27 +30,25 @@ void Ressort::calcul_vitesse_masse()
     vitesse_masse= ((get_dev_temp_param().get_coord(0))*direction);
 }
 
-ostream& Ressort::affiche(ostream& sortie) const
+ostream& Ressort::affiche(ostream& sortie, bool complet) const
 {
-    sortie<<masse<<" # masse ressort"<<endl
-    <<longueur_repos<<" # longueur au repos ressort"<<endl
-    <<k<<" # raideur ressort"<<endl
-    <<frottement<<" # frottement ressort"<<endl;
-    sortie<<position_origine<<" # origine ressort"<<endl;
-    sortie<<direction<<" # direction ressort"<<endl;
-    sortie<<param<<" # x ressort"<<endl;
-    sortie<<dev_temp_param<<" # x point ressort"<<endl;
-    sortie<<position_masse<<" # position bout ressort"<<endl<<endl;
+    if(complet){
+        sortie<<"Un ressort :"<<endl;
+        sortie<<masse<<" # masse ressort"<<endl
+        <<longueur_repos<<" # longueur au repos ressort"<<endl
+        <<k<<" # raideur ressort"<<endl
+        <<frottement<<" # frottement ressort"<<endl;
+        sortie<<position_origine<<" # origine ressort"<<endl;
+        sortie<<direction<<" # direction ressort"<<endl;
+        sortie<<param<<" # x ressort"<<endl;
+        sortie<<dev_temp_param<<" # x point ressort"<<endl;
+        sortie<<position_masse<<" # position bout ressort"<<endl<<endl;
+    } else {
+        sortie<<param<<endl;
+        sortie<<dev_temp_param<<endl;
+    }
 
     return sortie;
-}
-
-
-void Ressort::affiche_gnuplot(double dt) const
-{
-    cout<<dt<<" ";
-    cout<<dev_temp_param<<endl;
-
 }
 
 

@@ -45,6 +45,7 @@ double Portion_plan::distance(ObjetMobile const& obj2) const
 
 ostream& Portion_plan::affiche(ostream& sortie) const
 {
+    sortie<<"Une portion de plan :"<<endl;
     sortie<<get_position_origine()<<" # origine plan"<<endl;
     sortie<<get_normal()<<" # normale plan"<<endl;
     sortie<<get_longueur_()<<" # longueur"<<endl;

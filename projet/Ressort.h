@@ -30,13 +30,12 @@ public:
     // Retourne la fonction f (propre à l'évolution d'un ressort) qui est utilisée par l'intégrateur
     Vecteur evolution() const;
 
-    // Permet d'afficher des données sous une forme directement "plotable" par gnuplot
-    void affiche_gnuplot(double dt) const;
+    void actualise_vitesse_choc(Vecteur const& delta_v) override;
 
     // Méthode tirée mot à mot (comme demandé) de la donnée du projet
     virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };
 
-    std::ostream& affiche(std::ostream& sortie) const override;
+    std::ostream& affiche(std::ostream& sortie, bool complet = true) const override;
 
 private:
 

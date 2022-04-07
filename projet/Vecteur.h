@@ -17,9 +17,9 @@ public:
 
     //Constructeurs
 
-    Vecteur(int dimension) : composantes(dimension,0) {}
+    explicit Vecteur(int dimension) : composantes(dimension,0) {}
 
-    Vecteur(double coord_1): composantes(1,coord_1) {}
+    explicit Vecteur(double coord_1): composantes(1,coord_1) {}
 
     Vecteur(double coord_1, double coord_2)
     {

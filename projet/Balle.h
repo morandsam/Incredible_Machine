@@ -28,10 +28,12 @@ public:
     // Retourne la fonction f (propre à l'évolution d'une balle) qui est utilisée par l'intégrateur
     Vecteur evolution() const;
 
+    void actualise_vitesse_choc(Vecteur const& delta_v) override;
+
     // Méthode tirée mot à mot (comme demandé) de la donnée du projet
     virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };
     
-    virtual std::ostream& affiche(std::ostream& sortie) const override;
+    virtual std::ostream& affiche(std::ostream& sortie, bool complet = true) const override;
 
 };
 

@@ -26,3 +26,17 @@ double ChampForces::distance(ObjetMobile const&) const
     // defintion temporaire
     return 2.0;
 }
+
+
+ostream& ChampForces::affiche(ostream& sortie) const
+{
+    sortie<<"Un champ de force :"<<endl;
+    sortie<<intensite<<" # intensite"<<endl<<endl;
+
+    return sortie;
+}
+
+ostream& operator<<(ostream& sortie, ChampForces const& champ_force)
+{
+    return champ_force.affiche(sortie);
+}

@@ -13,7 +13,7 @@ void Obstacles::agit_sur(ObjetMobile& obj2) const
         double f_n_1(obj2.get_force()*n);
 
         if(f_n_1<0){
-           // obj2.set_force(obj2.get_force() - f_n_1*n);
+           obj2.set_force(obj2.get_force() - f_n_1*n);
         }
 
         double v_star((obj2.get_vitesse_masse().oppose())*n);

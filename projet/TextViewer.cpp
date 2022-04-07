@@ -13,7 +13,7 @@ using namespace std;
 
 void TextViewer::dessine(Systeme const& systeme)
 {
-    cout<<systeme;
+    systeme.affiche(cout,false);
 }
 
 void TextViewer::dessine(Balle const& balle)
@@ -42,5 +42,5 @@ void TextViewer::dessine(Brique const& brique)
 }
 void TextViewer::dessine(ChampForces const& champforces)
 {
-    cout<<"";
+    cout<<champforces;
 }

@@ -19,7 +19,7 @@ int main()
 
     Integrateur_EC int2(0.01);
 
-    for(size_t i(0);i<1000;++i){
+    for(size_t i(0);i<10;++i){
         int2.integre_balle_simple(balle);
         cout<<balle.get_param()<<endl;
     }

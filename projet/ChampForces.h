@@ -7,7 +7,7 @@
 
 class ChampForces: public Objets
 {
-    public:
+public:
     
     //Constructeurs
 
@@ -21,15 +21,19 @@ class ChampForces: public Objets
     // Doit encore être définie
     double distance(ObjetMobile const&) const override;
 
-    // Les 2 méthodes suivantes sont là pour que champforces ne soit pas une classe abstraite
-    // A MODIFIER
-    std::ostream& affiche(std::ostream& sortie) const {return sortie;};
+
     virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };
+
+    std::ostream& affiche(std::ostream& sortie) const;
     
-    private:
+private:
 
     //Attributs
     
     Vecteur intensite;
 
 };
+
+// Opérateurs
+
+std::ostream& operator<<(std::ostream& sortie, ChampForces const& champ_force);

@@ -57,12 +57,13 @@ public:
 
     // Encore à définir
     void agit_sur(ObjetMobile& obj2);
+    virtual void actualise_vitesse_choc(Vecteur const& delta_v) = 0;
     
     // Retourne la distance qui sépare deux objets mobiles bord à bord et non pas centre à centre
     double distance(ObjetMobile const& obj2) const;
 
-    virtual std::ostream& affiche(std::ostream& sortie) const = 0;
-
+    virtual std::ostream& affiche(std::ostream& sortie,bool complet = true) const = 0;
+    
 protected:
 
     // Attributs en protected car ObjetMobile est une "super" classe abstraite

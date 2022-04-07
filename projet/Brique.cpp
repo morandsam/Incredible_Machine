@@ -44,7 +44,7 @@ using namespace std;
      Portion_plan f6(position_origine - hauteur*normal,normal.oppose(),largeur_,~largeur,longueur_);
      
 
-     vector<Vecteur> point(6,0);
+     vector<Vecteur> point(6,Vecteur(0));
 
      vector<double> distance(6,0);
      
@@ -77,6 +77,7 @@ using namespace std;
 
  ostream& Brique::affiche(ostream& sortie) const
  {
+     sortie<<"Une brique :"<<endl;
      sortie<<get_position_origine()<<" # origine brique"<<endl;
      sortie<<get_longueur()<<" # longueur"<<endl;
      sortie<<get_largeur()<<" # largeur"<<endl;
