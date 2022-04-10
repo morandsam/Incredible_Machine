@@ -6,6 +6,8 @@ class TextViewer : public SupportADessin {
 
 public:
 
+    // Méthodes 
+    
     void dessine(Systeme const& systeme) override;
     void dessine(Balle const& balle) override;
     void dessine(Pendule const& pendule) override;

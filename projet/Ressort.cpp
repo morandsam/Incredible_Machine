@@ -15,7 +15,23 @@ Vecteur Ressort::evolution() const
 
 void Ressort::actualise_vitesse_choc(Vecteur const& delta_v)
 {
-    set_dev_temp_param(get_dev_temp_param() + delta_v*direction);
+    // Formule NON-tirée du complément mathématique : elle permet de prendre que la composante de delta_v qui est tangente à la vitesse de la masse au bout du ressort
+    set_dev_temp_param(get_dev_temp_param() + (delta_v*direction)*direction);
+}
+
+void Ressort::actualise_force_choc(Vecteur const& vecteur)
+{
+    // Formule NON-tirée du complément mathématique : elle permet de prendre que la composante de la force du choc qui est tangente à la vitesse de la masse au bout du ressort
+    set_force(force+ (vecteur*direction)*direction);
+}
+
+Vecteur Ressort::get_force_choc() const 
+{
+    // Formule NON-tirée de l'appendice mathématique qui donne la force subie par la masse le long de la direction du ressort
+    double p_(param.get_coord(0));
+    double p_point_(dev_temp_param.get_coord(0));
+    Vecteur f((get_force()*direction - k*p_ - frottement*p_point_)*direction);
+    return f;
 }
 void Ressort::calcul_posi_masse()
 {

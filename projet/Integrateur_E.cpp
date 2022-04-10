@@ -1,7 +1,8 @@
-#include"Integrateur.h"
-#include"Integrateur_E.h"
+#include "Integrateur.h"
+#include "Integrateur_E.h"
 #include<cmath>
 #include<iostream>
+#include "constantes.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ void Integrateur_E::integre(ObjetMobile& obj) const
 
 void Integrateur_E::integre_balle_simple(Balle& balle) const
 {   
-    Vecteur f(0,-9.81);
+    Vecteur f(0,g);
 
     // Formules directement tirée du complément mathématique du projet
     balle.set_param(balle.get_param()+ dt*balle.get_dev_temp_param());

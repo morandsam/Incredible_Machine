@@ -6,7 +6,7 @@
 #include "ChampForces.h"
 #include "TextViewer.h"
 #include "Systeme.h"
-
+#include "constantes.h"
 
 
 using namespace std;
@@ -19,14 +19,14 @@ int main() {
 
     TextViewer ecran;
 
-    ChampForces g(0,0,-9.81);
+    ChampForces g_(0,0,g);
 
     Vecteur param(0,0,0);
     Vecteur dev_param(0,0.1,0.2);
 
     Balle balle(param,dev_param,Vecteur(0,0,0),Vecteur(0,0,0),0.100530964914873,0.2);
 
-    g.agit_sur(balle);
+    g_.agit_sur(balle);
 
 
     syst.ajouter_objet_mob(new Balle(balle));

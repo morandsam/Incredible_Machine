@@ -15,10 +15,11 @@ public:
     // Méthodes
 
 
-    // ajoute un pointeur sur un objet à la collection objets
+    // Ajoute un pointeur sur un objet à la collection objets
     void ajouter_objet_mob(ObjetMobile* nouveau);
     void ajouter_objet_stat(Obstacles* nouveau);
     void ajouter_champ_force(ChampForces* nouveau);
+
 
     // Méthode faisant évoluer le système par un intégrateur integr sur nbr_iterations itérations
     void evolue(Integrateur const& integr);

@@ -53,4 +53,18 @@ semaine 5: Comme cette semaine a été une grosse semaine en terme de quantité 
     La méthode intègre que les deux sous classes d'Integrateur possède font appel à la fonction evolution d'un objet mobile en particulier.
     Grâce au polymorphisme une seule méthode intègre suffit par type d'intégrateurs (donc par classe)
 
+semaine 6: Les classes Systeme, Dessinable, SupportDessin, Textviewer ont été ajoutées au projet.
+    Systeme: déjà décrite dans la réponse P8.4 (REPONSES.txt). De plus, cette classe est une sous-classe de Dessinable mais est indépendante de la branche "Objets"
+    Dessinable: Interface abstraite qui possède seulement la méthode virtuelle pur dessine_sur. De plus elle est la super classe de Objets, car on veut pouvoir dessiner les différents objets.
+    SupportDessin: Interface abstraite qui contient les méthodes virtuelles pures des différents objets dessinables.
+    Textviewer: Sous-classe de SupportDessin dédié à la représentation du système sous forme textuelle. Toutes les méthodes virtuelles pures de SupportDessin sont explicitement définies.
+    Ces dernières consistent simplement à cout<<Type_Objets_Dessinables. Cependant l'affichage peut être modifié par rapport au cout<<Type_Objets_Dessinables standard grâce à l'ajout d'un paramètre
+    de type bool complet dans toutes les méthodes affiches des objets mobiles. En choisissant false, seul un nombre restreint de données sur l'objet mobile sera affiché.
+
+    De plus, la gestion des chocs grâce aux méthodes agit_sur ont été ajoutées telles qu'elles sont présentées dans le complément mathématique. Cependant, nous avons décidé d'ajouter un méthode
+    actualise_vitesse_choc() qui s'adapte au type d'objets mobiles en question afin que par exemple le pendule n'obtienne pas un vitesse le long de sa barre. De plus nous avons encore ajouté à la classe 
+    ObjetMobile une méthode virtuelle pure get_force_choc() --> cette dernière possède une utilité pour la classe Pendule lors des chocs. En effet la force du pendule que nous devons prendre lors d'un choc
+    n'est pas l'attribut standard de la classe ObjetMobile mais bien la force qui agit sur la masse au bout du pendule. Cette méthode est déclarée au niveau d'ObjetMobile car on veut pouvoir l'utiliser de manière
+    polymorphique pour un ObjetMobile dans agit_sur() d'ObjetMobile. Le même raisonnement est effectué pour un ressort.
+
     

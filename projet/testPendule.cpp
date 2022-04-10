@@ -5,6 +5,7 @@
 #include "Integrateur_EC.h"
 #include "ChampForces.h"
 #include "Balle.h"
+#include "constantes.h"
 using namespace std;
 
 // Test de fonctionnement sur la classe Pendule
@@ -20,11 +21,11 @@ int main(){
     double masse(0.1);
     double frottement(0.005);
 
-    ChampForces g(0,0,-9.81);
+    ChampForces g_(0,0,g);
 
     Pendule p(position,vitesse,force,origine,masse,rayon,longueur,frottement);
 
-    g.agit_sur(p);
+    g_.agit_sur(p);
 
     Integrateur_EC int1(0.01);
 

@@ -3,6 +3,7 @@
 #include "Vecteur.h"
 #include "ObjetMobile.h"
 #include "ChampForces.h"
+#include "constantes.h"
 using namespace std;
 
 // Test de fonctionnement sur la classe Balle
@@ -22,9 +23,9 @@ int main()
     Balle balle1(posi,vitess,forc,origine,0.100530964914873,0.2);
     Balle balle2(posi2,vit2,fr,origine,30,4);
 
-    ChampForces g(0,0,-9.81);
+    ChampForces g_(0,0,g);
 
-    g.agit_sur(balle1);
+    g_.agit_sur(balle1);
 
     cout<<balle1;
 

@@ -18,9 +18,14 @@ Vecteur Balle::evolution() const
 
 void Balle::actualise_vitesse_choc(Vecteur const& delta_v)
 {
+    // Formule tirée de l'appendice mathématique du projet
     set_dev_temp_param(get_dev_temp_param() + delta_v);
 }
 
+void Balle::actualise_force_choc(Vecteur const& vecteur)
+{
+    set_force(force+vecteur);
+}
 ostream& Balle::affiche(ostream& sortie, bool complet) const
 {
     if(complet){
@@ -33,6 +38,7 @@ ostream& Balle::affiche(ostream& sortie, bool complet) const
     } else {
         sortie<<param<<endl;
         //sortie<<dev_temp_param<<endl;
+        //sortie<<force<<endl<<endl;
     }
 
     return sortie;

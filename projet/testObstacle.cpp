@@ -4,6 +4,7 @@
 #include"Plan.h"
 #include"ChampForces.h"
 #include"Vecteur.h"
+#include "constantes.h"
 
 using namespace std;
 
@@ -11,11 +12,11 @@ using namespace std;
 
 int main()
 {
-    ChampForces g(0,0,-9.81);
+    ChampForces g_(0,0,g);
 
     Balle balle(Vecteur(1.2,-0.4,1.3),Vecteur(0,0,0),Vecteur(0,0,0),Vecteur(0,0,0),0.100530964914873,0.2);
 
-    g.agit_sur(balle);
+    g_.agit_sur(balle);
 
     Brique brique(Vecteur(0,0,0.5),0.5,Vecteur(0,-0.6,0),Vecteur(0.8,0,0));
 

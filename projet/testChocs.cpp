@@ -22,7 +22,7 @@ int main() {
 
     TextViewer ecran;
 
-    ChampForces g(0,0,-9.81);
+    ChampForces g_(0,0,g);
 
     Vecteur param__(0,1.36675,0.283821);
     Vecteur dev_param__(0,0.715449,0.0957368);
@@ -35,24 +35,23 @@ int main() {
 
     Balle balle(param,dev_param,Vecteur(0,0,0),Vecteur(0,0,0),0.00167784948285945,0.051111);
 
-    //Pendule pendule(Vecteur(1.5),Vecteur(-0.5),Vecteur(0,0,0),Vecteur(0,1.4,0.45),0.1,0.0,0.2,0.005);
+    Pendule pendule(Vecteur(1.5),Vecteur(-0.5),Vecteur(0,0,0),Vecteur(0,1.4,0.45),0.1,0.05,0.2,0.005);
 
     Plan p(Vecteur(0,0,0),Vecteur(0,0,1));
 
     //Balle balle2(param_,dev_param_,Vecteur(0,0,0),Vecteur(0,0,0),0.1,0.05);
 
     syst.ajouter_objet_mob(new Balle(balle));
-    //syst.ajouter_objet_mob(new Pendule(pendule));
+    syst.ajouter_objet_mob(new Pendule(pendule));
     //syst.ajouter_objet_mob(new Balle(balle2));
-    syst.ajouter_champ_force(new ChampForces(g));
+    syst.ajouter_champ_force(new ChampForces(g_));
     syst.ajouter_objet_stat(new Plan(p));
     
-
 
     Integrateur_EC int1(0.01);
     
 
-    for (size_t i(0);i<300;++i){
+    for (size_t i(0);i<400;++i){
         syst.dessine_sur(ecran);
         syst.evolue(int1);
     }

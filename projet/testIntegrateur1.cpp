@@ -11,7 +11,6 @@ using namespace std;
 
 int main()
 {
-
     Vecteur param(0,1);
     Vecteur dev_param(1,2);
 

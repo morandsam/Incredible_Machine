@@ -30,6 +30,10 @@ public:
 
     void actualise_vitesse_choc(Vecteur const& delta_v) override;
 
+    void actualise_force_choc(Vecteur const& vecteur) override;
+
+    Vecteur get_force_choc() const override {return get_force();};
+
     // Méthode tirée mot à mot (comme demandé) de la donnée du projet
     virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };
     

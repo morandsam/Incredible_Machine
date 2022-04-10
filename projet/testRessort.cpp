@@ -4,6 +4,7 @@
 #include "Integrateur.h"
 #include "Integrateur_EC.h"
 #include "ChampForces.h"
+#include "constantes.h"
 using namespace std;
 
 // Test de fonctionnement sur la classe Ressort
@@ -22,11 +23,11 @@ int main(){
     double k_(1.38165);
     Vecteur direction_(0,0.707106781186547,-0.707106781186547);
 
-    ChampForces g(0,0,-9.81);
+    ChampForces g_(0,0,g);
 
     Ressort r (position,vitesse,force,origine,direction_,masse,rayon,longueur,frottement,k_);
 
-    g.agit_sur(r);
+    g_.agit_sur(r);
 
     Integrateur_EC int1(0.01);
 

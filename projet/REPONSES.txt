@@ -47,4 +47,28 @@ P6.3 Obstacles devient une classe. ObjetMobile et Obstacles sont des sous-classe
 P7.1 Integrateur est une "super" classe abstraite de toutes les classes qui représentent un inégrateur en particulier.
       Integrateur possède comme attribut "dt" qui est un attribut (protected) commun à tous les intégrateurs.
 
-P7.2 IntegrateurEulerCromer est une sous-classe de super classe Integrateur
+P7.2 IntegrateurEulerCromer est une sous-classe de la super classe Integrateur
+
+P8.1: Ce doit être une méthode virtuelle pure, car on veut pouvoir pratiquer du polymorphisme grâce à elle.
+
+P8.2: L'idée est de pouvoir pratiquer du polymoprhisme sur les éléments du système. Etant donné qu'il n'est pas possible
+      de faire un vector de référence, nous sommes obligés d'utiliser un vector de pointeurs sur des objets (objets mobiles, obstacles, champs de forces)
+
+P8.3: Il faut impérativement que les valeurs pointées par une instance de cette classe aient une durée de vie plus longue que que l'instance elle-même.
+      De plus, il ne faut pas oublier de désallouer la mémoire utilisée par un pointeur lorsque l'on ne l'utilise plus.
+      C'est pourquoi, nous avons décidé d'utiliser des unique_ptr de part leur simplicité d'utilisation.
+
+
+P8.4: Premièrement Systeme est une classe que l'on veut pouvoir déclarer, c'est-à-dire qu'elle ne doit pas être abstraite.
+      Ses attributs (3) sont des vectors de unique_ptr sur (respectivement) des objets mobiles, des obstacles et des champs de forces
+      qui composent notre système.
+      Systeme est aussi doté de 3 méthodes qui permettent d'ajouter les 3 types d'objets qui le compose (en particulier des pointeurs sur ces objets)
+      Systeme est aussi doté d'une méthode évolue qui fait concrètement 3 choses:
+            1: (Ré)initialiser les champs de forces sur tous les objets mobiles    
+            2: Gérer les chocs entre les différents composantes du système en appelant la méthode agit_sur()
+            3: Intégrer d'un pas de temps tous les objets mobiles du système
+
+      Pour finir, Systeme est doté de la méthode dessine_sur (étant donné qu'on voudra pouvoir afficher à l'écran un système),
+      ainsi qu'une méthode affiche qui permet 2 types d'affichages (1 bool en paramètre) des composantes du système
+
+

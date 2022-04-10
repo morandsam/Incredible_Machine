@@ -10,4 +10,6 @@ De plus nous avons mis un place un répertoire GitHub afin d'optimiser le travai
 Différents tests ont été effectués sur notre VM et tous les tests sont OK ! De plus nous avons aussi ajouté en plus la classe Ressort qui elle aussi fonctionne correctement.
 De plus, une bonne partie de la semaine 5 est déjà effectuée car le polymorphisme a déjà été ajouté partout où nous jugions cela nécessaire.
 
-
+10.04 Le programme de la semaine 5 est terminé, les tests de chocs entre objets mobiles et objets mobiles ou encore entre objets mobiles et obstacles sont OK. De plus, même
+le dernier test (exo P10) est OK, cependant nous avond du retirer la force d'Archimède du pendule afin d'arriver au même résultat qui est donné dans le cours. De plus, 3 méthodes virtuelles
+ont été rajoutées dans ObjetMobile; ces dernières trouvent leur utilité dans la fonction agit_sur()  (plus de détails dans le fichier conception).
