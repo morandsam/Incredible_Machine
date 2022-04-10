@@ -1,15 +1,14 @@
 #include <iostream>
 #include "Balle.h"
 #include "Vecteur.h"
+#include "ObjetMobile.h"
+#include "Integrateur.h"
 #include "Integrateur_E.h"
 #include "Integrateur_EC.h"
 #include "ChampForces.h"
 #include "constantes.h"
 
-
 using namespace std;
-
-// Test de fonctionnement sur les classes Balle, ChampForces, Intégrateur et Intégrateur d'Euler-Cromer
 
 int main()
 {
@@ -27,8 +26,9 @@ int main()
     for(size_t i(1);i<5;++i){
         int2.integre(balle);
         cout<<balle.get_param()<<endl;
-        cout<<balle.get_dev_temp_param()<<endl;
     }
+
+    
 
     return 0;
 }
