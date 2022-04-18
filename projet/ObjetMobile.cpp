@@ -39,9 +39,9 @@ void ObjetMobile::agit_sur(ObjetMobile& obj2)
     double mu (0.01);
     if (distance(obj2)<=0){
 
-        //cout<<"CHOC : "<<endl<<endl;
-        //this->affiche(cout,true)<<endl;
-        //obj2.affiche(cout,true)<<endl;
+        cout<<"CHOC : "<<endl<<endl;
+        this->affiche(cout,true)<<endl;
+        obj2.affiche(cout,true)<<endl;
         Vecteur n(~(get_position_masse()-obj2.get_position_masse()));
         double lambda((1+alpha)*(obj2.get_masse())/(get_masse() + obj2.get_masse()));
         double f_n_1(get_force_choc()*n);
@@ -68,10 +68,11 @@ void ObjetMobile::agit_sur(ObjetMobile& obj2)
         actualise_vitesse_choc(delta_v);
         obj2.actualise_vitesse_choc(((get_masse()/obj2.get_masse())*delta_v).oppose());
         
-        
-        //cout<<n<<endl<<lambda<<endl<<f_n_1<<endl<<f_n_2<<endl<<v_star<<endl;
-        //cout<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl<<2*v_c.norme()<<endl;
-        //cout<<delta_v<<endl;
+        this->affiche(cout,true)<<endl;
+        obj2.affiche(cout,true)<<endl;
+        cout<<n<<endl<<lambda<<endl<<f_n_1<<endl<<f_n_2<<endl<<v_star<<endl;
+        cout<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl<<2*v_c.norme()<<endl;
+        cout<<delta_v<<endl;
     }
 }
     

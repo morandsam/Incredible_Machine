@@ -11,6 +11,10 @@ public:
 
     Obstacles(Vecteur origine): Objets(origine) {}
 
+    // Destructeur
+    
+    virtual ~Obstacles() = default;
+
     
     // A redéfinir
     void agit_sur(ObjetMobile& obj2) const;

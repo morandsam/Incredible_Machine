@@ -17,6 +17,10 @@ public:
     Objets(): position_origine(Vecteur(0,0,0)) {}
     Objets(int deg_lib): position_origine(Vecteur (deg_lib) = Vecteur(3,0)) {}
 
+    // Destructeur
+    
+    virtual ~Objets() = default;
+
     // Méthodes virtuelles qui sont redéfines dans les sous classes  --> polymorphisme 
     virtual double distance(ObjetMobile const&) const = 0;
 

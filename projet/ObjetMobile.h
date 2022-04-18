@@ -28,6 +28,10 @@ public:
         calcul_masse_volumique();
     }
 
+    // Destructeur
+    
+    virtual ~ObjetMobile() = default;
+
 
     // Méthodes
 

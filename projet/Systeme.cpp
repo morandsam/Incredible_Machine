@@ -29,26 +29,25 @@ void Systeme::ajouter_champ_force(ChampForces* nouveau)
 void Systeme::evolue(Integrateur const& integr)
 {
     // Première boucle qui (ré)initialise les forces subies par les objets mobiles
-    for(size_t j(0);j<obj_mob.size();++j){
-
-        (*obj_mob[j]).set_force(Vecteur(0,0,0));
-
-        for(size_t i(0);i<champs_forces.size();++i){
-            (*champs_forces[i]).agit_sur(*obj_mob[j]);
-        }
-    }
+    //for(size_t j(0);j<obj_mob.size();++j){
+//
+    //    (*obj_mob[j]).set_force(Vecteur(0,0,0));
+//
+    //    for(size_t i(0);i<champs_forces.size();++i){
+    //        (*champs_forces[i]).agit_sur(*obj_mob[j]);
+    //    }
+    //}
     
     // Permet de faire agir seulement Archimède sur la balle dans l'exercice P9
 
-        //(*obj_mob[0]).set_force(Vecteur(0,0,0));
-        //(*obj_mob[1]).set_force(Vecteur(0,0,0));
-        //
-        //(*champs_forces[0]).agit_sur(*obj_mob[0]);
-        //
-        //(*obj_mob[1]).set_force((*obj_mob[1]).get_masse() * g_vec);
+        (*obj_mob[0]).set_force(Vecteur(0,0,0));
+        (*obj_mob[1]).set_force(Vecteur(0,0,0));
+        
+        (*champs_forces[0]).agit_sur(*obj_mob[0]);
+        
+        (*obj_mob[1]).set_force((*obj_mob[1]).get_masse() * g_vec);
 
 
-    //(*this).affiche(cout,false);
 
     // Seconde boucle qui gère les chocs
     for(size_t j(0);j<obj_mob.size();++j){
@@ -63,11 +62,13 @@ void Systeme::evolue(Integrateur const& integr)
         
     }
 
+
     // Troisème boucle qui intègre d'un pas de temps tous les objets mobiles
     for(size_t j(0);j<obj_mob.size();++j){
 
         integr.integre(*obj_mob[j]);
     }
+
 }
 
 

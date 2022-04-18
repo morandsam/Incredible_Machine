@@ -14,7 +14,6 @@ public:
 
     // Méthodes
 
-
     // Ajoute un pointeur sur un objet à la collection objets
     void ajouter_objet_mob(ObjetMobile* nouveau);
     void ajouter_objet_stat(Obstacles* nouveau);

@@ -30,8 +30,7 @@ void Pendule::actualise_vitesse_choc(Vecteur const& delta_v)
 
 void Pendule::actualise_force_choc(Vecteur const& vecteur)
 {
-    Vecteur df_tangent((vecteur*(~get_vitesse_masse()))*(~get_vitesse_masse()));
-    set_force(force + df_tangent);
+    set_force(force + vecteur);
 }
 
 Vecteur Pendule::get_force_choc() const
@@ -84,7 +83,7 @@ ostream& Pendule::affiche(ostream& sortie, bool complet) const
         sortie<<evolution()<<" # f() pendule"<<endl;
         sortie<<force<<" # force sur pendule"<<endl<<endl;
     } else {
-        sortie<<position_masse<<endl;
+        sortie<<position_masse<<" "<<evolution()<<endl;
         //sortie<<dev_temp_param<<endl;
     }
 
