@@ -8,6 +8,8 @@
 #include "Portion_plan.h"
 #include "Brique.h"
 #include "ChampForces.h"
+#include "Ventilateur.h"
+#include "Vent.h"
 
 using namespace std;
 
@@ -43,4 +45,13 @@ void TextViewer::dessine(Brique const& brique)
 void TextViewer::dessine(ChampForces const& champforces)
 {
     cout<<champforces;
+}
+void TextViewer::dessine(Ventilateur const& ventilateur)
+{
+    cout<<ventilateur;
+}
+
+void TextViewer::dessine(Vent const& vent)
+{
+    cout<<vent;
 }

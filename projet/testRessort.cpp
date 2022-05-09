@@ -31,9 +31,9 @@ int main(){
 
     Integrateur_EC int1(0.01);
 
-    for(size_t i(1);i<1000;++i){
+    for(size_t i(1);i<6;++i){
         int1.integre(r);
-        r.affiche(cout,false);
+        r.affiche(cout,true);
     }
 
 

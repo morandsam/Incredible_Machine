@@ -1,4 +1,5 @@
 #include "Portion_plan.h"
+#include "Systeme.h"
 #include<ostream>
 
 using namespace std;
@@ -41,6 +42,11 @@ double Portion_plan::distance(ObjetMobile const& obj2) const
     // Formule tirée de l'appendice mathématique
      double distance = (calcul_point_plus_proche(obj2)-obj2.get_position_masse()).norme()-obj2.get_rayon();
      return distance;
+}
+
+void Portion_plan::ajoute_a(Systeme& sys) const
+{
+    sys.ajouter_objet_stat(new Portion_plan(*this));
 }
 
 ostream& Portion_plan::affiche(ostream& sortie) const

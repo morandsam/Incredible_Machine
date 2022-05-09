@@ -3,8 +3,10 @@
 #include "Dessinable.h"
 #include "SupportADessin.h"
 
+
 // Ceci a été ajouté afin d'éviter une dépendance cyclique lorsqu'on compile le projet
 class ObjetMobile;
+
 
 
 class Objets : public Dessinable

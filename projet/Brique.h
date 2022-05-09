@@ -22,7 +22,6 @@ public:
             }
         }
 
-    
     //Méthodes
 
     // Retourne la distance la plus courte à un objet mobile
@@ -34,9 +33,12 @@ public:
     Vecteur get_position_origine() const{return position_origine;};
     Vecteur get_longueur() const{return longueur;};
     Vecteur get_largeur() const{return largeur;};
+    Vecteur get_normal() const{return normal;};
     double get_longueur_() const{return longueur_;};
     double get_largeur_() const{return largeur_;}
     double get_hauteur() const{return hauteur;};
+
+    void ajoute_a(Systeme& sys) const;
 
     // Méthode tirée mot à mot (comme demandé) de la donnée du projet
     virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };

@@ -42,32 +42,35 @@ public:
     virtual void calcul_posi_masse() = 0;
     virtual void calcul_vitesse_masse() = 0;
 
+    // Méthodes virtuelles redéfinies dans Ressort et Pendule
+    virtual Vecteur get_force_choc() {return force;};
+    virtual void set_force(Vecteur const& force_) {force=force_;};
+    virtual void ajoute_force_choc(Vecteur const& df) {force+=df;};
+    virtual void set_param(Vecteur const& param_) {param=param_;};
+    virtual void set_dev_temp_param(Vecteur const& dev_temp_param_) {dev_temp_param=dev_temp_param_;};
+
     Vecteur get_param() const {return param;};
     Vecteur get_dev_temp_param() const {return dev_temp_param;};
-    void set_param(Vecteur const& param_) {param=param_;};
-    void set_dev_temp_param(Vecteur const& dev_temp_param_) {dev_temp_param=dev_temp_param_;};
     Vecteur get_force() const {return force;}
-    void set_force(Vecteur const& force_) {force=force_;};
     double get_rayon() const {return rayon;};
     double get_masse() const {return masse;};
     double get_masse_volumique() const {return masse_volumique;};
+    
     void set_rayon(double r) {rayon=r;};
     void set_masse_volumique(double masse_volumique);
     void set_masse(double masse);
-    void calcul_masse();
-    void calcul_masse_volumique();
     void ajoute_force(Vecteur const& df) {force+=df;};
     
+    void calcul_masse();
+    void calcul_masse_volumique();
+
 
     // Gestion des chocs entre objets mobiles
     void agit_sur(ObjetMobile& obj2);
+
     // Méthode virtuelle utilisée dans agit_sur qui permet d'ajuster la vitesse résultante du choc en fonction de l'objet mobile considéré
     virtual void actualise_vitesse_choc(Vecteur const& delta_v) = 0;
-    // Méthode virtuelle utilisée dans agit_sur qui permet d'ajuster la force résultante du choc en fonction de l'objet mobile considéré
-    virtual void actualise_force_choc(Vecteur const& vecteur) = 0;
-    // Méthode virtuelle utilisée dans agit_sur qui est uniquement utile pour le pendule qui permet de recevoir la force qui agit sur la masse au bout du pendule
-    // comme on ne sait pas à l'avance si on aura un pendule ou un autre type d'objets on est obligé de la mettre ici pour que agit_sur puisse fonctionner de manière polymorphique
-    virtual Vecteur get_force_choc() const = 0;
+    
     // Retourne la distance qui sépare deux objets mobiles bord à bord et non pas centre à centre
     double distance(ObjetMobile const& obj2) const;
 

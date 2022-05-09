@@ -1,8 +1,8 @@
 #pragma once
 #include"ObjetMobile.h"
+#include "constantes.h"
 #include<cmath>
 #include<ostream>
-#include "constantes.h"
 
 class Pendule : public ObjetMobile{
 
@@ -25,21 +25,25 @@ public:
     Vecteur get_position_masse() const {return position_masse;};
     Vecteur get_vitesse_masse() const {return vitesse_masse;};
     
+    
 
     // Retourne la fonction f (propre à l'évolution d'un pendule) qui est utilisée par l'intégrateur
     Vecteur evolution() const;
 
     void actualise_vitesse_choc(Vecteur const& delta_v) override;
-
-    void actualise_force_choc(Vecteur const& vecteur) override;
-
-    Vecteur get_force_choc() const override;
-
+    
+    virtual Vecteur get_force_choc() override;
+    void ajoute_force_choc(Vecteur const& df) override;
+    void set_force(Vecteur const& force_) override;
+    void set_param(Vecteur const& param_) override;
+    void set_dev_temp_param(Vecteur const& dev_temp_param_) override;
+    
     // Permet d'actualiser la position et la vitesse de la masse en fonction de param et dev_temp_param
     void calcul_posi_masse();
     void calcul_vitesse_masse();
 
-
+    void ajoute_a(Systeme& sys) const;
+    
     // Méthode tirée mot à mot (comme demandé) de la donnée du projet
     virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };
     

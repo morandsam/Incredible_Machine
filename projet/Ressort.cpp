@@ -1,5 +1,6 @@
 #include <iostream>
 #include"Ressort.h"
+#include"Systeme.h"
 #include"ObjetMobile.h"
 
 using namespace std;
@@ -19,20 +20,36 @@ void Ressort::actualise_vitesse_choc(Vecteur const& delta_v)
     set_dev_temp_param(get_dev_temp_param() + (delta_v*direction)*direction);
 }
 
-void Ressort::actualise_force_choc(Vecteur const& vecteur)
+Vecteur Ressort::get_force_choc() 
 {
-    // Formule NON-tirée du complément mathématique : elle permet de prendre que la composante de la force du choc qui est tangente à la vitesse de la masse au bout du ressort
-    set_force(force+ (vecteur*direction)*direction);
+    return force*(~get_vitesse_masse())*(~get_vitesse_masse());
 }
 
-Vecteur Ressort::get_force_choc() const 
+void Ressort::ajoute_force_choc(Vecteur const& df)
 {
-    // Formule NON-tirée de l'appendice mathématique qui donne la force subie par la masse le long de la direction du ressort
-    double p_(param.get_coord(0));
-    double p_point_(dev_temp_param.get_coord(0));
-    Vecteur f((get_force()*direction - k*p_ - frottement*p_point_)*direction);
-    return f;
+    force+=df;
+
+    force = force*(~get_vitesse_masse())*(~get_vitesse_masse());
 }
+
+void Ressort::set_force(Vecteur const& force_) 
+{
+    force = Vecteur(0,0,0);
+    ajoute_force(force_);
+}
+
+void Ressort::set_param(Vecteur const& param_)
+{
+    param=param_;
+    calcul_posi_masse();
+}
+
+void Ressort::set_dev_temp_param(Vecteur const& dev_temp_param_) 
+{
+    dev_temp_param=dev_temp_param_;
+    calcul_vitesse_masse();
+}
+
 void Ressort::calcul_posi_masse()
 {
     // Formule directement tirée de l'appendice mathématique du projet
@@ -44,6 +61,11 @@ void Ressort::calcul_vitesse_masse()
 {
     // Formule directement tirée de l'appendice mathématique du projet
     vitesse_masse= ((get_dev_temp_param().get_coord(0))*direction);
+}
+
+void Ressort::ajoute_a(Systeme& sys) const
+{
+    sys.ajouter_objet_mob(new Ressort(*this));
 }
 
 ostream& Ressort::affiche(ostream& sortie, bool complet) const
@@ -72,3 +94,13 @@ ostream& operator<<(ostream& sortie, Ressort const& ressort)
 {
     return ressort.affiche(sortie);
 }
+
+
+//Vecteur Ressort::get_force_choc() const 
+//{
+//    // Formule NON-tirée de l'appendice mathématique qui donne la force subie par la masse le long de la direction du ressort
+//    double p_(param.get_coord(0));
+//    double p_point_(dev_temp_param.get_coord(0));
+//    Vecteur f((get_force()*direction - k*p_ - frottement*p_point_)*direction);
+//    return f;
+//}

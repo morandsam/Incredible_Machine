@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include"Pendule.h"
+#include"Systeme.h"
 #include "constantes.h"
 
 using namespace std;
@@ -24,28 +25,44 @@ Vecteur Pendule::evolution() const
 void Pendule::actualise_vitesse_choc(Vecteur const& delta_v)
 {
     // Formule NON-tirée du complément mathématique : elle permet de prendre que la composante de delta_v qui est tangente à la vitesse du bout du pendule
-    Vecteur dv_tangent((delta_v*(~get_vitesse_masse()))*(~get_vitesse_masse()));
-    set_dev_temp_param(Vecteur(((1/get_longueur())*(get_vitesse_masse()+dv_tangent)).norme()));
+    //Vecteur dv_tangent((delta_v*(~get_vitesse_masse()))*(~get_vitesse_masse()));
+    //set_dev_temp_param(Vecteur(((1/get_longueur())*(get_vitesse_masse()+dv_tangent)).norme()));
+
+    Vecteur nouvelle_vitesse(get_vitesse_masse() + delta_v);
+    set_dev_temp_param(Vecteur((nouvelle_vitesse*(~get_vitesse_masse()))*1.0/get_longueur()));
 }
 
-void Pendule::actualise_force_choc(Vecteur const& vecteur)
+Vecteur Pendule::get_force_choc() 
 {
-    set_force(force + vecteur);
+    return force*(~get_vitesse_masse())*(~get_vitesse_masse());
 }
 
-Vecteur Pendule::get_force_choc() const
+void Pendule::ajoute_force_choc(Vecteur const& df)
 {
-    // Formule tirée directement de l'appendice mathématique qui donne la force totale subie par la masse au bout du pendule
-    double p_ (get_param().get_coord(0));
-    double p_point (get_dev_temp_param().get_coord(0));
-    double f_(evolution().get_coord(0));
+    force+=df;
 
-    Vecteur f(get_masse()*get_longueur()*(f_*(cos(p_)*direction - sin(p_)*(~g_vec))
-            - (p_point*p_point)*(sin(p_)*direction + cos(p_)*(~g_vec))));
-
-    return f;
-
+    force = force*(~get_vitesse_masse())*(~get_vitesse_masse());
 }
+
+void Pendule::set_force(Vecteur const& force_) 
+{
+    force = Vecteur(0,0,0);
+    ajoute_force(force_);
+}
+
+void Pendule::set_param(Vecteur const& param_)
+{
+    param=param_;
+    calcul_posi_masse();
+}
+
+void Pendule::set_dev_temp_param(Vecteur const& dev_temp_param_) 
+{
+    dev_temp_param=dev_temp_param_;
+    calcul_vitesse_masse();
+}
+
+
 void Pendule::calcul_posi_masse()
 {   
     // Formule directement tirée de l'appendice mathématique du projet
@@ -65,7 +82,10 @@ void Pendule::calcul_vitesse_masse()
     vitesse_masse= longueur*(dev_temp_param.get_coord(0))*(temp1+temp2);
 }
 
-
+void Pendule::ajoute_a(Systeme& sys) const
+{
+    sys.ajouter_objet_mob(new Pendule(*this));
+}
 
 ostream& Pendule::affiche(ostream& sortie, bool complet) const
 {
@@ -83,7 +103,7 @@ ostream& Pendule::affiche(ostream& sortie, bool complet) const
         sortie<<evolution()<<" # f() pendule"<<endl;
         sortie<<force<<" # force sur pendule"<<endl<<endl;
     } else {
-        sortie<<position_masse<<" "<<evolution()<<endl;
+        sortie<<position_masse<<endl;
         //sortie<<dev_temp_param<<endl;
     }
 
@@ -94,3 +114,19 @@ ostream& operator<<(ostream& sortie, Pendule const& pendule)
 {
     return pendule.affiche(sortie);
 }
+
+
+
+//Vecteur Pendule::get_force_choc() const
+//{
+//    // Formule tirée directement de l'appendice mathématique qui donne la force totale subie par la masse au bout du pendule
+//    double p_ (get_param().get_coord(0));
+//    double p_point (get_dev_temp_param().get_coord(0));
+//    double f_(evolution().get_coord(0));
+//
+//    Vecteur f(get_masse()*get_longueur()*(f_*(cos(p_)*direction - sin(p_)*(~g_vec))
+//            - (p_point*p_point)*(sin(p_)*direction + cos(p_)*(~g_vec))));
+//
+//    return f;
+//
+//}

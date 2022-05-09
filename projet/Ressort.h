@@ -24,17 +24,22 @@ public:
     Vecteur get_direction() const {return direction;};
     Vecteur get_position_masse() const {return position_masse;};
     Vecteur get_vitesse_masse() const {return vitesse_masse;};
+    
     void calcul_posi_masse();
     void calcul_vitesse_masse();
+
+    virtual Vecteur get_force_choc() override;
+    void set_force(Vecteur const& force_) override;
+    void ajoute_force_choc(Vecteur const& df) override;
+    void set_param(Vecteur const& param_) override;
+    void set_dev_temp_param(Vecteur const& dev_temp_param_) override;
     
     // Retourne la fonction f (propre à l'évolution d'un ressort) qui est utilisée par l'intégrateur
     Vecteur evolution() const;
 
     void actualise_vitesse_choc(Vecteur const& delta_v) override;
 
-    void actualise_force_choc(Vecteur const& vecteur) override;
-
-    Vecteur get_force_choc() const override;
+    void ajoute_a(Systeme& sys) const;
 
     // Méthode tirée mot à mot (comme demandé) de la donnée du projet
     virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };

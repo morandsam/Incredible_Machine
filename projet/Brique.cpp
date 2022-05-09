@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Brique.h"
 #include "Portion_plan.h"
+#include "Systeme.h"
 using namespace std;
 
  double Brique::distance(ObjetMobile const& obj2) const{
@@ -75,15 +76,21 @@ using namespace std;
      return p_p_proche;
  }
 
+ void Brique::ajoute_a(Systeme& sys) const
+{
+    sys.ajouter_objet_stat(new Brique(*this));
+}
+
  ostream& Brique::affiche(ostream& sortie) const
  {
      sortie<<"Une brique :"<<endl;
      sortie<<get_position_origine()<<" # origine brique"<<endl;
      sortie<<get_longueur()<<" # longueur"<<endl;
      sortie<<get_largeur()<<" # largeur"<<endl;
-     sortie<<get_hauteur()<<" # hauteur"<<endl;
+     sortie<<get_normal()<<" # normal"<<endl;
      sortie<<get_longueur_()<<" # longueur scalaire"<<endl;
-     sortie<<get_largeur_()<<" # largeur scalaire"<<endl<<endl;
+     sortie<<get_largeur_()<<" # largeur scalaire"<<endl;
+     sortie<<get_hauteur()<<" hauteur scalaire"<<endl<<endl;
 
      return sortie;
  }

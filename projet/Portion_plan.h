@@ -32,6 +32,8 @@ public:
 
     Vecteur calcul_point_plus_proche( ObjetMobile const& Obj2) const override;
 
+    void ajoute_a(Systeme& sys) const;
+
     // Méthode tirée mot à mot (comme demandé) de la donnée du projet
     virtual void dessine_sur(SupportADessin& support) override { support.dessine(*this); };
     

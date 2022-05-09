@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Vecteur.h"
 #include "ObjetMobile.h"
+#include "Systeme.h"
 #include "ChampForces.h"
 
 
@@ -27,6 +28,10 @@ double ChampForces::distance(ObjetMobile const&) const
     return 2.0;
 }
 
+void ChampForces::ajoute_a(Systeme& sys) const
+{
+    sys.ajouter_champ_force(new ChampForces(*this));
+}
 
 ostream& ChampForces::affiche(ostream& sortie) const
 {
