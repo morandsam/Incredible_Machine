@@ -36,7 +36,8 @@ public:
     // Méthodes
 
     // Méthodes virtuelles pour le polymorphisme qui sont toutes redéfinies dans les sous classes
-    virtual Vecteur evolution() const = 0;
+    virtual Vecteur evolution() const ;
+    virtual Vecteur evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const = 0;
     virtual Vecteur get_position_masse() const = 0;
     virtual Vecteur get_vitesse_masse() const = 0;
     virtual void calcul_posi_masse() = 0;

@@ -6,11 +6,15 @@
 using namespace std;
 
 
-
 Vecteur Ressort::evolution() const
 {
+    return evolution(param,dev_temp_param);
+}
+
+Vecteur Ressort::evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const
+{
     // Formule directement tirée de l'appendice mathématique du projet
-    Vecteur f((force*direction -k*(get_param().get_coord(0)) - frottement*(get_dev_temp_param().get_coord(0)))/masse);
+    Vecteur f((force*direction -k*(param_.get_coord(0)) - frottement*(dev_temp_param_.get_coord(0)))/masse);
     return f;
 }
 

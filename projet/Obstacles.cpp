@@ -11,8 +11,8 @@ void Obstacles::agit_sur(ObjetMobile& obj2) const
     double mu (0.01);
     if (distance(obj2)<=0){
 
-        cout<<endl<<"CHOC : "<<endl<<endl<<"Avant choc : "<<endl<<endl;
-        obj2.affiche(cout,true);
+        //cout<<endl<<"CHOC : "<<endl<<endl<<"Avant choc : "<<endl<<endl;
+        //obj2.affiche(cout,true);
 
         Vecteur n(~(obj2.get_position_masse()-calcul_point_plus_proche(obj2)));
         double f_n_1(obj2.get_force()*n);
@@ -32,11 +32,11 @@ void Obstacles::agit_sur(ObjetMobile& obj2) const
 
         obj2.actualise_vitesse_choc(delta_v);
 
-        cout<<"n : "<<n<<endl<<"f_n_1 : "<<f_n_1<<endl<<"v_star : "<<v_star<<endl;
-        cout<<"v_c : "<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl;
-        cout<<"delta_v : "<<delta_v<<endl<<endl;
-        cout<<"Apres choc : "<<endl<<endl;
-        obj2.affiche(cout,true)<<endl<<endl;
+        //cout<<"n : "<<n<<endl<<"f_n_1 : "<<f_n_1<<endl<<"v_star : "<<v_star<<endl;
+        //cout<<"v_c : "<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl;
+        //cout<<"delta_v : "<<delta_v<<endl<<endl;
+        //cout<<"Apres choc : "<<endl<<endl;
+        //obj2.affiche(cout,true)<<endl<<endl;
         
     }
 }

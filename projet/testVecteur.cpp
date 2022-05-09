@@ -23,6 +23,10 @@ int main()
 
     cout<<vec3;
 
+    vec3-=vec3;
+
+    cout<<vec3;
+
     cout<<(2*vec1)<<"   "<<(vec1*2)<<endl;
     return 0;
 }

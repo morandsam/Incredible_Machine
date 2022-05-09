@@ -28,7 +28,8 @@ public:
     
 
     // Retourne la fonction f (propre à l'évolution d'un pendule) qui est utilisée par l'intégrateur
-    Vecteur evolution() const;
+    Vecteur evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const override;
+    Vecteur evolution() const override;
 
     void actualise_vitesse_choc(Vecteur const& delta_v) override;
     

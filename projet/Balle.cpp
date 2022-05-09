@@ -8,8 +8,12 @@
 using namespace std;
 
 
-
 Vecteur Balle::evolution() const
+{
+    return evolution(param,dev_temp_param);
+}
+
+Vecteur Balle::evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const
 {
     double temp(1/get_masse());
     Vecteur f(temp*get_force());

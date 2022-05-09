@@ -3,6 +3,8 @@
 #include "Vecteur.h"
 #include "Integrateur_E.h"
 #include "Integrateur_EC.h"
+#include "Integrateur_Newmark.h"
+#include "Integrateur_RK4.h"
 #include "ChampForces.h"
 #include "TextViewer.h"
 #include "Systeme.h"

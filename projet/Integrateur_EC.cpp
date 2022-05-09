@@ -2,7 +2,6 @@
 #include "Integrateur_EC.h"
 #include "Balle.h"
 #include "constantes.h"
-#include<cmath>
 
 using namespace std;
 

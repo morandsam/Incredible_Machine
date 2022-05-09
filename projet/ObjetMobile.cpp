@@ -6,7 +6,10 @@
 
 using namespace std;
 
-
+Vecteur ObjetMobile::evolution() const
+{
+    return evolution(param,dev_temp_param);
+}
 
 void ObjetMobile::calcul_masse()
 {
@@ -39,9 +42,9 @@ void ObjetMobile::agit_sur(ObjetMobile& obj2)
     double mu (0.01);
     if (distance(obj2)<=0){
 
-        cout<<endl<<"CHOC : "<<endl<<endl<<"Avant choc : "<<endl<<endl;
-        this->affiche(cout,true);
-        obj2.affiche(cout,true);
+        //cout<<endl<<"CHOC : "<<endl<<endl<<"Avant choc : "<<endl<<endl;
+        //this->affiche(cout,true);
+        //obj2.affiche(cout,true);
 
         Vecteur n(~(get_position_masse()-obj2.get_position_masse()));
         double lambda((1+alpha)*(obj2.get_masse())/(get_masse() + obj2.get_masse()));
@@ -69,12 +72,12 @@ void ObjetMobile::agit_sur(ObjetMobile& obj2)
         actualise_vitesse_choc(delta_v);
         obj2.actualise_vitesse_choc(((get_masse()/obj2.get_masse())*delta_v).oppose());
 
-        cout<<"n : "<<n<<endl<<"lambda : "<<lambda<<endl<<"f_n_1 : "<<f_n_1<<endl<<"f_n_2 : "<<f_n_2<<endl<<"v_star : "<<v_star<<endl;
-        cout<<"v_c : "<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl<<2*v_c.norme()<<endl;
-        cout<<"delta_v : "<<delta_v<<endl<<endl;
-        cout<<"Apres choc : "<<endl<<endl;
-        this->affiche(cout,true);
-        obj2.affiche(cout,true);
+        //cout<<"n : "<<n<<endl<<"lambda : "<<lambda<<endl<<"f_n_1 : "<<f_n_1<<endl<<"f_n_2 : "<<f_n_2<<endl<<"v_star : "<<v_star<<endl;
+        //cout<<"v_c : "<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl<<2*v_c.norme()<<endl;
+        //cout<<"delta_v : "<<delta_v<<endl<<endl;
+        //cout<<"Apres choc : "<<endl<<endl;
+        //this->affiche(cout,true);
+        //obj2.affiche(cout,true);
         
     }
 }

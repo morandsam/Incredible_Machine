@@ -35,7 +35,8 @@ public:
     void set_dev_temp_param(Vecteur const& dev_temp_param_) override;
     
     // Retourne la fonction f (propre à l'évolution d'un ressort) qui est utilisée par l'intégrateur
-    Vecteur evolution() const;
+    Vecteur evolution() const override;
+    Vecteur evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const override;
 
     void actualise_vitesse_choc(Vecteur const& delta_v) override;
 

@@ -8,12 +8,16 @@
 using namespace std;
 
 
-
 Vecteur Pendule::evolution() const
 {
+    return evolution(param,dev_temp_param);
+}
+
+Vecteur Pendule::evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const
+{
     // Formule directement tirée de l'appendice mathématique du projet
-    double p_ (get_param().get_coord(0));
-    double p_point (get_dev_temp_param().get_coord(0));
+    double p_ (param_.get_coord(0));
+    double p_point (dev_temp_param_.get_coord(0));
     Vecteur f((
         cos(p_)*(get_force()*get_direction())
         -sin(p_)*(get_force()*(~g_vec))
@@ -25,16 +29,13 @@ Vecteur Pendule::evolution() const
 void Pendule::actualise_vitesse_choc(Vecteur const& delta_v)
 {
     // Formule NON-tirée du complément mathématique : elle permet de prendre que la composante de delta_v qui est tangente à la vitesse du bout du pendule
-    //Vecteur dv_tangent((delta_v*(~get_vitesse_masse()))*(~get_vitesse_masse()));
-    //set_dev_temp_param(Vecteur(((1/get_longueur())*(get_vitesse_masse()+dv_tangent)).norme()));
-
     Vecteur nouvelle_vitesse(get_vitesse_masse() + delta_v);
     set_dev_temp_param(Vecteur((nouvelle_vitesse*(~get_vitesse_masse()))*1.0/get_longueur()));
 }
 
 Vecteur Pendule::get_force_choc() 
 {
-    return force*(~get_vitesse_masse())*(~get_vitesse_masse());
+    return (force*(~get_vitesse_masse()))*(~get_vitesse_masse());
 }
 
 void Pendule::ajoute_force_choc(Vecteur const& df)

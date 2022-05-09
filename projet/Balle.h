@@ -21,7 +21,8 @@ public:
     void calcul_vitesse_masse() {};
     
     // Retourne la fonction f (propre à l'évolution d'une balle) qui est utilisée par l'intégrateur
-    Vecteur evolution() const;
+    Vecteur evolution() const override;
+    Vecteur evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const override;
 
     void actualise_vitesse_choc(Vecteur const& delta_v) override {set_dev_temp_param(get_dev_temp_param() + delta_v);};
 

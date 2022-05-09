@@ -3,6 +3,8 @@
 #include"Ressort.h"
 #include "Integrateur.h"
 #include "Integrateur_EC.h"
+#include "Integrateur_Newmark.h"
+#include "Integrateur_RK4.h"
 #include "ChampForces.h"
 #include "constantes.h"
 using namespace std;
