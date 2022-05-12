@@ -1,7 +1,7 @@
 02.03: Tout le programme de la semaine 1 est terminé. On a déjà créé le fichier.h et le makefile fonctionne et supprime automatiquement les fichiers.o.
 De plus nous avons mis un place un répertoire GitHub afin d'optimiser le travail à 2 sur un projet commun.
 
-10.03 Une VM est installé sur un de nos ordi (avec QT) nous permettant de verifier si notre programme fonctionne sur les ordinateurs de l'epfl
+10.03 Une VM est installé sur nos deux ordi (avec QT) nous permettant de verifier si notre programme fonctionne sur les ordinateurs de l'epfl
 (comme demandé dans les objectifs du projet). Et tout le programme de la semaine 2 est terminé
 
 17.03 Programme semaine 3 terminé avec ajouts de quelques constructeurs dans la classe Vecteur (ajout par rapport au programme)
@@ -13,3 +13,13 @@ De plus, une bonne partie de la semaine 5 est déjà effectuée car le polymorph
 10.04 Le programme de la semaine 5 est terminé, les tests de chocs entre objets mobiles et objets mobiles ou encore entre objets mobiles et obstacles sont OK. De plus, même
 le dernier test (exo P10) est OK, cependant nous avond du retirer la force d'Archimède du pendule afin d'arriver au même résultat qui est donné dans le cours. De plus, 3 méthodes virtuelles
 ont été rajoutées dans ObjetMobile; ces dernières trouvent leur utilité dans la fonction agit_sur()  (plus de détails dans le fichier conception).
+
+25.04 Nous décidons de laisser de côté QT et de nous concentrer sur le reste du programme, sinon nous sommes à jour.
+
+04.05 Nous avons fini le programme de la semaine, nous ne prévoyons pas d'ajouter d'autres Objet composé.
+
+09.05 fin des dernières consignes, les deux integrateurs (RK4 et Newmark) focntionne correctement. 
+
+12.05 création de "l'arbre héritage", relecture de concéption, journal et réponse.
+
+
