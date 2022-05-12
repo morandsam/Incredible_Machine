@@ -35,17 +35,19 @@ void ObjetMobile::set_masse(double newmasse)
     calcul_masse_volumique();
 }
 
-void ObjetMobile::agit_sur(ObjetMobile& obj2)
+void ObjetMobile::agit_sur(ObjetMobile& obj2, bool infos_choc)
 {   
     // Formules tirées de l'appendice mathématique lié au projet
     double alpha(0.8);
     double mu (0.01);
     if (distance(obj2)<=0){
 
-        //cout<<endl<<"CHOC : "<<endl<<endl<<"Avant choc : "<<endl<<endl;
-        //this->affiche(cout,true);
-        //obj2.affiche(cout,true);
-
+        if(infos_choc){
+            cout<<endl<<"CHOC : "<<endl<<endl<<"Avant choc : "<<endl<<endl;
+            this->affiche(cout,true);
+            obj2.affiche(cout,true);
+        }
+        
         Vecteur n(~(get_position_masse()-obj2.get_position_masse()));
         double lambda((1+alpha)*(obj2.get_masse())/(get_masse() + obj2.get_masse()));
         double f_n_1(get_force_choc()*n);
@@ -72,13 +74,14 @@ void ObjetMobile::agit_sur(ObjetMobile& obj2)
         actualise_vitesse_choc(delta_v);
         obj2.actualise_vitesse_choc(((get_masse()/obj2.get_masse())*delta_v).oppose());
 
-        //cout<<"n : "<<n<<endl<<"lambda : "<<lambda<<endl<<"f_n_1 : "<<f_n_1<<endl<<"f_n_2 : "<<f_n_2<<endl<<"v_star : "<<v_star<<endl;
-        //cout<<"v_c : "<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl<<2*v_c.norme()<<endl;
-        //cout<<"delta_v : "<<delta_v<<endl<<endl;
-        //cout<<"Apres choc : "<<endl<<endl;
-        //this->affiche(cout,true);
-        //obj2.affiche(cout,true);
-        
+        if(infos_choc){
+            cout<<"n : "<<n<<endl<<"lambda : "<<lambda<<endl<<"f_n_1 : "<<f_n_1<<endl<<"f_n_2 : "<<f_n_2<<endl<<"v_star : "<<v_star<<endl;
+            cout<<"v_c : "<<v_c<<endl<<7*mu*(1+alpha)*v_star<<endl<<2*v_c.norme()<<endl;
+            cout<<"delta_v : "<<delta_v<<endl<<endl;
+            cout<<"Apres choc : "<<endl<<endl;
+            this->affiche(cout,true);
+            obj2.affiche(cout,true);
+        }
     }
 }
     

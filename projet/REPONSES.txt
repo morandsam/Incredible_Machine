@@ -72,3 +72,16 @@ P8.4: Premièrement Systeme est une classe que l'on veut pouvoir déclarer, c'es
       ainsi qu'une méthode affiche qui permet 2 types d'affichages (1 bool en paramètre) des composantes du système
 
 
+P11.1: Selon notre conception, nous avons décidé de représenter les composants d'un objet composé sous forme d'attributs.
+       Par exemple, un ventilateur possède un Vent et une Brique en attribut. La seule méthode à nos yeux pour laquelle une classe ObjetComplexe aurait du sens
+       est la méthode ajoute_a(Systeme) qui permettrait d'uniformiser la manière d'ajouter un ObjetComplexe à un système. Nous en avons conclu que de créer la classe 
+       ObjetComplexe "juste" pour ajouter cette méthode compliquerait grandement la tâche par rapport à la solution où on laisse tomber cette classe.
+       Donc nous n'avons pas ajouté de classe ObjetComplexe en raison de son manque d'utilité pour 1 seul ObjetComplexe.
+
+P12.1: Les intégrateurs RK4 et Newmark sont ajouté comme classe en tant que sous-classe de Integrateur. Ils sont donc au même niveau que Integrateur_EC et Integrateur_E.
+       Afin de comparer les différents intégrateurs il suffit de faire évoluer deux fois le système en lui donnant une fois un certain intégrateur et l'autre fois un autre intégrateur.
+       Ensuite, on peut tout simplement comparer les plots. Le fait que ces deux nouveaux intégrateurs font appel à la méthode evolue() d'un objet mobile avec d'autres paramètres que ses paramètres
+       actuels a engendré la création d'une nouvelle méthode evolue(Vecteur param_, Vecteur dev_temp_param_) qui permet de choisir quels paramètres on lui donne. La méthode evolue() appelle juste evolue(Vecteur param_, Vecteur dev_temp_param_) avec
+       les paramètres actuels de l'objet mobile.
+
+       

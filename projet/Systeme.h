@@ -11,7 +11,10 @@
 class Systeme : public Dessinable{
 
 public:
+    // Constructeurs
 
+    Systeme(bool infos_choc_): infos_choc(infos_choc_) {}
+    
     // Méthodes
 
     // Ajoute un pointeur sur un objet à la collection objets
@@ -34,6 +37,9 @@ private:
     std::vector<std::unique_ptr<ObjetMobile>> obj_mob;
     std::vector<std::unique_ptr<Obstacles>> obj_stat;
     std::vector<std::unique_ptr<ChampForces>> champs_forces;
+
+    // Permet de décider à l'initilisation d'un système sur les infos précises lors d'un choc sont affichées
+    bool infos_choc;
 
 };
 

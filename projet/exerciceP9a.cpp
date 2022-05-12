@@ -17,7 +17,7 @@ using namespace std;
 
 int main() {
 
-    Systeme syst;
+    Systeme syst(false);
 
     TextViewer ecran;
 

@@ -67,7 +67,7 @@ public:
 
 
     // Gestion des chocs entre objets mobiles
-    void agit_sur(ObjetMobile& obj2);
+    void agit_sur(ObjetMobile& obj2, bool infos_choc = true);
 
     // Méthode virtuelle utilisée dans agit_sur qui permet d'ajuster la vitesse résultante du choc en fonction de l'objet mobile considéré
     virtual void actualise_vitesse_choc(Vecteur const& delta_v) = 0;

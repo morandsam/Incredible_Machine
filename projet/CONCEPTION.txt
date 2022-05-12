@@ -53,18 +53,40 @@ semaine 5: Comme cette semaine a été une grosse semaine en terme de quantité 
     La méthode intègre que les deux sous classes d'Integrateur possède font appel à la fonction evolution d'un objet mobile en particulier.
     Grâce au polymorphisme une seule méthode intègre suffit par type d'intégrateurs (donc par classe)
 
-semaine 6: Les classes Systeme, Dessinable, SupportDessin, Textviewer ont été ajoutées au projet.
+semaine 6-7 : Les classes Systeme, Dessinable, SupportDessin, Textviewer ont été ajoutées au projet.
     Systeme: déjà décrite dans la réponse P8.4 (REPONSES.txt). De plus, cette classe est une sous-classe de Dessinable mais est indépendante de la branche "Objets"
     Dessinable: Interface abstraite qui possède seulement la méthode virtuelle pur dessine_sur. De plus elle est la super classe de Objets, car on veut pouvoir dessiner les différents objets.
     SupportDessin: Interface abstraite qui contient les méthodes virtuelles pures des différents objets dessinables.
-    Textviewer: Sous-classe de SupportDessin dédié à la représentation du système sous forme textuelle. Toutes les méthodes virtuelles pures de SupportDessin sont explicitement définies.
+    Textviewer: Sous-classe de SupportDessin dédiée à la représentation du système sous forme textuelle. Toutes les méthodes virtuelles pures de SupportDessin sont explicitement définies.
     Ces dernières consistent simplement à cout<<Type_Objets_Dessinables. Cependant l'affichage peut être modifié par rapport au cout<<Type_Objets_Dessinables standard grâce à l'ajout d'un paramètre
     de type bool complet dans toutes les méthodes affiches des objets mobiles. En choisissant false, seul un nombre restreint de données sur l'objet mobile sera affiché.
 
     De plus, la gestion des chocs grâce aux méthodes agit_sur ont été ajoutées telles qu'elles sont présentées dans le complément mathématique. Cependant, nous avons décidé d'ajouter un méthode
     actualise_vitesse_choc() qui s'adapte au type d'objets mobiles en question afin que par exemple le pendule n'obtienne pas un vitesse le long de sa barre. De plus nous avons encore ajouté à la classe 
-    ObjetMobile une méthode virtuelle pure get_force_choc() --> cette dernière possède une utilité pour la classe Pendule lors des chocs. En effet la force du pendule que nous devons prendre lors d'un choc
-    n'est pas l'attribut standard de la classe ObjetMobile mais bien la force qui agit sur la masse au bout du pendule. Cette méthode est déclarée au niveau d'ObjetMobile car on veut pouvoir l'utiliser de manière
-    polymorphique pour un ObjetMobile dans agit_sur() d'ObjetMobile. Le même raisonnement est effectué pour un ressort.
+    ObjetMobile deux méthodes virtuelles pure get_force_choc() et ajoute_force_choc() --> ces dernières possèdent une utilité bien spécifique pour le pendule et le ressort lors des chocs. En effet, la force du pendule que nous devons prendre ou ajouter lors d'un choc
+    n'est pas l'attribut standard de la classe ObjetMobile mais bien la force projettée le long de la tangente au mouvement du pendule (ou ressort). Plus spécifiquement, ajoute_force_choc ajoute la force calculée lors du choc au pendule (ou ressort) et ensuite projette le tout le long de la tangente au mouvement.
+    Ces méthodes sont déclarées au niveau d'ObjetMobile car on veut pouvoir les utiliser de manière polymorphique pour un ObjetMobile dans agit_sur() d'ObjetMobile. Le même raisonnement est effectué pour un ressort.
+
+    
+semaine 8-9 : Après avoir quelques temps essayé d'implémenter les graphismes à notre projet, nous avons décidé de ne pas l'ajouter au final en raison du caractère chronophage de cette tâche.
+
+semaine 10 : Différentes classes ont été ajoutées cette semaine :
+    Vent: Cette classe hérite de ChampForces mais l'attribut intensité de la classe ChampForces n'est pas utilisé. Ses attributs sont un vecteur longueur, un vecteur largeur, un vecteur unitaire direction, un double profondeur et un double vitesse.
+          La méthode agit_sur a été implémentée telle que présentée dans l'appendice mathématique. De plus une méthode booléene est_dans_le_vent a été ajoutée afin de savoir si un objet mobile se trouve ou pas dans la zone de souffle.
+    Ventilateur: Cette classe hérite de Objets directement. Nous avons décidé de représenter la brique et le vent qui compose cet objet complexe par un attribut brique et un attribut vent. Lorsque un ventilateur est ajouté à un système,
+          son attribut brique est ajouté aux obstacles du système et le vent est ajouté aux champs de forces du système. Ainsi, pour qu'un ventilateur puisse agir sur des objets mobiles il faut qu'il soit ajouté à un système. 
+    Au début nous avions pensé à faire une classe ObjetComplexe, mais nous avons finalement changé d'avis car : 
+          - aucun attribut n'aurait été hérité de cette classe (selon notre conception actuelle)
+          - si nous avions fait une classe ObejtComplexe ayant des tableaux d'Obstacles et de ChampForces comme attributs afin que les sous-classes d'ObejtComplexe puissent en hériter la conception aurait été beaucoup plus compliquée pour le même résultat au final.
+
+    De plus la méthode ajoute_a a été ajoutée à tous les objets pouvant faire partie d'un système et donc évoluer.
+
+semaine 11 : Différentes classes ont été ajoutées cette semaine :
+    Integrateur_RK4: Sous-classe d'Integrateur et sa méthode agit_sur est conforme à l'appendice mathématique.
+    Integrateur_Newmark: Sous-classe d'Integrateur à laquelle nousa vons ajouté l'attribut epsilon (contrôle de convergence pour la méthode agit_sur). La méthode agit_sur est conforme au complément mathématique.
+
+    De plus, un attribut bool infos_choc a été ajouté à la classe Systeme afin de pouvoir décider au moment de l'initialisation d'un système si l'on veut afficher les détails précis au moment d'un choc.
+    Cet attribut est transmis aux méthodes agit_sur de ObjetMobile et de Obstacles en paramètre.
+
 
     
