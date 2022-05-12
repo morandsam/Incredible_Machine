@@ -33,16 +33,16 @@ void Pendule::actualise_vitesse_choc(Vecteur const& delta_v)
     set_dev_temp_param(Vecteur((nouvelle_vitesse*(~get_vitesse_masse()))*1.0/get_longueur()));
 }
 
-Vecteur Pendule::get_force_choc() 
-{
-    return (force*(~get_vitesse_masse()))*(~get_vitesse_masse());
+Vecteur Pendule::get_force_choc(bool avec_projection) 
+{   
+    if(avec_projection) return (force*(~get_vitesse_masse()))*(~get_vitesse_masse());
+    else return force;
 }
 
-void Pendule::ajoute_force_choc(Vecteur const& df)
+void Pendule::ajoute_force_choc(Vecteur const& df, bool avec_projection)
 {
     force+=df;
-
-    force = force*(~get_vitesse_masse())*(~get_vitesse_masse());
+    if(avec_projection) force = force*(~get_vitesse_masse())*(~get_vitesse_masse());
 }
 
 void Pendule::set_force(Vecteur const& force_) 

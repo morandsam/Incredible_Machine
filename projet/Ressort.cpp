@@ -24,16 +24,16 @@ void Ressort::actualise_vitesse_choc(Vecteur const& delta_v)
     set_dev_temp_param(get_dev_temp_param() + (delta_v*direction)*direction);
 }
 
-Vecteur Ressort::get_force_choc() 
+Vecteur Ressort::get_force_choc(bool avec_projection) 
 {
-    return force*(~get_vitesse_masse())*(~get_vitesse_masse());
+    if(avec_projection) return force*(~get_vitesse_masse())*(~get_vitesse_masse());
+    else return force;
 }
 
-void Ressort::ajoute_force_choc(Vecteur const& df)
+void Ressort::ajoute_force_choc(Vecteur const& df, bool avec_projection)
 {
     force+=df;
-
-    force = force*(~get_vitesse_masse())*(~get_vitesse_masse());
+    if(avec_projection) force = force*(~get_vitesse_masse())*(~get_vitesse_masse());
 }
 
 void Ressort::set_force(Vecteur const& force_) 

@@ -44,9 +44,9 @@ public:
     virtual void calcul_vitesse_masse() = 0;
 
     // Méthodes virtuelles redéfinies dans Ressort et Pendule
-    virtual Vecteur get_force_choc() {return force;};
+    virtual Vecteur get_force_choc(bool avec_projection) {return force;};
     virtual void set_force(Vecteur const& force_) {force=force_;};
-    virtual void ajoute_force_choc(Vecteur const& df) {force+=df;};
+    virtual void ajoute_force_choc(Vecteur const& df, bool avec_projection) {force+=df;};
     virtual void set_param(Vecteur const& param_) {param=param_;};
     virtual void set_dev_temp_param(Vecteur const& dev_temp_param_) {dev_temp_param=dev_temp_param_;};
 
@@ -67,7 +67,7 @@ public:
 
 
     // Gestion des chocs entre objets mobiles
-    void agit_sur(ObjetMobile& obj2, bool infos_choc = true);
+    void agit_sur(ObjetMobile& obj2, bool infos_choc, bool avec_projection);
 
     // Méthode virtuelle utilisée dans agit_sur qui permet d'ajuster la vitesse résultante du choc en fonction de l'objet mobile considéré
     virtual void actualise_vitesse_choc(Vecteur const& delta_v) = 0;

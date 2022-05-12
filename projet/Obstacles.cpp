@@ -4,7 +4,7 @@
 using namespace std;
 
 
-void Obstacles::agit_sur(ObjetMobile& obj2, bool infos_choc) const
+void Obstacles::agit_sur(ObjetMobile& obj2, bool infos_choc, bool avec_projection) const
 {
     // Formules tirées de l'appendice mathématique lié au projet
     double alpha(0.8);
@@ -18,10 +18,10 @@ void Obstacles::agit_sur(ObjetMobile& obj2, bool infos_choc) const
         
 
         Vecteur n(~(obj2.get_position_masse()-calcul_point_plus_proche(obj2)));
-        double f_n_1(obj2.get_force()*n);
+        double f_n_1(obj2.get_force_choc(avec_projection)*n);
 
         if(f_n_1<0){
-           obj2.ajoute_force_choc((f_n_1*n).oppose());
+           obj2.ajoute_force_choc((f_n_1*n).oppose(),avec_projection);
         }
 
         double v_star((obj2.get_vitesse_masse().oppose())*n);

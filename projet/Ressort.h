@@ -28,9 +28,9 @@ public:
     void calcul_posi_masse();
     void calcul_vitesse_masse();
 
-    virtual Vecteur get_force_choc() override;
+    virtual Vecteur get_force_choc(bool avec_projection) override;
     void set_force(Vecteur const& force_) override;
-    void ajoute_force_choc(Vecteur const& df) override;
+    void ajoute_force_choc(Vecteur const& df, bool avec_projection) override;
     void set_param(Vecteur const& param_) override;
     void set_dev_temp_param(Vecteur const& dev_temp_param_) override;
     

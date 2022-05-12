@@ -13,7 +13,7 @@ class Systeme : public Dessinable{
 public:
     // Constructeurs
 
-    Systeme(bool infos_choc_): infos_choc(infos_choc_) {}
+    Systeme(bool infos_choc_, bool choc_avec_projection_ = false): infos_choc(infos_choc_), choc_avec_projection(choc_avec_projection_) {}
     
     // Méthodes
 
@@ -40,6 +40,7 @@ private:
 
     // Permet de décider à l'initilisation d'un système sur les infos précises lors d'un choc sont affichées
     bool infos_choc;
+    bool choc_avec_projection;
 
 };
 

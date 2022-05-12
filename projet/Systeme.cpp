@@ -53,11 +53,11 @@ void Systeme::evolue(Integrateur const& integr)
     for(size_t j(0);j<obj_mob.size();++j){
         
         for (size_t i(j+1);i<obj_mob.size();++i){
-            (*obj_mob[j]).agit_sur(*obj_mob[i], infos_choc);            
+            (*obj_mob[j]).agit_sur(*obj_mob[i], infos_choc,choc_avec_projection);            
         }
 
         for (size_t i(0);i<obj_stat.size();++i){
-            (*obj_stat[i]).agit_sur(*obj_mob[j], infos_choc);
+            (*obj_stat[i]).agit_sur(*obj_mob[j], infos_choc,choc_avec_projection);
         }
         
     }

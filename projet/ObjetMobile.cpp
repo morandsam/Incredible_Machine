@@ -35,7 +35,7 @@ void ObjetMobile::set_masse(double newmasse)
     calcul_masse_volumique();
 }
 
-void ObjetMobile::agit_sur(ObjetMobile& obj2, bool infos_choc)
+void ObjetMobile::agit_sur(ObjetMobile& obj2, bool infos_choc, bool avec_projection)
 {   
     // Formules tirées de l'appendice mathématique lié au projet
     double alpha(0.8);
@@ -50,16 +50,16 @@ void ObjetMobile::agit_sur(ObjetMobile& obj2, bool infos_choc)
         
         Vecteur n(~(get_position_masse()-obj2.get_position_masse()));
         double lambda((1+alpha)*(obj2.get_masse())/(get_masse() + obj2.get_masse()));
-        double f_n_1(get_force_choc()*n);
-        double f_n_2(obj2.get_force_choc()*n);
+        double f_n_1(get_force_choc(avec_projection)*n);
+        double f_n_2(obj2.get_force_choc(avec_projection)*n);
         if(f_n_1<0){
-            ajoute_force_choc((f_n_1*n).oppose());
-            obj2.ajoute_force_choc(f_n_1*n);
+            ajoute_force_choc((f_n_1*n).oppose(),avec_projection);
+            obj2.ajoute_force_choc(f_n_1*n,avec_projection);
         }
 
         if(f_n_2>0){
-            ajoute_force_choc(f_n_2*n);
-            obj2.ajoute_force_choc((f_n_2*n).oppose());
+            ajoute_force_choc(f_n_2*n,avec_projection);
+            obj2.ajoute_force_choc((f_n_2*n).oppose(),avec_projection);
         }
 
         double v_star((obj2.get_vitesse_masse()-get_vitesse_masse())*n);

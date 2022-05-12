@@ -20,7 +20,7 @@ using namespace std;
 
 int main() {
     
-    Systeme syst(false);
+    Systeme syst(false,false);
 
     TextViewer ecran;
 
@@ -72,9 +72,9 @@ int main() {
     
     cout<<syst;
 
-    for (size_t i(0);i<400;++i){
+    for (size_t i(0);i<300;++i){
         syst.dessine_sur(ecran);
-        syst.evolue(int1);
+        syst.evolue(int2);
     }
 
     return 0;

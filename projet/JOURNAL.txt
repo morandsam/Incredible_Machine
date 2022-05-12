@@ -11,15 +11,18 @@ Différents tests ont été effectués sur notre VM et tous les tests sont OK ! 
 De plus, une bonne partie de la semaine 5 est déjà effectuée car le polymorphisme a déjà été ajouté partout où nous jugions cela nécessaire.
 
 10.04 Le programme de la semaine 5 est terminé, les tests de chocs entre objets mobiles et objets mobiles ou encore entre objets mobiles et obstacles sont OK. De plus, même
-le dernier test (exo P10) est OK, cependant nous avond du retirer la force d'Archimède du pendule afin d'arriver au même résultat qui est donné dans le cours. De plus, 3 méthodes virtuelles
+le dernier test (exo P9) est OK, cependant nous avond du retirer la force d'Archimède du pendule afin d'arriver au même résultat qui est donné dans le cours. De plus, 3 méthodes virtuelles
 ont été rajoutées dans ObjetMobile; ces dernières trouvent leur utilité dans la fonction agit_sur()  (plus de détails dans le fichier conception).
 
 25.04 Nous décidons de laisser de côté QT et de nous concentrer sur le reste du programme, sinon nous sommes à jour.
 
-04.05 Nous avons fini le programme de la semaine, nous ne prévoyons pas d'ajouter d'autres Objet composé.
+04.05 Nous avons fini le programme de la semaine, i.e la classe Ventilateur et la classe Vent. De plus, nous avons fait un fichier de test testVentilateur.cpp dans lequel nous avons
+observé un comportement d'une balle devant un ventilateur conforme à ce à quoi nous nous attendions. Cependant, nous n'avons pas de valeurs réelles avec quoi pouvoir comparer...
 
-09.05 fin des dernières consignes, les deux integrateurs (RK4 et Newmark) focntionne correctement. 
+09.05 Les deux integrateurs (RK4 et Newmark) fonctionnent correctement. Les tests ont été effectué sur testIntegrateur1.cpp; le même graphe est obtenu que celui du prof. Et tous les fichiers de tests qui utilisent des inégrateurs 
+peuvent à présent utiliser n'importe lequel des 4 disponibles. Suite à la mise à jour du fichier projet06.pdf nous n'avons plus le même graphe que celui exposé en toute fin de fichier lors de la simulation final. Cependant tous les
+tests unitaires avant la simulation finale nous donne précisément les bons résultats. Affaire à suivre...
 
-12.05 création de "l'arbre héritage", relecture de concéption, journal et réponse.
+12.05 création de "l'arbre héritage" --> fichier pdf expliquant l'arborescence des classes. Mise à jour de la doc et quelques petits ajustements dans 1 ou 2 méthodes.
 
 
