@@ -4,24 +4,55 @@
 #include "Systeme.h"
 using namespace std;
 
- double Brique::distance(ObjetMobile const& obj2) const{
-     
-     // Cette liste d'initialisation de portions de plan vient directement de l'appendice mathématique du projet
-     Portion_plan f1(position_origine,normal,longueur_,~longueur,largeur_);
-     Portion_plan f2(position_origine,(~largeur).oppose(),hauteur,normal.oppose(),longueur_);
-     Portion_plan f3(position_origine,(~longueur).oppose(),largeur_,~largeur,hauteur);
-     Portion_plan f4(position_origine + longueur_*(~longueur),~longueur,hauteur,normal.oppose(),largeur_);
-     Portion_plan f5(position_origine + largeur_*(~largeur),~largeur,longueur_,~longueur,hauteur);
-     Portion_plan f6(position_origine - hauteur*normal,normal.oppose(),largeur_,~largeur,longueur_);
 
+Portion_plan Brique::get_f1() const
+{
+    // Cette liste d'initialisation de portions de plan vient directement de l'appendice mathématique du projet
+    return Portion_plan (position_origine,normal,longueur_,~longueur,largeur_);
+}
+
+Portion_plan Brique::get_f2() const
+{
+    // Cette liste d'initialisation de portions de plan vient directement de l'appendice mathématique du projet
+    return Portion_plan (position_origine,(~largeur).oppose(),hauteur,normal.oppose(),longueur_);
+}
+
+Portion_plan Brique::get_f3() const
+{
+    // Cette liste d'initialisation de portions de plan vient directement de l'appendice mathématique du projet
+    return Portion_plan (position_origine,(~longueur).oppose(),largeur_,~largeur,hauteur);
+}
+
+Portion_plan Brique::get_f4() const
+{
+    // Cette liste d'initialisation de portions de plan vient directement de l'appendice mathématique du projet
+    return Portion_plan (position_origine + longueur_*(~longueur),~longueur,hauteur,normal.oppose(),largeur_);
+}
+
+Portion_plan Brique::get_f5() const
+{
+    // Cette liste d'initialisation de portions de plan vient directement de l'appendice mathématique du projet
+    return Portion_plan (position_origine + largeur_*(~largeur),~largeur,longueur_,~longueur,hauteur);
+}
+
+Portion_plan Brique::get_f6() const
+{
+    // Cette liste d'initialisation de portions de plan vient directement de l'appendice mathématique du projet
+    return Portion_plan (position_origine - hauteur*normal,normal.oppose(),largeur_,~largeur,longueur_);
+}
+
+
+ double Brique::distance(ObjetMobile const& obj2) const
+ {
+     
      vector<double> distance(6,0);
 
-     distance[0]= (f1.distance(obj2));
-     distance[1]= (f2.distance(obj2));
-     distance[2]= (f3.distance(obj2));
-     distance[3]= (f4.distance(obj2));
-     distance[4]= (f5.distance(obj2));
-     distance[5]= (f6.distance(obj2));
+     distance[0]= (get_f1().distance(obj2));
+     distance[1]= (get_f2().distance(obj2));
+     distance[2]= (get_f3().distance(obj2));
+     distance[3]= (get_f4().distance(obj2));
+     distance[4]= (get_f5().distance(obj2));
+     distance[5]= (get_f6().distance(obj2));
      
      double distance_min(distance[0]);
 
@@ -30,38 +61,29 @@ using namespace std;
          if(distance[i]<distance_min){
              distance_min = distance[i];
          } 
-         
     }
     return distance_min;
  }
 
- Vecteur Brique::calcul_point_plus_proche(ObjetMobile const& obj2) const{
-     
-     Portion_plan f1(position_origine,normal,longueur_,~longueur,largeur_);
-     Portion_plan f2(position_origine,(~largeur).oppose(),hauteur,normal.oppose(),longueur_);
-     Portion_plan f3(position_origine,(~longueur).oppose(),largeur_,~largeur,hauteur);
-     Portion_plan f4(position_origine + longueur_*(~longueur),~longueur,hauteur,normal.oppose(),largeur_);
-     Portion_plan f5(position_origine + largeur_*(~largeur),~largeur,longueur_,~longueur,hauteur);
-     Portion_plan f6(position_origine - hauteur*normal,normal.oppose(),largeur_,~largeur,longueur_);
-     
-
+ Vecteur Brique::calcul_point_plus_proche(ObjetMobile const& obj2) const
+ {
      vector<Vecteur> point(6,Vecteur(0));
 
      vector<double> distance(6,0);
      
-     distance[0]= (f1.distance(obj2));
-     distance[1]= (f2.distance(obj2));
-     distance[2]= (f3.distance(obj2));
-     distance[3]= (f4.distance(obj2));
-     distance[4]= (f5.distance(obj2));
-     distance[5]= (f6.distance(obj2));
+     distance[0]= (get_f1().distance(obj2));
+     distance[1]= (get_f2().distance(obj2));
+     distance[2]= (get_f3().distance(obj2));
+     distance[3]= (get_f4().distance(obj2));
+     distance[4]= (get_f5().distance(obj2));
+     distance[5]= (get_f6().distance(obj2));
 
-     point[0]= (f1.calcul_point_plus_proche(obj2));
-     point[1]= (f2.calcul_point_plus_proche(obj2));
-     point[2]= (f3.calcul_point_plus_proche(obj2));
-     point[3]= (f4.calcul_point_plus_proche(obj2));
-     point[4]= (f5.calcul_point_plus_proche(obj2));
-     point[5]= (f6.calcul_point_plus_proche(obj2));
+     point[0]= (get_f1().calcul_point_plus_proche(obj2));
+     point[1]= (get_f2().calcul_point_plus_proche(obj2));
+     point[2]= (get_f3().calcul_point_plus_proche(obj2));
+     point[3]= (get_f4().calcul_point_plus_proche(obj2));
+     point[4]= (get_f5().calcul_point_plus_proche(obj2));
+     point[5]= (get_f6().calcul_point_plus_proche(obj2));
      
      Vecteur p_p_proche(point[0]);
      double distance_min(distance[0]);

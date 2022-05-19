@@ -20,7 +20,7 @@ using namespace std;
 
 int main() {
     
-    Systeme syst(false,false);
+    Systeme syst(false,true);
 
     TextViewer ecran;
 

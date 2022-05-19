@@ -38,6 +38,14 @@ public:
     double get_largeur_() const{return largeur_;}
     double get_hauteur() const{return hauteur;};
 
+    // Retroune les différentes faces de la brique
+    Portion_plan get_f1() const;
+    Portion_plan get_f2() const;
+    Portion_plan get_f3() const;
+    Portion_plan get_f4() const;
+    Portion_plan get_f5() const;
+    Portion_plan get_f6() const;
+
     void ajoute_a(Systeme& sys) const;
 
     // Méthode tirée mot à mot (comme demandé) de la donnée du projet

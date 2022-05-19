@@ -25,17 +25,10 @@ public:
     Vecteur get_position_masse() const {return position_masse;};
     Vecteur get_vitesse_masse() const {return vitesse_masse;};
     
-    void calcul_posi_masse();
-    void calcul_vitesse_masse();
-
-    virtual Vecteur get_force_choc(bool avec_projection) override;
-    void set_force(Vecteur const& force_) override;
-    void ajoute_force_choc(Vecteur const& df, bool avec_projection) override;
-    void set_param(Vecteur const& param_) override;
-    void set_dev_temp_param(Vecteur const& dev_temp_param_) override;
-    
+    void calcul_posi_masse() override;
+    void calcul_vitesse_masse() override;
+   
     // Retourne la fonction f (propre à l'évolution d'un ressort) qui est utilisée par l'intégrateur
-    Vecteur evolution() const override;
     Vecteur evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const override;
 
     void actualise_vitesse_choc(Vecteur const& delta_v) override;

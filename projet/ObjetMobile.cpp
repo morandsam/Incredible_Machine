@@ -35,6 +35,31 @@ void ObjetMobile::set_masse(double newmasse)
     calcul_masse_volumique();
 }
 
+Vecteur ObjetMobile::get_force_choc(bool avec_projection) const
+{   
+    if(avec_projection) return (force*(~get_vitesse_masse()))*(~get_vitesse_masse());
+    else return force;
+}
+
+void ObjetMobile::ajoute_force_choc(Vecteur const& df, bool avec_projection)
+{
+    force+=df;
+    if(avec_projection) force = force*(~get_vitesse_masse())*(~get_vitesse_masse());
+}
+
+void ObjetMobile::set_param(Vecteur const& param_)
+{
+    param=param_;
+    calcul_posi_masse();
+}
+
+void ObjetMobile::set_dev_temp_param(Vecteur const& dev_temp_param_)
+{
+    dev_temp_param=dev_temp_param_;
+    calcul_vitesse_masse();
+}
+
+
 void ObjetMobile::agit_sur(ObjetMobile& obj2, bool infos_choc, bool avec_projection)
 {   
     // Formules tirées de l'appendice mathématique lié au projet

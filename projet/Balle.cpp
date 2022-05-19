@@ -8,10 +8,6 @@
 using namespace std;
 
 
-Vecteur Balle::evolution() const
-{
-    return evolution(param,dev_temp_param);
-}
 
 Vecteur Balle::evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const
 {
@@ -19,7 +15,6 @@ Vecteur Balle::evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_)
     Vecteur f(temp*get_force());
     return f;
 }
-
 
 void Balle::ajoute_a(Systeme& sys) const
 {

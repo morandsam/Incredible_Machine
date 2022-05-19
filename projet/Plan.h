@@ -16,6 +16,8 @@ public:
 
     Vecteur get_position_origine() const {return position_origine;};
     Vecteur get_normal() const {return normal;};
+
+    
     Vecteur calcul_point_plus_proche(ObjetMobile const& Obj2) const override;
     double distance(ObjetMobile const& obj2) const override;
 

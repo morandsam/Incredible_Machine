@@ -35,20 +35,18 @@ public:
 
     // Méthodes
 
-    // Méthodes virtuelles pour le polymorphisme qui sont toutes redéfinies dans les sous classes
-    virtual Vecteur evolution() const ;
+    // Méthodes virtuelles
+    
     virtual Vecteur evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const = 0;
-    virtual Vecteur get_position_masse() const = 0;
-    virtual Vecteur get_vitesse_masse() const = 0;
-    virtual void calcul_posi_masse() = 0;
-    virtual void calcul_vitesse_masse() = 0;
-
-    // Méthodes virtuelles redéfinies dans Ressort et Pendule
-    virtual Vecteur get_force_choc(bool avec_projection) {return force;};
-    virtual void set_force(Vecteur const& force_) {force=force_;};
-    virtual void ajoute_force_choc(Vecteur const& df, bool avec_projection) {force+=df;};
-    virtual void set_param(Vecteur const& param_) {param=param_;};
-    virtual void set_dev_temp_param(Vecteur const& dev_temp_param_) {dev_temp_param=dev_temp_param_;};
+    virtual Vecteur get_position_masse() const {return get_param();};
+    virtual Vecteur get_vitesse_masse() const {return get_dev_temp_param();};
+    virtual Vecteur get_force_choc(bool avec_projection) const;
+    virtual void ajoute_force_choc(Vecteur const& df, bool avec_projection);
+    virtual void calcul_posi_masse() {};
+    virtual void calcul_vitesse_masse() {};
+    
+    
+    Vecteur evolution() const;
 
     Vecteur get_param() const {return param;};
     Vecteur get_dev_temp_param() const {return dev_temp_param;};
@@ -57,9 +55,12 @@ public:
     double get_masse() const {return masse;};
     double get_masse_volumique() const {return masse_volumique;};
     
+    void set_param(Vecteur const& param_);
+    void set_dev_temp_param(Vecteur const& dev_temp_param_);
     void set_rayon(double r) {rayon=r;};
     void set_masse_volumique(double masse_volumique);
     void set_masse(double masse);
+    void set_force(Vecteur const& force_) {force=force_;};
     void ajoute_force(Vecteur const& df) {force+=df;};
     
     void calcul_masse();
@@ -70,7 +71,7 @@ public:
     void agit_sur(ObjetMobile& obj2, bool infos_choc, bool avec_projection);
 
     // Méthode virtuelle utilisée dans agit_sur qui permet d'ajuster la vitesse résultante du choc en fonction de l'objet mobile considéré
-    virtual void actualise_vitesse_choc(Vecteur const& delta_v) = 0;
+    virtual void actualise_vitesse_choc(Vecteur const& delta_v) {set_dev_temp_param(get_dev_temp_param() + delta_v);};
     
     // Retourne la distance qui sépare deux objets mobiles bord à bord et non pas centre à centre
     double distance(ObjetMobile const& obj2) const;

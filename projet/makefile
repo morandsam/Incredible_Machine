@@ -3,12 +3,13 @@ CC = $(CXX)
 CXXFLAGS = -std=c++11 -Wall -g
 LDLIBS = -lm
 
-all: testChocs clean
+all: testPenduleSpherique clean
 
 exerciceP9a: exerciceP9a.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
 testChocs: testChocs.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
 testVecteur: testVecteur.o Vecteur.o
 testPendule: testPendule.o Pendule.o Vecteur.o ObjetMobile.o ChampForces.o Integrateur.o Integrateur_EC.o Integrateur_E.o Integrateur_RK4.o Integrateur_Newmark.o constantes.o Systeme.o Obstacles.o
+testPenduleSpherique: testPenduleSpherique.o PenduleSpherique.o Pendule.o Vecteur.o ObjetMobile.o ChampForces.o Integrateur.o Integrateur_EC.o Integrateur_E.o Integrateur_RK4.o Integrateur_Newmark.o constantes.o Systeme.o Obstacles.o
 testBalle: testBalle.o Balle.o Vecteur.o ChampForces.o ObjetMobile.o Objets.o constantes.o Systeme.o Obstacles.o
 testIntegrateur1: testIntegrateur1.o Integrateur.o Balle.o Integrateur_EC.o Integrateur_E.o Integrateur_RK4.o Integrateur_Newmark.o Objets.o ObjetMobile.o Vecteur.o Pendule.o constantes.o Systeme.o Obstacles.o
 testIntegrateur2: testIntegrateur2.o Integrateur.o Integrateur_E.o Integrateur_RK4.o Integrateur_Newmark.o ObjetMobile.o Vecteur.o Balle.o ChampForces.o Integrateur_EC.o Pendule.o Objets.o constantes.o Systeme.o Obstacles.o
@@ -52,6 +53,8 @@ Obstacles.o: Obstacles.cpp Obstacles.h Objets.h Vecteur.h Dessinable.h \
 Pendule.o: Pendule.cpp Pendule.h ObjetMobile.h Vecteur.h Objets.h \
  Dessinable.h SupportADessin.h constantes.h Systeme.h Obstacles.h \
  Integrateur.h Balle.h ChampForces.h
+PenduleSpherique.o: PenduleSpherique.cpp PenduleSpherique.h ObjetMobile.h \
+ Vecteur.h Objets.h Dessinable.h SupportADessin.h Pendule.h constantes.h
 Plan.o: Plan.cpp Plan.h Obstacles.h Objets.h Vecteur.h Dessinable.h \
  SupportADessin.h ObjetMobile.h Systeme.h Integrateur.h Balle.h \
  ChampForces.h
@@ -86,6 +89,10 @@ testPendule.o: testPendule.cpp Vecteur.h Pendule.h ObjetMobile.h Objets.h \
  Dessinable.h SupportADessin.h constantes.h Integrateur.h Balle.h \
  Integrateur_EC.h Integrateur_E.h Integrateur_Newmark.h Integrateur_RK4.h \
  ChampForces.h
+testPenduleSpherique.o: testPenduleSpherique.cpp Vecteur.h \
+ PenduleSpherique.h ObjetMobile.h Objets.h Dessinable.h SupportADessin.h \
+ Pendule.h constantes.h Integrateur.h Balle.h Integrateur_EC.h \
+ Integrateur_E.h Integrateur_Newmark.h Integrateur_RK4.h ChampForces.h
 testRessort.o: testRessort.cpp Vecteur.h Ressort.h ObjetMobile.h Objets.h \
  Dessinable.h SupportADessin.h Integrateur.h Balle.h Integrateur_EC.h \
  Integrateur_Newmark.h Integrateur_RK4.h ChampForces.h constantes.h
@@ -106,8 +113,6 @@ Vent.o: Vent.cpp Vent.h ChampForces.h Vecteur.h Objets.h Dessinable.h \
 Ventilateur.o: Ventilateur.cpp Ventilateur.h Vent.h ChampForces.h \
  Vecteur.h Objets.h Dessinable.h SupportADessin.h Brique.h Portion_plan.h \
  Plan.h Obstacles.h ObjetMobile.h Systeme.h Integrateur.h Balle.h
-
-
 
 clean:
 ifdef OS

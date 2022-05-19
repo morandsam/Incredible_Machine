@@ -22,26 +22,21 @@ public:
     double get_frottement() const {return frottement;};
     double get_longueur() const {return longueur;};
     Vecteur get_direction() const {return direction;};
-    Vecteur get_position_masse() const {return position_masse;};
-    Vecteur get_vitesse_masse() const {return vitesse_masse;};
+    Vecteur get_position_masse() const override {return position_masse;};
+    Vecteur get_vitesse_masse() const override {return vitesse_masse;};
     
     
 
     // Retourne la fonction f (propre à l'évolution d'un pendule) qui est utilisée par l'intégrateur
-    Vecteur evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const override;
-    Vecteur evolution() const override;
-
-    void actualise_vitesse_choc(Vecteur const& delta_v) override;
+    virtual Vecteur evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_) const override;
     
-    virtual Vecteur get_force_choc(bool avec_projection) override;
-    void ajoute_force_choc(Vecteur const& df, bool avec_projection) override;
-    void set_force(Vecteur const& force_) override;
-    void set_param(Vecteur const& param_) override;
-    void set_dev_temp_param(Vecteur const& dev_temp_param_) override;
     
     // Permet d'actualiser la position et la vitesse de la masse en fonction de param et dev_temp_param
-    void calcul_posi_masse();
-    void calcul_vitesse_masse();
+    virtual void calcul_posi_masse() override;
+    virtual void calcul_vitesse_masse() override;
+
+    void actualise_vitesse_choc(Vecteur const& delta_v) override;
+
 
     void ajoute_a(Systeme& sys) const;
     
@@ -50,7 +45,7 @@ public:
     
     std::ostream& affiche(std::ostream& sortie,bool complet = true) const override;
 
-private:
+protected:
 
     // Attributs
 
