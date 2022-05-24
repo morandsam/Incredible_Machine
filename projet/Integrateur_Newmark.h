@@ -9,7 +9,7 @@ public:
 
     // Constructeurs
 
-    Integrateur_Newmark(double dt_, double epsilon_ = 0.00001): Integrateur(dt_), epsilon(epsilon_) 
+    Integrateur_Newmark(double dt_, double epsilon_ = 0.0000000001): Integrateur(dt_), epsilon(epsilon_) 
     {
         if (epsilon<0){
             epsilon = 0.00001;

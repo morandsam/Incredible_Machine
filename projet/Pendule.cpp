@@ -71,6 +71,7 @@ ostream& Pendule::affiche(ostream& sortie, bool complet) const
         sortie<<force<<" # force sur pendule"<<endl<<endl;
     } else {
         sortie<<position_masse<<endl;
+        //sortie<<param<<" "<<dev_temp_param<<endl;
         //sortie<<dev_temp_param<<endl;
     }
 

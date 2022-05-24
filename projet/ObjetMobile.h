@@ -56,7 +56,7 @@ public:
     double get_masse_volumique() const {return masse_volumique;};
     
     void set_param(Vecteur const& param_);
-    void set_dev_temp_param(Vecteur const& dev_temp_param_);
+    virtual void set_dev_temp_param(Vecteur const& dev_temp_param_);
     void set_rayon(double r) {rayon=r;};
     void set_masse_volumique(double masse_volumique);
     void set_masse(double masse);

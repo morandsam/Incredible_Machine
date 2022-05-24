@@ -18,5 +18,4 @@ public:
     void dessine(ChampForces const& champforces) override;
     void dessine(Ventilateur const& ventilateur) override;
     void dessine(Vent const& vent) override;
-
 };

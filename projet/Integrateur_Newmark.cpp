@@ -28,7 +28,6 @@ void Integrateur_Newmark::integre(ObjetMobile& obj) const
         p_point_final+= p_point + 0.5*dt*(r+s);
         p_final-=p_final;
         p_final += p + dt*p_point + (dt*dt/3)*(0.5*r + s);
-        cout<<"y "<<(p_final - q).norme()<<endl;
     } while ((p_final - q).norme()>=epsilon);
 
     obj.set_param(p_final);
