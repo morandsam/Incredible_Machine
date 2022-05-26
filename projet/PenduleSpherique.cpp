@@ -40,7 +40,8 @@ Vecteur PenduleSpherique::evolution(Vecteur const& param_ , Vecteur const& dev_t
     }
 
     // Formule tirée de l'appendice mathématique
-    Vecteur p_point_point(sin(param_.get_coord(0))*(cos(param_.get_coord(0))*pow(dev_temp_param_.get_coord(1),2)+(g/longueur)), temp*dev_temp_param_.get_coord(0)*dev_temp_param_.get_coord(1));
+    Vecteur p_point_point(sin(param_.get_coord(0))*(cos(param_.get_coord(0))*pow(dev_temp_param_.get_coord(1),2)+(g/longueur)) - (frottement / (masse * longueur*longueur)*dev_temp_param_.get_coord(0)), 
+                        temp*dev_temp_param_.get_coord(0)*dev_temp_param_.get_coord(1) - (frottement / (masse * longueur*longueur)*dev_temp_param_.get_coord(1)));
     
     return p_point_point;
 }

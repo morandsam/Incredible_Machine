@@ -24,11 +24,11 @@ int main(){
     double longueur(2);
     double rayon(0);
     double masse(0.1);
-    double frottement(0.0);
+    double frottement(0.005);
 
     ChampForces g_(0,0,g);
 
-    PenduleSpherique p(position,vitesse,force,origine,masse,rayon,longueur);
+    PenduleSpherique p(position,vitesse,force,origine,masse,rayon,longueur,frottement);
 
     g_.agit_sur(p);
 

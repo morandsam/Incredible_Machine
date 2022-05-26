@@ -15,7 +15,7 @@ using namespace std;
 
 int main() {
 
-    Systeme sys(true);
+    Systeme sys(false);
 
     TextViewer affichage;
     Integrateur_EC inte (0.01);

@@ -1,0 +1,87 @@
+P1.1 : Les vecteurs sont représentés par des vector<double>. Cela permet de rester flexible
+sur les changements de dimensions et représente une manière intuitive de représenter un vecteur.
+
+Le vector<double> qui représente donc les composantes du vecteur constitue l'unique attribut (privé) du vecteur.
+Cela a été en privé dans le but que seulement les méthodes de la classe puissent modifier le vecteur. Et "cacher"
+les attributs au programmeur utilisateur nous permet de mieux proteger la structure de notre Classe Vecteur et de 
+lui fournir que les outils essentiels au bon fonctionnement du programme.
+
+Toutes les méthodes de modification d'un vecteur (au nombre de 14) ont été mises en publique car chacune pourrait
+avoir une utilité dans la suite du programme. Et en mettant toutes ces méthodes publique nous permettons au 
+programmeur utilisateur de les utiliser avec simplicité sans avoir à comprendre les calculs qui donne le résultat demandé
+
+P1.2: Concernant l'addition et la soustraction, on a décidé de "simuler" les dimensions manquantes en cas 
+de différence entre les 2 vecteurs. Cela n'a aucun sens mathématiquement parlant mais d'une point de vue physique
+ça peut en avoir un.
+
+Concernant le produit scalaire et le produit vectorielle des erreurs seront lancées si les dimensions ne sont pas les mêmes.
+
+P4.1: Un constructeur de copie a été ajouté car il pourrait avoir une utilité potentielle dans le futur. Mieux vaut en mettre
+un que de ne pas en mettre et en avoir besoin plus tard
+
+P4.2: a) On aurait soit un array ou vector de dimension 3 ou 3 attributs représentant 2 angles et 1 norme qui représenteraient les coordonnées sphériques
+      b) On ne pourrait plus faire la différence entre une déclaration en coordonnées sphériques et coordonnées cartésiennes au niveau du constructeur
+
+P4.3: affiche: surcharge d'opérateur externe(ostream&) << qui appelle une méthode de type ostream& affiche
+      compare: surcharge d'opérateur externe(bool) == et != qui appelle une méthode de type bool compare. 
+
+P5.1: Nous avons décidé de mettre la masse ainsi que la masse volumique comme attribut, mais nous avons 
+      créé une méthode qui permet, quand on change la masse volumique, de calculer la nouvelle masse et inversément.
+
+P5.2 Nous avons choisi que la fonction agit_sur renvoie un void car elle a besoin "que" de changer
+      les forces appliquées sur la Balle, la structure pris en argument. De plus agit_sur modifie déjà les
+      forces appliquées sur la Balle puisque l'argument est pris en référence et non pas en tant que copie, cela nous permettant 
+      de modifier directement les données de la balle.
+
+P6.1 La classe Balle devient une sous-classe de la super-classe ObjetMobile
+
+P6.2 Pendule constitue une sous-classe de la super-classe ObjetMobile au même titre que Balle.
+      De plus, les attributs de la classe ObjetMobile deviennent protected et non plus private, car
+      on les utilise dans les différentes sous-classes d'ObjetMobile
+  
+P6.3 Obstacles devient une classe. ObjetMobile et Obstacles sont des sous-classes de la super classe Objets
+      Ces 3 dernières classes sont des classes abstraites qui nous permettront de faire du polymorphisme.
+      De plus le vecteur position_origine devient un attribut de la classe Objets qui ainsi le partage avec 
+      les ObjetMobile et les Obstacles.
+
+P7.1 Integrateur est une "super" classe abstraite de toutes les classes qui représentent un inégrateur en particulier.
+      Integrateur possède comme attribut "dt" qui est un attribut (protected) commun à tous les intégrateurs.
+
+P7.2 IntegrateurEulerCromer est une sous-classe de la super classe Integrateur
+
+P8.1: Ce doit être une méthode virtuelle pure, car on veut pouvoir pratiquer du polymorphisme grâce à elle.
+
+P8.2: L'idée est de pouvoir pratiquer du polymoprhisme sur les éléments du système. Etant donné qu'il n'est pas possible
+      de faire un vector de référence, nous sommes obligés d'utiliser un vector de pointeurs sur des objets (objets mobiles, obstacles, champs de forces)
+
+P8.3: Il faut impérativement que les valeurs pointées par une instance de cette classe aient une durée de vie plus longue que que l'instance elle-même.
+      De plus, il ne faut pas oublier de désallouer la mémoire utilisée par un pointeur lorsque l'on ne l'utilise plus.
+      C'est pourquoi, nous avons décidé d'utiliser des unique_ptr de part leur simplicité d'utilisation.
+
+
+P8.4: Premièrement Systeme est une classe que l'on veut pouvoir déclarer, c'est-à-dire qu'elle ne doit pas être abstraite.
+      Ses attributs (3) sont des vectors de unique_ptr sur (respectivement) des objets mobiles, des obstacles et des champs de forces
+      qui composent notre système.
+      Systeme est aussi doté de 3 méthodes qui permettent d'ajouter les 3 types d'objets qui le compose (en particulier des pointeurs sur ces objets)
+      Systeme est aussi doté d'une méthode évolue qui fait concrètement 3 choses:
+            1: (Ré)initialiser les champs de forces sur tous les objets mobiles    
+            2: Gérer les chocs entre les différents composantes du système en appelant la méthode agit_sur()
+            3: Intégrer d'un pas de temps tous les objets mobiles du système
+
+      Pour finir, Systeme est doté de la méthode dessine_sur (étant donné qu'on voudra pouvoir afficher à l'écran un système),
+      ainsi qu'une méthode affiche qui permet 2 types d'affichages (1 bool en paramètre) des composantes du système
+
+
+P11.1: Selon notre conception, nous avons décidé de représenter les composants d'un objet composé sous forme d'attributs.
+       Par exemple, un ventilateur possède un Vent et une Brique en attribut. La seule méthode à nos yeux pour laquelle une classe ObjetComplexe aurait du sens
+       est la méthode ajoute_a(Systeme) qui permettrait d'uniformiser la manière d'ajouter un ObjetComplexe à un système. Nous en avons conclu que de créer la classe 
+       ObjetComplexe "juste" pour ajouter cette méthode compliquerait grandement la tâche par rapport à la solution où on laisse tomber cette classe.
+       Donc nous n'avons pas ajouté de classe ObjetComplexe en raison de son manque d'utilité pour 1 seul ObjetComplexe.
+
+P12.1: Les intégrateurs RK4 et Newmark sont ajouté comme classe en tant que sous-classe de Integrateur. Ils sont donc au même niveau que Integrateur_EC et Integrateur_E.
+       Afin de comparer les différents intégrateurs il suffit de faire évoluer deux fois le système en lui donnant une fois un certain intégrateur et l'autre fois un autre intégrateur.
+       Ensuite, on peut tout simplement comparer les plots. Le fait que ces deux nouveaux intégrateurs font appel à la méthode evolue() d'un objet mobile avec d'autres paramètres que ses paramètres
+       actuels a engendré la création d'une nouvelle méthode evolue(Vecteur param_, Vecteur dev_temp_param_) qui permet de choisir quels paramètres on lui donne. La méthode evolue() appelle juste evolue(Vecteur param_, Vecteur dev_temp_param_) avec
+       les paramètres actuels de l'objet mobile.
+
+       

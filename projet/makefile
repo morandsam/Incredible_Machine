@@ -3,7 +3,7 @@ CC = $(CXX)
 CXXFLAGS = -std=c++11 -Wall -g
 LDLIBS = -lm
 
-all: testPenduleSpherique clean
+all: testVentilateur clean
 
 exerciceP9a: exerciceP9a.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
 testChocs: testChocs.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
@@ -15,7 +15,7 @@ testIntegrateur1: testIntegrateur1.o Integrateur.o Balle.o Integrateur_EC.o Inte
 testIntegrateur2: testIntegrateur2.o Integrateur.o Integrateur_E.o Integrateur_RK4.o Integrateur_Newmark.o ObjetMobile.o Vecteur.o Balle.o ChampForces.o Integrateur_EC.o Pendule.o Objets.o constantes.o Systeme.o Obstacles.o
 testObstacle: testObstacle.o Obstacles.o Vecteur.o Balle.o Brique.o Plan.o Portion_plan.o ChampForces.o ObjetMobile.o Objets.o constantes.o Systeme.o 
 testRessort: testRessort.o Ressort.o Vecteur.o ObjetMobile.o ChampForces.o Integrateur.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o constantes.o Systeme.o Obstacles.o
-testVentilateur: testVentilateur.o Vecteur.o Balle.o ObjetMobile.o Obstacles.o Integrateur.o Integrateur_EC.o Integrateur_E.o Integrateur_RK4.o Integrateur_Newmark.o Objets.o ChampForces.o Vent.o Brique.o TextViewer.o Systeme.o Portion_plan.o Plan.o SupportADessin.o Dessinable.o constantes.o Pendule.o Ressort.o Ventilateur.o
+testVentilateur: testVentilateur.o Vecteur.o Balle.o ObjetMobile.o Obstacles.o Integrateur.o Integrateur_EC.o Integrateur_E.o Integrateur_RK4.o Integrateur_Newmark.o Objets.o ChampForces.o Vent.o Brique.o TextViewer.o Systeme.o Portion_plan.o Plan.o constantes.o Pendule.o Ressort.o Ventilateur.o
 
 Balle.o: Balle.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h \
  SupportADessin.h Systeme.h Obstacles.h Integrateur.h ChampForces.h
@@ -26,7 +26,6 @@ ChampForces.o: ChampForces.cpp Vecteur.h ObjetMobile.h Objets.h \
  Dessinable.h SupportADessin.h Systeme.h Obstacles.h Integrateur.h \
  Balle.h ChampForces.h
 constantes.o: constantes.cpp Vecteur.h constantes.h
-Dessinable.o: Dessinable.cpp Dessinable.h
 exerciceP9a.o: exerciceP9a.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h \
  Dessinable.h SupportADessin.h Integrateur_E.h Integrateur.h \
  Integrateur_EC.h Integrateur_Newmark.h Integrateur_RK4.h ChampForces.h \
@@ -64,7 +63,6 @@ Portion_plan.o: Portion_plan.cpp Portion_plan.h Plan.h Obstacles.h \
 Ressort.o: Ressort.cpp Ressort.h ObjetMobile.h Vecteur.h Objets.h \
  Dessinable.h SupportADessin.h Systeme.h Obstacles.h Integrateur.h \
  Balle.h ChampForces.h
-SupportADessin.o: SupportADessin.cpp SupportADessin.h
 Systeme.o: Systeme.cpp Systeme.h Dessinable.h ObjetMobile.h Vecteur.h \
  Objets.h SupportADessin.h Obstacles.h Integrateur.h Balle.h \
  ChampForces.h constantes.h

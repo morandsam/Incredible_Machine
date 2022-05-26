@@ -10,8 +10,8 @@ public:
 
     // Constructeurs
 
-    PenduleSpherique(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, double masse_, double rayon_, double longueur_)
-    :  Pendule( position_, vitesse_,  force_,  origine, masse_, rayon_, longueur_, 0 )
+    PenduleSpherique(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, double masse_, double rayon_, double longueur_, double frottement_)
+    :  Pendule( position_, vitesse_,  force_,  origine, masse_, rayon_, longueur_, frottement_)
     {
         calcul_posi_masse();
         calcul_vitesse_masse();
