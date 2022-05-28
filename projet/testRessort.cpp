@@ -16,7 +16,6 @@ int main(){
 
     Vecteur position(0.4);
     Vecteur vitesse(0.0);
-    Vecteur force(0,0,0);
     Vecteur origine(0,0,1);
     double longueur(1);
     double rayon(0);
@@ -27,7 +26,7 @@ int main(){
 
     ChampForces g_(0,0,g);
 
-    Ressort r (position,vitesse,force,origine,direction_,masse,rayon,longueur,frottement,k_);
+    Ressort r (position,vitesse,origine,direction_,masse,rayon,longueur,frottement,k_);
 
     g_.agit_sur(r);
 

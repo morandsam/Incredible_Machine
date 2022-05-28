@@ -20,7 +20,7 @@ int main() {
     TextViewer affichage;
     Integrateur_EC inte (0.01);
 
-    Balle balle(Vecteur(5,0.5,1.5),Vecteur(0,0,0),Vecteur(0,0,0),Vecteur(0,0,0),2.5,0.25);
+    Balle balle(Vecteur(5,0.5,1.5),Vecteur(0,0,0),2.5,0.25);
     
     //Ventilateur ventilateur(Vecteur(3,1,0),Vecteur(0,-3,0),Vecteur(-3,0,0),1,10,100);
 

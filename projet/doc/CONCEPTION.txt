@@ -88,5 +88,15 @@ semaine 11 : Différentes classes ont été ajoutées cette semaine :
     De plus, un attribut bool infos_choc a été ajouté à la classe Systeme afin de pouvoir décider au moment de l'initialisation d'un système si l'on veut afficher les détails précis au moment d'un choc.
     Cet attribut est transmis aux méthodes agit_sur de ObjetMobile et de Obstacles en paramètre.
 
+semaine 12: Un attribut bool choc_avec_projection a été ajouté à la classe Systeme afin de pouvoir décider lors de l'initialisation d'un système si l'on veut que les forces (d'un pendule par ex.) soient projettées ou non lors d'un choc.
+    Nous avons aussi supprimé et modifié quelques méthodes dans ObjetMobile ainsi que dans ses sous-classes afin d'éviter la duplication de code, mais ces petites modifications ne changent absolument rien par rapport au fonctionnement ultérieur.
+    Dans le même objectif, nous avons rajouté 6 méthodes dans la classe Brique qui permettent de renvoyer l'un des 6 plans de la Brique (get_f1(),get_f2(),...).
 
-    
+semaine 13: Ajout de la classe PenduleSpherique qui est une sous classe de Pendule. Les attributs de Pendule sont désormais en protected car ils sont tous réutilisés dans PenduleSpherique.
+    Les méthodes evolution(Vecteur const& param_ , Vecteur const& dev_temp_param_), calcul_posi_masse et calcul_vitesse_masse ont étés overridées afin qu'elles d'adaptent au pendule sphérique.
+    Les corps de ces 3 méthodes sont tout simplement tirés du complément mathématique. Le constructeur de PenduleSpherique appelle directement le constructeur de Pendule, cependant comme le constructeur
+    de Pendule appelle le calcul_posi_masse et le calcul_vitesse_masse de Pendule, le constucteur de PenduleSpherique appelle dans son corps le calcul_posi_masse et le calcul_vitesse_masse de PenduleSpherique.
+    De plus une nouvelle méthode bool est_vertical() est ajoutée : elle permet de savoir si le theta de PenduleSpherique est proche de 0 ou non (afin d'éviter une division par zéro). Dans le cas où theta est très proche
+    de zéro la fonction evolution met le cotan(theta) = 0 et phi_point = 0 afin d'éviter l'erreur. phi_point est mis égal à zéro dans ce cas pour des raisons de physique pures évidentes. Afin de pouvoir mettre ce phi_point = 0,
+    la méthode set_dev_temp_param a aussi été overridée. Elle demande si le pendule sphérique est vertical et seulement dans le cas où il est effectivement vertical elle set phi_point à zéro pour le prochain pas d'intégration.
+    Je note ici que theta = param.get_coord(0) et phi = param.get_coord(1). Nous avons aussi remarqué que Euleur-Cromer n'est pas un bon intégrateur pour ce type d'objets; c'est pourquoi nous utilisons RK4 ou Newmark.

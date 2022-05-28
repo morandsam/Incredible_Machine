@@ -26,7 +26,7 @@ int main(){
 
     ChampForces g_(0,0,g);
 
-    Pendule p(position,vitesse,force,origine,masse,rayon,longueur,frottement);
+    Pendule p(position,vitesse,origine,masse,rayon,longueur,frottement);
 
     g_.agit_sur(p);
 

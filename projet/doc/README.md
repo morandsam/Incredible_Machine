@@ -96,7 +96,7 @@ Pour les Classes héritant d'obstacles le constructeur a besoin de (dans l'ordre
     . vecteur unitaire de la direction de la longueur 
     . vecteur unitaire de la direction de la largeur
     . de la hauteur de la brique
-    . de la profondeur
+    . de la profondeur du vent
     .?????????? v_0
 
 
@@ -123,3 +123,27 @@ Pour faire démarrer la simulation il faut choisir l'integrateur en lui donnant 
 
 
 
+
+
+
+
+Modifs :
+
+constructeur de balle modifié --> check le (force et origine en valeur par défaut)
+constructeur de pendule modifié --> force par default 3D 0 0 0
+constructeur de pendule spherique modifié --> force par défault 3D 0 0 0
+constructeur de ressort modifié --> force par défault 3D 0 0 0 
+
+--> si on veut faire une force 2D 0 0 il faut l'expliciter car elle est en 3D si on explique rien explicitement 
+
+Je pense que c'est pas nécessaire de lire Conceptiom.txt pour utiliser le projet --> c'est pour le comprendre
+
+Systeme est un ensemble d'objets dont la fonction d'évolution permet de les faire évoluer et intéragir entre eux en cas de chocs
+
+Il faut préciser que syst.dessine_sur appelle TOUJOURS sys.affiche(false) --> ça veut dire que lorsqu'on dessine un système seulement la position des différentes masses est indiquée
+Il faut préciser dans quels ordres les infos apparaissent (i.e alterné)
+Il faut préciser que le premier paramètre pour déclarer un système permet de donner des infos précises au moment d'un choc SEULEMENT et que le second parmaètre permet de décider si l'on projette ou pas les forces 
+
+j'ai ajouté bac_a_sable.cpp qui sera un peu notre executable final --> tu peux remettre dedans les objets de testChocs, testPenduleSpherique, testObstacle, testVentilateur par exemple
+
+Fait déjà ça et on verra ensuite si il manque encore des trucs... corrige aussi l'orthographe ^^ parce que là c'est illisible :)

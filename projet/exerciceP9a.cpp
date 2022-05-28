@@ -26,7 +26,7 @@ int main() {
     Vecteur param(0,0,0);
     Vecteur dev_param(0,0.1,0.2);
 
-    Balle balle(param,dev_param,Vecteur(0,0,0),Vecteur(0,0,0),0.100530964914873,0.2);
+    Balle balle(param,dev_param,0.100530964914873,0.2);
 
     g_.agit_sur(balle);
 

@@ -19,7 +19,6 @@ int main(){
 
     Vecteur position(M_PI_2,0);
     Vecteur vitesse(0,0.5);
-    Vecteur force(0,0,0);
     Vecteur origine(0,0,2);
     double longueur(2);
     double rayon(0);
@@ -28,7 +27,7 @@ int main(){
 
     ChampForces g_(0,0,g);
 
-    PenduleSpherique p(position,vitesse,force,origine,masse,rayon,longueur,frottement);
+    PenduleSpherique p(position,vitesse,origine,masse,rayon,longueur,frottement);
 
     g_.agit_sur(p);
 

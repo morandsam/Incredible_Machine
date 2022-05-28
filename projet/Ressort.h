@@ -11,7 +11,7 @@ public:
 
     // Constructeurs
 
-    Ressort(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, Vecteur const& direction_, double masse_, double rayon_, double longueur_repos_, double frottement_,double k_)
+    Ressort(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& origine, Vecteur const& direction_, double masse_, double rayon_, double longueur_repos_, double frottement_,double k_, Vecteur const& force_ = Vecteur(0,0,0))
     : ObjetMobile(position_,vitesse_,force_,origine,masse_,rayon_),longueur_repos(longueur_repos_),frottement(frottement_), k(k_), direction(~direction_),
     position_masse(origine+ (get_param().get_coord(0))*direction),
     vitesse_masse((get_dev_temp_param().get_coord(0))*direction)

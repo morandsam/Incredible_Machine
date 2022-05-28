@@ -19,10 +19,17 @@ ont été rajoutées dans ObjetMobile; ces dernières trouvent leur utilité dan
 04.05 Nous avons fini le programme de la semaine, i.e la classe Ventilateur et la classe Vent. De plus, nous avons fait un fichier de test testVentilateur.cpp dans lequel nous avons
 observé un comportement d'une balle devant un ventilateur conforme à ce à quoi nous nous attendions. Cependant, nous n'avons pas de valeurs réelles avec quoi pouvoir comparer...
 
-09.05 Les deux integrateurs (RK4 et Newmark) fonctionnent correctement. Les tests ont été effectué sur testIntegrateur1.cpp; le même graphe est obtenu que celui du prof. Et tous les fichiers de tests qui utilisent des inégrateurs 
+09.05 Les deux integrateurs (RK4 et Newmark) fonctionnent correctement. Les tests ont été effectué sur testIntegrateur1.cpp; le même graphe est obtenu que celui du prof. Et tous les fichiers de tests qui utilisent des intégrateurs 
 peuvent à présent utiliser n'importe lequel des 4 disponibles. Suite à la mise à jour du fichier projet06.pdf nous n'avons plus le même graphe que celui exposé en toute fin de fichier lors de la simulation final. Cependant tous les
 tests unitaires avant la simulation finale nous donne précisément les bons résultats. Affaire à suivre...
 
 12.05 création de "l'arbre héritage" --> fichier pdf expliquant l'arborescence des classes. Mise à jour de la doc et quelques petits ajustements dans 1 ou 2 méthodes.
 
+19.05 Plusieurs tests on été effectués pour la simulation finale de l'exercice P9 et voici les conclusions: En fonction de l'intégrateur choisi (EC/RK4), la prise en compte d'Archimède ou non sur le pendule
+ainsi que la projection ou non des forces sur le pendule (lors d'un choc) le résultat varie sensiblement. Nous avons donc décidé d'ajouter dans le répertoire doc les 8 fichiers de données ainsi que les 8 images de plot.
+
+23.05 Quelques modifications dans ObjetMobile et Brique ont été apportées afin de supprimer des duplications de codes. Ecriture de classe PenduleSpherique 
+
+27.05 La classe PenduleSpherique est opérationnel et nous avons ajouté en plus le frottement (qui ne se trouve pas dans le complément mathématique). Un fichier testPenduleSpherique afin de tester le bon fonctionnement de la classe.
+Nous n'avons pas de valeurs précises pour comparer mais les plots ont révélés précisément ce à quoi nous nous attendions. 2 fichiers de données et 2 plots ont été ajoutés au répertoire plot.
 

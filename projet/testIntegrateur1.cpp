@@ -18,7 +18,7 @@ int main()
     Vecteur param(0,1);
     Vecteur dev_param(1,2);
 
-    Balle balle(param,dev_param,Vecteur(0,0),Vecteur(0,0),0.127,0);
+    Balle balle(param,dev_param,0.127,0,Vecteur(0,0),Vecteur(0,0));
 
     Integrateur_EC int1(0.01);
     Integrateur_RK4 int2(0.01);

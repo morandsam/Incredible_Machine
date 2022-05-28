@@ -3,8 +3,9 @@ CC = $(CXX)
 CXXFLAGS = -std=c++11 -Wall -g
 LDLIBS = -lm
 
-all: testVentilateur clean
+all: bac_a_sable clean
 
+bac_a_sable: bac_a_sable.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o PenduleSpherique.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
 exerciceP9a: exerciceP9a.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
 testChocs: testChocs.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
 testVecteur: testVecteur.o Vecteur.o
@@ -17,6 +18,13 @@ testObstacle: testObstacle.o Obstacles.o Vecteur.o Balle.o Brique.o Plan.o Porti
 testRessort: testRessort.o Ressort.o Vecteur.o ObjetMobile.o ChampForces.o Integrateur.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o constantes.o Systeme.o Obstacles.o
 testVentilateur: testVentilateur.o Vecteur.o Balle.o ObjetMobile.o Obstacles.o Integrateur.o Integrateur_EC.o Integrateur_E.o Integrateur_RK4.o Integrateur_Newmark.o Objets.o ChampForces.o Vent.o Brique.o TextViewer.o Systeme.o Portion_plan.o Plan.o constantes.o Pendule.o Ressort.o Ventilateur.o
 
+
+bac_a_sable.o: bac_a_sable.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h \
+ Dessinable.h SupportADessin.h Pendule.h constantes.h PenduleSpherique.h \
+ Ressort.h Integrateur_E.h Integrateur.h Integrateur_EC.h \
+ Integrateur_Newmark.h Integrateur_RK4.h ChampForces.h TextViewer.h \
+ Systeme.h Obstacles.h Plan.h Portion_plan.h Brique.h Ventilateur.h \
+ Vent.h
 Balle.o: Balle.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h Dessinable.h \
  SupportADessin.h Systeme.h Obstacles.h Integrateur.h ChampForces.h
 Brique.o: Brique.cpp Brique.h Portion_plan.h Plan.h Obstacles.h Objets.h \

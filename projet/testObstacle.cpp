@@ -14,7 +14,7 @@ int main()
 {
     ChampForces g_(0,0,g);
 
-    Balle balle(Vecteur(1.2,-0.4,1.3),Vecteur(0,0,0),Vecteur(0,0,0),Vecteur(0,0,0),0.100530964914873,0.2);
+    Balle balle(Vecteur(1.2,-0.4,1.3),Vecteur(0,0,0),0.100530964914873,0.2);
 
     g_.agit_sur(balle);
 

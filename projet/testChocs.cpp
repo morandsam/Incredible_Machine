@@ -45,16 +45,16 @@ int main() {
     Vecteur dev_param(0,0.8,2);
 
     // Balle utilisée dans P9 cas 1, cas 2 (première balle), simulation finale : 
-    Balle balle(param,dev_param,Vecteur(0,0,0),Vecteur(0,0,0),0.00167784948285945,0.051111);
+    Balle balle(param,dev_param,0.00167784948285945,0.051111);
     
     // Balle utilisée dans P9 cas 2 (deuxième balle) :
-    Balle balle2(param_,dev_param_,Vecteur(0,0,0),Vecteur(0,0,0),0.1,0.05);
+    Balle balle2(param_,dev_param_,0.1,0.05);
 
     // Pebdule utilisé dans P9 simulation finale : 
-    Pendule pendule(Vecteur(1.5),Vecteur(-0.5),Vecteur(0,0,0),Vecteur(0,1.4,0.45),0.1,0.05,0.2,0.005);
+    Pendule pendule(Vecteur(1.5),Vecteur(-0.5),Vecteur(0,1.4,0.45),0.1,0.05,0.2,0.005);
     
     // Pendule utilisé dans P9 cas 2 bis : 
-    Pendule pend(Vecteur(0.319603599172218),Vecteur(0.441579572811062),Vecteur(0,0,0),Vecteur(0,1.148649741794006,1.209488037945800),0.1,0.05,1,0);
+    Pendule pend(Vecteur(0.319603599172218),Vecteur(0.441579572811062),Vecteur(0,1.148649741794006,1.209488037945800),0.1,0.05,1,0);
     
 
     Plan p(Vecteur(0,0,0),Vecteur(0,0,1));

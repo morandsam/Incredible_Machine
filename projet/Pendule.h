@@ -11,7 +11,7 @@ public:
 
     // Constructeurs
 
-    Pendule(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, double masse_, double rayon_, double longueur_, double frottement_)
+    Pendule(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& origine, double masse_, double rayon_, double longueur_, double frottement_, Vecteur const& force_ = Vecteur(0,0,0))
     : ObjetMobile(position_,vitesse_,force_,origine,masse_,rayon_), longueur(longueur_),frottement(frottement_),direction(~(Vecteur(0,9.81,0))),
      position_masse(origine+ longueur*(cos(param.get_coord(0))*(~g_vec)) + longueur*sin(param.get_coord(0))*direction),
      vitesse_masse(longueur*(get_dev_temp_param().get_coord(0))*(cos(get_param().get_coord(0))*direction + sin(param.get_coord(0))*(~g_vec).oppose()))

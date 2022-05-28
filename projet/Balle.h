@@ -8,7 +8,7 @@ public:
 
     // Constructeurs
 
-    Balle(Vecteur const& position_, Vecteur const& vitesse_, Vecteur const& force_, Vecteur const& origine, double masse_, double rayon_)
+    Balle(Vecteur const& position_, Vecteur const& vitesse_,double masse_, double rayon_,Vecteur const& force_ = Vecteur(0,0,0),Vecteur const& origine = Vecteur(0,0,0))
     : ObjetMobile(position_,vitesse_,force_,origine,masse_,rayon_) {}
 
     //Méthodes
