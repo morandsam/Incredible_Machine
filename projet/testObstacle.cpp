@@ -14,7 +14,7 @@ int main()
 {
     ChampForces g_(0,0,g);
 
-    Balle balle(Vecteur(1.2,-0.4,1.3),Vecteur(0,0,0),0.100530964914873,0.2);
+    Balle balle(Vecteur(1.2,-0.4,0.3),Vecteur(0,0,0),0.100530964914873,0.2);
 
     g_.agit_sur(balle);
 
@@ -26,6 +26,21 @@ int main()
     cout<<plan<<endl;
     cout<<brique<<endl;
 
+    cout<<"TEST 1:"<<endl;
+    cout<<plan.calcul_point_plus_proche(balle)<<endl;
+    cout<<plan.distance(balle)<<endl;
+    cout<<brique.calcul_point_plus_proche(balle)<<endl;
+    cout<<brique.distance(balle)<<endl<<endl;
+
+    cout<<"TEST 2:"<<endl;
+    balle.set_param(Vecteur(1.2,-0.4,1.3));
+    cout<<plan.calcul_point_plus_proche(balle)<<endl;
+    cout<<plan.distance(balle)<<endl;
+    cout<<brique.calcul_point_plus_proche(balle)<<endl;
+    cout<<brique.distance(balle)<<endl<<endl;
+
+    cout<<"TEST 3:"<<endl;
+    balle.set_param(Vecteur(0.2,-0.4,1.3));
     cout<<plan.calcul_point_plus_proche(balle)<<endl;
     cout<<plan.distance(balle)<<endl;
     cout<<brique.calcul_point_plus_proche(balle)<<endl;

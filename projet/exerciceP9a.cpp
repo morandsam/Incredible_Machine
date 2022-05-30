@@ -28,17 +28,18 @@ int main() {
 
     Balle balle(param,dev_param,0.100530964914873,0.2);
 
-    g_.agit_sur(balle);
+    g_.ajoute_a(syst);
 
+    balle.ajoute_a(syst);
 
-    syst.ajouter_objet_mob(new Balle(balle));
-
+    cout<<g_;
+    cout<<balle;
 
     Integrateur_EC int1(0.01);
 
-    for (size_t i(0);i<3;++i){
-        syst.dessine_sur(ecran);
+    for (size_t i(0);i<4;++i){
         syst.evolue(int1);
+        syst.dessine_sur(ecran);
     }
 
     return 0;

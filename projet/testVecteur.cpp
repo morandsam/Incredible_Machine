@@ -6,27 +6,22 @@ using namespace std;
 
 int main()
 {
-    Vecteur vec1(0);
-    Vecteur vec2(0);
+    Vecteur vec1(1.0,2.0,-0.1);
+    Vecteur vec2(2.6,3.5,4.1);
+    Vecteur vec3(3);
 
-    vec1.augmente(1);
-    vec1.augmente(4.4);
-    vec1.augmente(3.5);
+    vec3=vec1;
 
-    vec2.augmente(1);
-    vec2.augmente(4.4);
-    vec2.augmente(0);
+    cout<<vec1<<endl;
+    cout<<vec2<<endl;
 
-    vec1*=2;
-
-    Vecteur vec3(vec1);
-
-    cout<<vec3;
-
-    vec3-=vec3;
+    if(vec1==vec2){
+        cout<<"1"<<endl;
+    } else{
+        cout<<"0"<<endl;
+    }
 
     cout<<vec3;
 
-    cout<<(2*vec1)<<"   "<<(vec1*2)<<endl;
     return 0;
 }

@@ -32,11 +32,13 @@ int main(){
 
     Integrateur_EC int1(0.01);
 
+    cout<<g_;
+    cout<<r;
+
     for(size_t i(1);i<6;++i){
         int1.integre(r);
-        r.affiche(cout,true);
+        cout<<r;
     }
-
-
+    
     return 0;
 }

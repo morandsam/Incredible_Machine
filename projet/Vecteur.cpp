@@ -252,7 +252,7 @@ ostream& operator<<(ostream& sortie, Vecteur const& vec)
 
 bool operator==(Vecteur const& vec1, Vecteur const& vec2)
 {
-    if (vec1.compare(vec2, 10e-2)){
+    if (vec1.compare(vec2, 10e-7)){
         return true;
     } else {
         return false;

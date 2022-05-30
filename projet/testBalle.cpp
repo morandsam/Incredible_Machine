@@ -11,19 +11,22 @@ using namespace std;
 int main()
 {
     Vecteur posi(1,2,3);
-    Vecteur vitess(1,1,1);
+    Vecteur vitess(0,0.1,0.2);
     
-    Vecteur posi2(2,3,4);
-    Vecteur vit2(1,2,3);
+    Vecteur posi2(-1,1.2,1.3);
+    Vecteur vit2(0,0.1,0);
 
     Balle balle1(posi,vitess,0.100530964914873,0.2);
-    Balle balle2(posi2,vit2,30,4);
+    Balle balle2(posi2,vit2,0.00460766922526503,0.1);
 
     ChampForces g_(0,0,g);
 
     g_.agit_sur(balle1);
+    g_.agit_sur(balle2);
 
+    cout<<g_;
     cout<<balle1;
+    cout<<balle2;
 
     return 0;
 }

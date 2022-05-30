@@ -25,12 +25,13 @@ int main()
 
     Integrateur_EC int2(0.01);
 
-    for(size_t i(1);i<5;++i){
-        int2.integre(balle);
-        cout<<balle.get_param()<<endl;
-    }
-
+    cout<<g_;
+    cout<<balle;
     
+    for(size_t i(1);i<6;++i){
+        int2.integre(balle);
+        cout<<balle;
+    }
 
     return 0;
 }

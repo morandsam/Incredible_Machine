@@ -3,7 +3,7 @@ CC = $(CXX)
 CXXFLAGS = -std=c++11 -Wall -g
 LDLIBS = -lm
 
-all: bac_a_sable clean
+all: testChocs clean
 
 bac_a_sable: bac_a_sable.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o PenduleSpherique.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
 exerciceP9a: exerciceP9a.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
