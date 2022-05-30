@@ -100,3 +100,5 @@ semaine 13: Ajout de la classe PenduleSpherique qui est une sous classe de Pendu
     de zéro la fonction evolution met le cotan(theta) = 0 et phi_point = 0 afin d'éviter l'erreur. phi_point est mis égal à zéro dans ce cas pour des raisons de physique pures évidentes. Afin de pouvoir mettre ce phi_point = 0,
     la méthode set_dev_temp_param a aussi été overridée. Elle demande si le pendule sphérique est vertical et seulement dans le cas où il est effectivement vertical elle set phi_point à zéro pour le prochain pas d'intégration.
     Je note ici que theta = param.get_coord(0) et phi = param.get_coord(1). Nous avons aussi remarqué que Euleur-Cromer n'est pas un bon intégrateur pour ce type d'objets; c'est pourquoi nous utilisons RK4 ou Newmark.
+
+semaine 14: Ajout de bac_a_sable.cpp qui est un fichier dans lequel l'utilisateur pourra simuler tout ce qui est à sa disposition.

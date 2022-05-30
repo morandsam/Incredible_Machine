@@ -3,7 +3,19 @@ CC = $(CXX)
 CXXFLAGS = -std=c++11 -Wall -g
 LDLIBS = -lm
 
-all: testChocs clean
+all: bac_a_sable exerciceP9a testChocs testVecteur testPendule testPenduleSpherique testBalle testIntegrateur1 testIntegrateur2 testObstacle testRessort testVentilateur clean
+bac_a_sable_ : bac_a_sable clean
+exerciceP9a_ : exerciceP9a clean
+testChocs_ : testChocs clean
+testVecteur_ : testVecteur clean
+testPendule_ : testPendule clean
+testPenduleSpherique_ : testPenduleSpherique clean
+testBalle_ : testBalle clean
+testIntegrateur1_ : testIntegrateur1 clean
+testIntegrateur2_ : testIntegrateur2 clean
+testObstacle_ : testObstacle clean
+testRessort_ : testRessort clean
+testVentilateur_ : testVentilateur clean
 
 bac_a_sable: bac_a_sable.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o PenduleSpherique.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
 exerciceP9a: exerciceP9a.o Vecteur.o Balle.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o ChampForces.o ObjetMobile.o Obstacles.o Brique.o Plan.o Portion_plan.o Pendule.o Ressort.o TextViewer.o Systeme.o constantes.o Vent.o Ventilateur.o
@@ -17,7 +29,6 @@ testIntegrateur2: testIntegrateur2.o Integrateur.o Integrateur_E.o Integrateur_R
 testObstacle: testObstacle.o Obstacles.o Vecteur.o Balle.o Brique.o Plan.o Portion_plan.o ChampForces.o ObjetMobile.o Objets.o constantes.o Systeme.o 
 testRessort: testRessort.o Ressort.o Vecteur.o ObjetMobile.o ChampForces.o Integrateur.o Integrateur_E.o Integrateur_EC.o Integrateur_RK4.o Integrateur_Newmark.o constantes.o Systeme.o Obstacles.o
 testVentilateur: testVentilateur.o Vecteur.o Balle.o ObjetMobile.o Obstacles.o Integrateur.o Integrateur_EC.o Integrateur_E.o Integrateur_RK4.o Integrateur_Newmark.o Objets.o ChampForces.o Vent.o Brique.o TextViewer.o Systeme.o Portion_plan.o Plan.o constantes.o Pendule.o Ressort.o Ventilateur.o
-
 
 bac_a_sable.o: bac_a_sable.cpp Balle.h ObjetMobile.h Vecteur.h Objets.h \
  Dessinable.h SupportADessin.h Pendule.h constantes.h PenduleSpherique.h \
@@ -61,7 +72,8 @@ Pendule.o: Pendule.cpp Pendule.h ObjetMobile.h Vecteur.h Objets.h \
  Dessinable.h SupportADessin.h constantes.h Systeme.h Obstacles.h \
  Integrateur.h Balle.h ChampForces.h
 PenduleSpherique.o: PenduleSpherique.cpp PenduleSpherique.h ObjetMobile.h \
- Vecteur.h Objets.h Dessinable.h SupportADessin.h Pendule.h constantes.h
+ Vecteur.h Objets.h Dessinable.h SupportADessin.h Pendule.h constantes.h \
+ Systeme.h Obstacles.h Integrateur.h Balle.h ChampForces.h
 Plan.o: Plan.cpp Plan.h Obstacles.h Objets.h Vecteur.h Dessinable.h \
  SupportADessin.h ObjetMobile.h Systeme.h Integrateur.h Balle.h \
  ChampForces.h

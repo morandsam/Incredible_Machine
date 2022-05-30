@@ -33,3 +33,5 @@ ainsi que la projection ou non des forces sur le pendule (lors d'un choc) le ré
 27.05 La classe PenduleSpherique est opérationnel et nous avons ajouté en plus le frottement (qui ne se trouve pas dans le complément mathématique). Un fichier testPenduleSpherique afin de tester le bon fonctionnement de la classe.
 Nous n'avons pas de valeurs précises pour comparer mais les plots ont révélés précisément ce à quoi nous nous attendions. 2 fichiers de données et 2 plots ont été ajoutés au répertoire plot.
 
+30.05 Ajout de bac_a_sable.cpp. Les derniers fichiers de données manquants pour les tests ont été ajouté au répertoire plot. Le makefile a été amélioré. Le readme est en finalisation et quand celui-ci sera terminé le projet le sera aussi :)
+
