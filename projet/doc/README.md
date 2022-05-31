@@ -1,145 +1,212 @@
+---------------------------------------------------------------
 README (Samuel Morand & Yann Turin) :
- 
-1. Nous avons fait l'entièreté du projet demandé à l'exception du moteur graphique (QT).
-Nous avons ajouté un ressort (extension), ainsi qu'un pendule sphérique et tous les intégrateurs proposés. Nous avons aussi créé un PDF nommé arbre héritage qui montre les héritages de chaque classe (la flèche pointe vers la classe qui hérite de la classe de départ). Nous avons aussi ajouté des captures d'écrans de nos plots, ainsi que leurs fichiers de données rattachés pour que notre projet ait un rendu visuel.
 
-2. Nous avons décidé de ne pas faire le moteur graphique, mais comme dit au point 1. Nous voulions quand même avoir un rendu visuel donc nous avons "ploté" nos résultats sur Gnuplot.
+1.Nous avons fait l'entièreté du projet demandé à l'exception du moteur graphique (QT).
 
-3. Nous avons passé environ 7h en moyenne par personne par semaine. 
+Nous avons ajouté un ressort (extension), ainsi qu'un pendule sphérique et tous les intégrateurs proposés. Nous avons aussi créé un PDF nommé arbre héritage qui montre les héritages de chaque classe (la flèche pointe vers la classe qui hérite de la classe de départ). Nous avons aussi ajouté des captures d'écrans de nos plots, ainsi que leurs fichiers de données rattachés pour que notre projet ait un "minimum" de rendu visuel.
 
-Pour bien comprendre notre Projet il est préférable d'avoir regardé notre PDF arbre héritage au préalable.
+2.Nous avons décidé de ne pas faire le moteur graphique, mais comme dit au point 1. Nous voulions quand même avoir un rendu visuel donc nous avons "ploté" nos résultats sur gnuplot.
 
-Les classes Vecteurs, intégrateurs quelconques ne sont pas très importante quant à la compréhension de l'utilisation du programme, mais essentiel quant a son fonctionnement. Ce sont les classes de calculs.
+3.Nous avons passé environ 7h en moyenne par personne par semaine.
 
-SupportADessin et TextViewer sont des classes "d'appuis" pour afficher les données du programme ou pour Gnuplot. 
+Pour bien comprendre notre projet il est préférable d'avoir regardé notre PDF arbre héritage au préalable.
 
-La classe système est la classe qui contient tout les objets que nous avons ajouté pour notre simulation et, grâce à la méthode évolution, les fait évoluer et intéragir entre eux en cas de chocs. Nous avons ajouté un booléen comme paramètre pour l'affichage des données nous/vous permettant d'afficher un grand nombre de donnée sur l'objet à l'aide d'un "true" et de ne voir que l'essentiel grâce au "false". Pour ce qui est de la méthode "affiche" de la classe système elle a toujours un "false" ce qui indique seulement la position des différentes masses. Par contre les données s'affiche en alterné, il ne faut donc pas relier les traits sur Gnuplot (par exemple: la première ligne de donnée sera le pendule, la deuxième la balle, la troisième le pendule, etc..).
+---------------------------------------------------------------
 
-Les classes Objets, Objetmobile, Obstacle n'ont pas besoin d'explication pour leur fonctionnement puisqu’elles seront dans le constructeur des Classes suivantes : Balle, Pendule, PenduleSpherique, Ressort, Plan, PortionPlan, Brique, Vent, Ventilateur et ChampForces.
+Les classes Objets, Objetmobile, Obstacles n'ont pas besoin d'explications pour leur fonctionement puisqu’elles seront dans le constructeur des classes
+suivantes : Balle, Pendule, PenduleSpherique, Ressort, Plan, PortionPlan, Brique, Vent, Ventilateur et ChampForces.
 
 Pour les classes héritant d'ObjetMobile le constructeur a besoin (dans l'ordre) :
 
--La classe Balle :
-    . La position de la balle, (Vecteur 2D-3D)
-    . La vitesse de la balle, (Vecteur 2D-3D)
-    . De sa masse, (double)
-    . De son rayon, (double)
-    . La somme des forces sur la balle (par défaut (0,0,0)),
-    . L’origine (valeur par défaut (0,0,0) inutilisé pour la balle mais le constructeur d'objet mobile le demande, c'est un choix de conception)
-    
+- La classe Balle :
+. La position de la balle, (Vecteur 2D-3D)
+. La vitesse de la balle, (Vecteur 2D-3D)
+. De sa masse, (double)
+. De son rayon, (double)
+. La somme des forces sur la balle (par défaut (0,0,0)),
+. L’origine (valeur par défaut (0,0,0) inutilisé pour la balle mais le constructeur d'objet mobile le demande, c'est un choix de conception)
 
-- le ressort :
-    . La position du ressort, (Vecteur 1D)
-    . La vitesse, (Vecteur 1D)
-    . L’origine,  (Vecteur 3D)
-    . La direction du ressort, (Vecteur 3D)
-    . La masse de la balle au bout du ressort, (double)
-    . Le rayon, (double)
-    . La longueur au repos, (double)
-    . Le frottement, (double)
-    . La constante k du ressort, (double)
-    . La somme des forces sur la balle (valeur par défaut (0,0,0))
+- La classe Ressort :
+. La position du ressort, (Vecteur 1D)
+. La vitesse, (Vecteur 1D)
+. L’origine, (Vecteur 3D)
+. La direction du ressort, (Vecteur 3D)
+. La masse de la balle au bout du ressort, (double)
+. Le rayon, (double)
+. La longueur au repos, (double)
+. Le frottement, (double)
+. La constante k du ressort, (double)
+. La somme des forces sur la balle (valeur par défaut (0,0,0))
 
-- le pendule et pendule sphérique :
-    . L'angle de départ, (Vecteur 1D resp. Vecteur 2D)
-    . La vitesse, (Vecteur 1D resp. Vecteur 2D)
-    . L’origine, (Vecteur 3D)
-    . La masse de la balle au bout du pendule, (double)
-    . Le rayon de la balle au bout du pendule, (double)
-    . La longueur de la "tige", (double)
-    . Le frottement, (double)
-    . La somme des forces sur la balle (valeur par défaut (0,0,0))
+- Les classes Pendule et PenduleSpherique :
+. L'angle de départ, (Vecteur 1D resp. Vecteur 2D)
+. La vitesse, (Vecteur 1D resp. Vecteur 2D)
+. L’origine, (Vecteur 3D)
+. La masse de la balle au bout du pendule, (double)
+. Le rayon de la balle au bout du pendule, (double)
+. La longueur de la "tige", (double)
+. Le frottement, (double)
+. La somme des forces sur la balle (valeur par défaut (0,0,0))
 
 ------------------------------------------------------------------
 
 Pour les classes héritant d'obstacles le constructeur a besoin de (dans l'ordre) :
 
-- le Plan :
-    . De l'origine (Vecteur 3D)
-    . Et de la normal au plan (Vecteur 3D)
+- La classe Plan :
+. De l'origine (Vecteur 3D)
+. Et de la normal au plan (Vecteur 3D)
 
-- la classe Portion plan :
-    . De l'origine (Vecteur 3D)
-    . De la normal (Vecteur 3D)
-    . Du double de la longueur
-    . Du vecteur 3D direction de la longueur 
-    . Du double de la largeur
+- La classe Portion_plan :
+. De l'origine (Vecteur 3D)
+. De la normal (Vecteur 3D)
+. Du double de la longueur
+. Du vecteur 3D direction de la longueur
+. Du double de la largeur
 
-- la classe Brique :
-    . De l'origine (Vecteur 3D)
-    . De la hauteur (double)
-    . Du vecteur 3D de la direction de la longueur ayant la norme = longueur
-    . Du vecteur 3D de la direction de la largueur ayant la norme = largueur
+- La classe Brique :
+. De l'origine (Vecteur 3D)
+. De la hauteur (double)
+. Du vecteur 3D de la direction de la longueur ayant la norme = longueur
+. Du vecteur 3D de la direction de la largueur ayant la norme = largueur
 
 ------------------------------------------------------------------
 
-- pour la classe ChampForces, il y a deux constructeurs :
-1 :  
-    . l'intensité sur x en double
-    . L’intensité sur y en double
-    . L’intensité sur z en double
+- La classe ChampForces, deux constructeurs ( il est recommandé de n'utiliser que le premier ) :
+
+1 :
+. L'intensité sur x en double
+. L’intensité sur y en double
+. L’intensité sur z en double
 
 2 :
-    . L’origine 
-    . Le vecteur intensité 
+. L’origine (Vecteur 3D)
+. Le vecteur intensité (Vecteur 3D)
 
-    Ce deuxième constructeur a seulement une utilité pour la classe Vent qui est utilisée dans la classe Ventilateur
 
-- pour la classe Vent héritant de ChampForces:
-    . Origine (Vecteur 3D)
-    . Vecteur de la direction de la longueur (Vecteur 3D)
-    . Vecteur de la direction de la largeur (Vecteur 3D)
-    . De la profondeur (double)
-    . De la vitesse du vent (double)
+- La classe Vent :
+. Origine (Vecteur 3D)
+. Vecteur de la direction de la longueur (Vecteur 3D)
+. Vecteur de la direction de la largeur (Vecteur 3D)
+. De la profondeur (double)
+. De la vitesse du vent (double)
 
 ------------------------------------------------------------------
 
--La Classe Ventilateur héritant d'Objets (choix de conception) :
-    . Origine (Vecteur 3D)
-    . Vecteur de la direction de la longueur (Vecteur 3D)
-    . Vecteur de la direction de la largeur (Vecteur 3D)
-    . De la hauteur de la brique (double)
-    . De la profondeur (double)
-    . De la vitesse du vent (double)
+- La classe Ventilateur :
+. Origine (Vecteur 3D)
+. Vecteur de la direction de la longueur (Vecteur 3D)
+. Vecteur de la direction de la largeur (Vecteur 3D)
+. De la hauteur de la brique (double)
+. De la profondeur (double)
+. De la vitesse du vent (double)
 
+-----------------------------------------------------------------
 
-Si vous voulez une force en 2D nulle sur un objet mobile il faudra l'expliciter , car elle est en 3D nulle si l'on n'explicite rien
+- La classe Vecteur comporte 6 constructeurs:
 
-Pour créer un système il vous faut lui donner les paramètres qui lui sont nécessaire au fonctionnement, comme ceci :
+1 :
+  La dimension (remplit de 0 (vecteur nul)) en int
+2 :
+  La valeur (vecteur 1D) en double
+3 :
+  la valeur première composantes en double
+  La valeur deuxième composantes en double
+4 :
+  La valeur de la première composantes en double
+  La valeur de la deuxième composantes en double
+  La valeur de la troisème composantes en double
 
-{
-    Systeme syst(false,true);
-    TextViewer ecran;
-}
+5 :
+  Un vector<double> (prend sa dimension et ses valeurs)
+
+6 :  le constructeur de copie
+
+----------------------------------------------------------------
+
+Il n'est pas nécesaire de comprendre comment les intégrateurs fonctionnent pour pouvoir utiliser la simulation. Sachez qu'il existe 4 types d'integrateurs différents dans notre projet à votre disposition : Integrateur_E, Integrateur_EC, Integrateur_RK4 et Integrateur_Newmark, les 2 derniers sont les plus exactes. Afin de pouvoir en déclarer un il suffit de choisir son type et de lui donner un pas de temps (secondes) en double :
+
+// Integrateur_EC nom(0.01);
+
+---------------------------------------------------------------
+
+La classe Systeme est la classe qui contient tous les objets que vous voulez utiliser pour la simulation et qui, grâce à la méthode évolution, les fait évoluer et interagir entre eux en cas de chocs. Nous avons ajouté deux booléens comme paramètres pour le constructeur de cette classe :
+
+à l'aide du premier booléen:
+
+-"true" : donne les infos précises pendant un choc
+-"false" : ne donne rien
+
+à l'aide du deuxième booléen:
+
+-"true" : projette les forces lors d'un choc (pour tous les objets mobiles sauf la balle)
+-"false" : ne projette pas les forces
+
+Pour créer un système il vous faut donc lui donner les paramètres qui lui sont nécessaires au fonctionnement, comme ceci :
+
+// Systeme syst(false,true); 
 
 Pour ajouter des Objets à notre système il faut d'abord créer l'objet, prenons un pendule nommé pendu, puis écrire :
 
-    pendu.ajoute_a(syst) // ajoute un pendule au système//
+// pendu.ajoute_a(syst); 
 
-Pour faire démarrer la simulation il faut choisir l'intégrateur en lui donnant un dt comme paramètre comme ceci:
-{
-    Integrateur_EC integre1(0.01);
-}
+Finalement, pour faire évoluer un système il choisir un intégrateur et lui appliquer la méthode evolue() de Systeme :
 
+// Integrateur_RK4 integr(0.01);
+// 
+// for(size_t i(0);i<100;++i){
+//     sys.evolue(integr);
+// }
 
-Prenons l'exemple d'un intégrateur nommée integre1, et le nombre d'itérations que vous voulez calculer (ici 300):
+----------------------------------------------------------------
 
-    for (size_t i(0);i<300;++i){
-        syst.dessine_sur(ecran);
-        syst.evolue(integre1);
-    }
+La classe TextViewer ne prend aucun argument et permet, à l'aide de la fontion dessine_sur de Systeme (prenant un Textviewer en argument), d'afficher toutes les positions des masses des objets de la simulation. Donc par exemple si vous déclarez un Systeme sys(false,false) et qu'ensuite vous le mettez dans une boucle d'évolution avec sys.dessine_sur(ecran) (TexViewer ecran), alors les données affichées lors de l'exécution seront prêtes à être plottées.
 
+Pour créer un TextViewer il suffit de lui donner un nom sans arguments :
 
-A faire --> 
+TextViewer nom;
 
-expliquer à quoi correspondent PRECISEMENT les arguments d'un système et expliquer leur implication  le premier bool donne les infos pendants un choc , le deuxième bool projette les forces lors d'un choc
+----------------------------------------------------------------
 
-donner les détails sur Vecteur et surouts sur ses constructeurs
+Pour afficher les données de la simulation il existe deux possibilités :
 
-expliquer comment afficher toutes les infos à chaque pas de temps -->  syst.affiche(cout,true) et enlever le syst.dessine_sur(ecran)
+1 : Simplement mettre un cout<<systeme dans la boucle d évolution :
 
-epxliciter la classe TexViewer et surtout pour le système !!
+// Integrateur_RK4 integr(0.01);
+// 
+// for(size_t i(0);i<100;++i){
+//     cout<<sys;
+//     sys.evolue(integr);
+// }
 
+Cette méthode affichera absolument tous les détails sur toutes les composantes du système à chaque pas de temps.
 
+2 : Utiliser un TextViewer :
 
-            
+// Integrateur_RK4 integr(0.01);
+//
+// TextViewer ecran;
+// 
+// for(size_t i(0);i<100;++i){
+//     sys.dessine_sur(ecran);
+//     sys.evolue(integr);
+// }
+
+Cette méthode affichera seulement la position de la masse de chaque objet mobile du système. Ces données sont donc très pratiques pour être plottées.
+Cet affichage se fait de manière alternée (par exemple: la première ligne de donnée sera le pendule, la deuxième la balle, la troisième le pendule, etc..)
+
+Pour mettre toutes ces données dans un fichier il suffit d'entrer ce type de commande :
+
+// bac_a_sable.exe > donnes.txt
+
+Et ensuite de plot dans gnuplot grâce à la commande :
+
+// splot "donnes.txt" (3D)
+// plot "donnes.txt" (2D)
+
+---------------------------------------------------------------
+
+Pour compiler le projet en entier utilisez tous simplement la commande make (sous Linux) dans le répertoire du fichier.
+Pour compiler spécifiquement un programme (la liste est dans le makefile au début) vous pouvez entrez la commande :
+
+// make bac_a_sable_ (nom du programme suivi d'un _)
+

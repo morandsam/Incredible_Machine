@@ -102,3 +102,5 @@ semaine 13: Ajout de la classe PenduleSpherique qui est une sous classe de Pendu
     Je note ici que theta = param.get_coord(0) et phi = param.get_coord(1). Nous avons aussi remarqué que Euleur-Cromer n'est pas un bon intégrateur pour ce type d'objets; c'est pourquoi nous utilisons RK4 ou Newmark.
 
 semaine 14: Ajout de bac_a_sable.cpp qui est un fichier dans lequel l'utilisateur pourra simuler tout ce qui est à sa disposition.
+    De plus, nous avons pris la décision que la force d'Archimède sera toujours prise en compte (sauf pour le PenduleSpherique) pour l'évolution des objets mobiles.
+    Cette remarque fait suite aux nombreuses ambiguïtés qu'il a eu lieu à ce sujet ! 
